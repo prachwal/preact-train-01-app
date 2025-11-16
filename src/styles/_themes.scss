@@ -1,0 +1,177 @@
+@use 'sass:map';
+@use 'variables.scss' as *;
+
+// ============================================
+// MIXINS FOR THEME APPLICATION
+// ============================================
+
+@mixin light-theme {
+  // Base
+  --pta-color-bg: #{$pta-color-light-bg};
+  --pta-color-bg-secondary: #{$pta-color-light-bg-secondary};
+  --pta-color-surface: #{$pta-color-light-surface};
+  --pta-color-surface-hover: #{$pta-color-light-surface-hover};
+
+  // Text
+  --pta-color-text: #{$pta-color-light-text};
+  --pta-color-text-secondary: #{$pta-color-light-text-secondary};
+  --pta-color-text-tertiary: #{$pta-color-light-text-tertiary};
+  --pta-color-text-disabled: #{$pta-color-light-text-disabled};
+  --pta-color-text-muted: #{$pta-color-light-text-muted};
+  --pta-color-text-inverted: #{$pta-color-light-text-inverted};
+
+  // Border
+  --pta-color-border: #{$pta-color-light-border};
+  --pta-color-border-light: #{$pta-color-light-border-light};
+  --pta-color-border-medium: #{$pta-color-light-border-medium};
+  --pta-color-border-hover: #{$pta-color-light-border-hover};
+  --pta-color-border-focus: #{$pta-color-light-border-focus};
+
+  // Accent
+  --pta-color-accent: #{$pta-color-light-accent};
+  --pta-color-accent-hover: #{$pta-color-light-accent-hover};
+  --pta-color-accent-active: #{$pta-color-light-accent-active};
+  --pta-color-accent-light: #{$pta-color-light-accent-light};
+
+  // Semantic
+  --pta-color-success: #{$pta-color-light-success};
+  --pta-color-success-hover: #{$pta-color-light-success-hover};
+  --pta-color-success-light: #{$pta-color-light-success-light};
+  --pta-color-error: #{$pta-color-light-error};
+  --pta-color-error-hover: #{$pta-color-light-error-hover};
+  --pta-color-error-light: #{$pta-color-light-error-light};
+  --pta-color-warning: #{$pta-color-light-warning};
+  --pta-color-warning-hover: #{$pta-color-light-warning-hover};
+  --pta-color-warning-light: #{$pta-color-light-warning-light};
+  --pta-color-info: #{$pta-color-light-info};
+  --pta-color-info-hover: #{$pta-color-light-info-hover};
+  --pta-color-info-light: #{$pta-color-light-info-light};
+
+  // Buttons
+  --pta-color-button-primary-bg: #{$pta-color-light-button-primary-bg};
+  --pta-color-button-primary-text: #{$pta-color-light-button-primary-text};
+  --pta-color-button-primary-hover: #{$pta-color-light-button-primary-hover};
+  --pta-color-button-secondary-bg: #{$pta-color-light-button-secondary-bg};
+  --pta-color-button-secondary-text: #{$pta-color-light-button-secondary-text};
+  --pta-color-button-secondary-hover: #{$pta-color-light-button-secondary-hover};
+  --pta-color-button-success-bg: #{$pta-color-light-button-success-bg};
+  --pta-color-button-success-text: #{$pta-color-light-button-success-text};
+  --pta-color-button-success-hover: #{$pta-color-light-button-success-hover};
+  --pta-color-button-danger-bg: #{$pta-color-light-button-danger-bg};
+  --pta-color-button-danger-text: #{$pta-color-light-button-danger-text};
+  --pta-color-button-danger-hover: #{$pta-color-light-button-danger-hover};
+  --pta-color-button-disabled-bg: #{$pta-color-light-button-disabled-bg};
+  --pta-color-button-disabled-text: #{$pta-color-light-button-disabled-text};
+
+  // Links
+  --pta-color-link: #{$pta-color-light-link};
+  --pta-color-link-hover: #{$pta-color-light-link-hover};
+  --pta-color-link-visited: #{$pta-color-light-link-visited};
+  --pta-color-link-active: #{$pta-color-light-link-active};
+
+  // Shadow & Overlay
+  --pta-color-shadow: #{$pta-color-light-shadow};
+  --pta-color-shadow-medium: #{$pta-color-light-shadow-medium};
+  --pta-color-shadow-heavy: #{$pta-color-light-shadow-heavy};
+  --pta-color-overlay: #{$pta-color-light-overlay};
+
+  // Focus
+  --pta-color-focus: #{$pta-color-light-focus};
+  --pta-color-focus-ring: #{$pta-color-light-focus-ring};
+}
+
+@mixin dark-theme {
+  // Base
+  --pta-color-bg: #{$pta-color-dark-bg};
+  --pta-color-bg-secondary: #{$pta-color-dark-bg-secondary};
+  --pta-color-surface: #{$pta-color-dark-surface};
+  --pta-color-surface-hover: #{$pta-color-dark-surface-hover};
+
+  // Text
+  --pta-color-text: #{$pta-color-dark-text};
+  --pta-color-text-secondary: #{$pta-color-dark-text-secondary};
+  --pta-color-text-tertiary: #{$pta-color-dark-text-tertiary};
+  --pta-color-text-disabled: #{$pta-color-dark-text-disabled};
+  --pta-color-text-muted: #{$pta-color-dark-text-muted};
+  --pta-color-text-inverted: #{$pta-color-dark-text-inverted};
+
+  // Border
+  --pta-color-border: #{$pta-color-dark-border};
+  --pta-color-border-light: #{$pta-color-dark-border-light};
+  --pta-color-border-medium: #{$pta-color-dark-border-medium};
+  --pta-color-border-hover: #{$pta-color-dark-border-hover};
+  --pta-color-border-focus: #{$pta-color-dark-border-focus};
+
+  // Accent
+  --pta-color-accent: #{$pta-color-dark-accent};
+  --pta-color-accent-hover: #{$pta-color-dark-accent-hover};
+  --pta-color-accent-active: #{$pta-color-dark-accent-active};
+  --pta-color-accent-light: #{$pta-color-dark-accent-light};
+
+  // Semantic
+  --pta-color-success: #{$pta-color-dark-success};
+  --pta-color-success-hover: #{$pta-color-dark-success-hover};
+  --pta-color-success-light: #{$pta-color-dark-success-light};
+  --pta-color-error: #{$pta-color-dark-error};
+  --pta-color-error-hover: #{$pta-color-dark-error-hover};
+  --pta-color-error-light: #{$pta-color-dark-error-light};
+  --pta-color-warning: #{$pta-color-dark-warning};
+  --pta-color-warning-hover: #{$pta-color-dark-warning-hover};
+  --pta-color-warning-light: #{$pta-color-dark-warning-light};
+  --pta-color-info: #{$pta-color-dark-info};
+  --pta-color-info-hover: #{$pta-color-dark-info-hover};
+  --pta-color-info-light: #{$pta-color-dark-info-light};
+
+  // Buttons
+  --pta-color-button-primary-bg: #{$pta-color-dark-button-primary-bg};
+  --pta-color-button-primary-text: #{$pta-color-dark-button-primary-text};
+  --pta-color-button-primary-hover: #{$pta-color-dark-button-primary-hover};
+  --pta-color-button-secondary-bg: #{$pta-color-dark-button-secondary-bg};
+  --pta-color-button-secondary-text: #{$pta-color-dark-button-secondary-text};
+  --pta-color-button-secondary-hover: #{$pta-color-dark-button-secondary-hover};
+  --pta-color-button-success-bg: #{$pta-color-dark-button-success-bg};
+  --pta-color-button-success-text: #{$pta-color-dark-button-success-text};
+  --pta-color-button-success-hover: #{$pta-color-dark-button-success-hover};
+  --pta-color-button-danger-bg: #{$pta-color-dark-button-danger-bg};
+  --pta-color-button-danger-text: #{$pta-color-dark-button-danger-text};
+  --pta-color-button-danger-hover: #{$pta-color-dark-button-danger-hover};
+  --pta-color-button-disabled-bg: #{$pta-color-dark-button-disabled-bg};
+  --pta-color-button-disabled-text: #{$pta-color-dark-button-disabled-text};
+
+  // Links
+  --pta-color-link: #{$pta-color-dark-link};
+  --pta-color-link-hover: #{$pta-color-dark-link-hover};
+  --pta-color-link-visited: #{$pta-color-dark-link-visited};
+  --pta-color-link-active: #{$pta-color-dark-link-active};
+
+  // Shadow & Overlay
+  --pta-color-shadow: #{$pta-color-dark-shadow};
+  --pta-color-shadow-medium: #{$pta-color-dark-shadow-medium};
+  --pta-color-shadow-heavy: #{$pta-color-dark-shadow-heavy};
+  --pta-color-overlay: #{$pta-color-dark-overlay};
+
+  // Focus
+  --pta-color-focus: #{$pta-color-dark-focus};
+  --pta-color-focus-ring: #{$pta-color-dark-focus-ring};
+}
+
+// Apply default (light) theme variables
+:root {
+  @include light-theme;
+}
+
+// Respect prefers-color-scheme unless user forces light
+:root:not([data-theme="light"]) {
+  @media (prefers-color-scheme: dark) {
+    @include dark-theme;
+  }
+}
+
+// Forced themes
+:root[data-theme="dark"] {
+  @include dark-theme;
+}
+
+:root[data-theme="light"] {
+  @include light-theme;
+}

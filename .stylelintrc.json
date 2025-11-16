@@ -1,0 +1,89 @@
+{
+  "extends": [
+    "stylelint-config-standard-scss"
+  ],
+  "plugins": [
+    "stylelint-scss"
+  ],
+  "rules": {
+    "scss/at-rule-no-unknown": true,
+    "scss/load-partial-extension": "always",
+    "scss/dollar-variable-pattern": "^[a-z][a-zA-Z0-9-]*$",
+    "scss/selector-no-redundant-nesting-selector": true,
+    "scss/at-mixin-pattern": "^[a-z][a-zA-Z0-9-]*$",
+    "scss/at-function-pattern": "^[a-z][a-zA-Z0-9-]*$",
+    "scss/operator-no-newline-after": true,
+    "scss/operator-no-unspaced": true,
+    
+    "max-nesting-depth": 3,
+    "selector-max-compound-selectors": 4,
+    "selector-max-id": 0,
+    "selector-no-qualifying-type": [
+      true,
+      {
+        "ignore": ["attribute", "class"]
+      }
+    ],
+    
+    "color-hex-length": "long",
+    "color-function-notation": "modern",
+    "alpha-value-notation": "number",
+    
+    "declaration-block-no-redundant-longhand-properties": true,
+    "shorthand-property-no-redundant-values": true,
+    
+    "selector-class-pattern": [
+      "^[a-z][a-zA-Z0-9-]*(__[a-z][a-zA-Z0-9-]*)?(-{1,2}[a-z][a-zA-Z0-9-]*)?$",
+      {
+        "message": "Expected class selector to be kebab-case with optional BEM notation"
+      }
+    ],
+    
+    "at-rule-empty-line-before": [
+      "always",
+      {
+        "except": ["blockless-after-same-name-blockless", "first-nested"],
+        "ignore": ["after-comment"]
+      }
+    ],
+    
+    "rule-empty-line-before": [
+      "always-multi-line",
+      {
+        "except": ["first-nested"],
+        "ignore": ["after-comment"]
+      }
+    ],
+    
+    "comment-empty-line-before": [
+      "always",
+      {
+        "except": ["first-nested"],
+        "ignore": ["stylelint-commands"]
+      }
+    ],
+    
+    "no-descending-specificity": null,
+    "no-duplicate-selectors": true,
+    
+    "media-feature-range-notation": "context",
+    
+    "font-family-name-quotes": "always-where-recommended",
+    "function-url-quotes": "always",
+    
+    "declaration-block-single-line-max-declarations": 1,
+    
+    "selector-pseudo-element-colon-notation": "double",
+    
+    "number-max-precision": 4
+  },
+  "ignoreFiles": [
+    "dist/**/*",
+    "build/**/*",
+    "node_modules/**/*",
+    "**/*.js",
+    "**/*.jsx",
+    "**/*.ts",
+    "**/*.tsx"
+  ]
+}

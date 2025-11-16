@@ -1,0 +1,73 @@
+@use 'variables.scss' as *;
+@use 'themes.scss' as *;
+
+// Reset box-sizing
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+// Expose spacing / fonts / radii as CSS variables
+:root {
+  --spacing-xs: #{$spacing-xs};
+  --spacing-sm: #{$spacing-sm};
+  --spacing-md: #{$spacing-md};
+  --spacing-lg: #{$spacing-lg};
+  --spacing-xl: #{$spacing-xl};
+  --spacing-2xl: #{$spacing-2xl};
+  --font-size-xs: #{$font-size-xs};
+  --font-size-sm: #{$font-size-sm};
+  --font-size-base: #{$font-size-base};
+  --font-size-lg: #{$font-size-lg};
+  --font-size-xl: #{$font-size-xl};
+  --font-size-2xl: #{$font-size-2xl};
+  --font-size-3xl: #{$font-size-3xl};
+  --border-radius-sm: #{$border-radius-sm};
+  --border-radius-md: #{$border-radius-md};
+  --border-radius-lg: #{$border-radius-lg};
+  --border-radius-xl: #{$border-radius-xl};
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: var(--spacing-md, #{$spacing-md});
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--pta-color-bg, #{$pta-color-light-bg});
+  color: var(--pta-color-text, #{$pta-color-light-text});
+}
+
+.card {
+  background-color: var(--pta-color-bg, #{$pta-color-light-bg});
+  color: var(--pta-color-text, #{$pta-color-light-text});
+  border: 1px solid var(--pta-color-border, #{$pta-color-light-border});
+  border-radius: var(--border-radius-md, #{$border-radius-md});
+  padding: var(--spacing-lg, #{$spacing-lg});
+  box-shadow: 0 4px 8px var(--pta-color-shadow, #{$pta-color-light-shadow});
+  width: 100%;
+  max-width: 20rem;
+  text-align: center;
+
+  @media (min-width: $breakpoint-tablet) {
+    max-width: 28rem;
+    padding: var(--spacing-xl, #{$spacing-xl});
+    border-radius: var(--border-radius-lg, #{$border-radius-lg});
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    max-width: 32rem;
+    padding: var(--spacing-2xl, #{$spacing-2xl});
+    border-radius: var(--border-radius-xl, #{$border-radius-xl});
+  }
+
+  @media (min-width: $breakpoint-large) {
+    max-width: 36rem;
+  }
+}
