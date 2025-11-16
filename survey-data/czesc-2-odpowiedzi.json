@@ -1,0 +1,555 @@
+{
+  "czesc_2_z_5": {
+    "description": "Część 2 z 5. Poniżej jest podanych pięć różnych sytuacji zawodowych, w których kobieta pełni kierowniczą rolę. Wskaż przy każdej, co o niej sądzisz.",
+    "questions": [
+      {
+        "number": 1,
+        "text": "1. Kobieta jest właścicielką firmy."
+      },
+      {
+        "number": 2,
+        "text": "2. Kobieta reprezentuje Twoją firmę na zewnątrz."
+      },
+      {
+        "number": 3,
+        "text": "3. Kobieta jest dyrektorką generalną w dużym przedsiębiorstwie."
+      },
+      {
+        "number": 4,
+        "text": "4. Kobieta zarządza zespołem w tej firmie, w której pracujesz."
+      },
+      {
+        "number": 5,
+        "text": "5. Kobieta kieruje zespołem, w którym pracujesz."
+      }
+    ],
+    "answerOptions": [
+      "Zdecydowanie nie akceptuję",
+      "Raczej nie akceptuję",
+      "Raczej akceptuję",
+      "Zdecydowanie akceptuję"
+    ],
+    "respondents": [
+      {
+        "id": 1,
+        "profile": "Mężczyzna 45–54, duże miasto, pracownik umysłowy",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 5,
+            "answer": "Zdecydowanie akceptuję"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "profile": "Kobieta 25–34, średnie miasto, studentka",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 5,
+            "answer": "Zdecydowanie akceptuję"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "profile": "Mężczyzna 35–44, małe miasto, pracownik fizyczny",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "Raczej akceptuję"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "Raczej akceptuję"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "Raczej akceptuję"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "Raczej akceptuję"
+          },
+          {
+            "questionNumber": 5,
+            "answer": "Raczej akceptuję"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "profile": "Kobieta 55–64, duże miasto, menedżerka",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 5,
+            "answer": "Zdecydowanie akceptuję"
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "profile": "Mężczyzna 25–34, średnie miasto, przedsiębiorca",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "Raczej akceptuję"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 5,
+            "answer": "Zdecydowanie akceptuję"
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "profile": "Kobieta 35–44, małe miasto, nauczycielka",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 5,
+            "answer": "Zdecydowanie akceptuję"
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "profile": "Mężczyzna 45–54, duże miasto, IT specialist",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "Raczej akceptuję"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "Raczej akceptuję"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "Raczej akceptuję"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 5,
+            "answer": "Zdecydowanie akceptuję"
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "profile": "Kobieta 25–34, duże miasto, prawniczka",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 5,
+            "answer": "Zdecydowanie akceptuję"
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "profile": "Mężczyzna 55–64, średnie miasto, rzemieślnik",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "Raczej nie akceptuję"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "Raczej akceptuję"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "Raczej akceptuję"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "Raczej akceptuję"
+          },
+          {
+            "questionNumber": 5,
+            "answer": "Raczej nie akceptuję"
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "profile": "Kobieta 35–44, duże miasto, lekarka",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 5,
+            "answer": "Zdecydowanie akceptuję"
+          }
+        ]
+      },
+      {
+        "id": 11,
+        "profile": "Mężczyzna 25–34, małe miasto, student",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 5,
+            "answer": "Zdecydowanie akceptuję"
+          }
+        ]
+      },
+      {
+        "id": 12,
+        "profile": "Kobieta 45–54, średnie miasto, księgowa",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "Raczej akceptuję"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 5,
+            "answer": "Zdecydowanie akceptuję"
+          }
+        ]
+      },
+      {
+        "id": 13,
+        "profile": "Mężczyzna 35–44, duże miasto, inżynier",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 5,
+            "answer": "Zdecydowanie akceptuję"
+          }
+        ]
+      },
+      {
+        "id": 14,
+        "profile": "Kobieta 25–34, małe miasto, pracownik handlowy",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "Raczej akceptuję"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 5,
+            "answer": "Raczej akceptuję"
+          }
+        ]
+      },
+      {
+        "id": 15,
+        "profile": "Mężczyzna 55–64, duże miasto, konsultant",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 5,
+            "answer": "Zdecydowanie akceptuję"
+          }
+        ]
+      },
+      {
+        "id": 16,
+        "profile": "Kobieta 35–44, średnie miasto, pracownik administracyjny",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 5,
+            "answer": "Zdecydowanie akceptuję"
+          }
+        ]
+      },
+      {
+        "id": 17,
+        "profile": "Mężczyzna 25–34, duże miasto, analityk",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 5,
+            "answer": "Zdecydowanie akceptuję"
+          }
+        ]
+      },
+      {
+        "id": 18,
+        "profile": "Kobieta 45–54, małe miasto, pielęgniarka",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 5,
+            "answer": "Zdecydowanie akceptuję"
+          }
+        ]
+      },
+      {
+        "id": 19,
+        "profile": "Mężczyzna 35–44, średnie miasto, kierowca",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "Raczej nie akceptuję"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "Raczej akceptuję"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "Raczej akceptuję"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "Raczej nie akceptuję"
+          },
+          {
+            "questionNumber": 5,
+            "answer": "Raczej nie akceptuję"
+          }
+        ]
+      },
+      {
+        "id": 20,
+        "profile": "Kobieta 25–34, duże miasto, architektka",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "Zdecydowanie akceptuję"
+          },
+          {
+            "questionNumber": 5,
+            "answer": "Zdecydowanie akceptuję"
+          }
+        ]
+      }
+    ]
+  }
+}

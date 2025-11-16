@@ -1,0 +1,2154 @@
+{
+  "czesc_5_z_5": {
+    "description": "Część 5 z 5. W tej ostatniej części są dwadzieścia dwie opinie o kobietach i mężczyznach oraz relacjach miedzy nimi. Wskaż, co sądzisz o każdej z opinii.",
+    "note": "22 pytania + 2 pytania kontrolne (pozycja 5 i 16). Karuzela z NextButton po każdej karcie (jak Część 2 i 4).",
+    "questions": [
+      {
+        "number": 1,
+        "text": "Bez względu na swoje osiągnięcia zawodowe, mężczyzna nie jest całością bez miłości kobiety."
+      },
+      {
+        "number": 2,
+        "text": "Pod pretekstem równouprawnienia wiele kobiet zabiega o specjalne przywileje."
+      },
+      {
+        "number": 3,
+        "text": "W razie katastrofy najpierw należy ratować kobiety, potem mężczyzn."
+      },
+      {
+        "number": 4,
+        "text": "Większość kobiet interpretuje niewinne uwagi lub zachowania jako seksistowskie."
+      },
+      {
+        "number": 5,
+        "text": "Jeśli czytasz w tym miejscu to zaznacz: \\\"Raczej się nie zgadzam\\\"",
+        "attentionCheck": true
+      },
+      {
+        "number": 6,
+        "text": "Kobiety zbyt łatwo się obrażają."
+      },
+      {
+        "number": 7,
+        "text": "Ludzie nie są naprawdę szczęśliwi, jeśli nie są w związku uczuciowym z osobą przeciwnej płci."
+      },
+      {
+        "number": 8,
+        "text": "Feministki dążą do tego, by kobiety miały większą władzę niż mężczyźni."
+      },
+      {
+        "number": 9,
+        "text": "Wiele kobiet charakteryzuje się czystością moralną, rzadko spotykaną u mężczyzn."
+      },
+      {
+        "number": 10,
+        "text": "Kobiety powinny być wielbione i chronione przez mężczyzn."
+      },
+      {
+        "number": 11,
+        "text": "Większość kobiet nie docenia w pełni tego, co robią dla nich mężczyźni."
+      },
+      {
+        "number": 12,
+        "text": "Przejmując kontrolę nad mężczyznami, kobiety dążą do zdobycia władzy."
+      },
+      {
+        "number": 13,
+        "text": "Każdy mężczyzna powinien mieć partnerkę, którą adoruje."
+      },
+      {
+        "number": 14,
+        "text": "Mężczyzna nie jest całością bez kobiety."
+      },
+      {
+        "number": 15,
+        "text": "Kobiety wyolbrzymiają problemy, które mają w pracy."
+      },
+      {
+        "number": 16,
+        "text": "Z chwilą, gdy kobieta zdobędzie już mężczyznę, zazwyczaj próbuje trzymać go \"krótko\"."
+      },
+      {
+        "number": 17,
+        "text": "Jeśli czytasz w tym miejscu to zaznacz: \"Raczej się zgadzam\"",
+        "attentionCheck": true
+      },
+      {
+        "number": 18,
+        "text": "Kiedy kobiety przegrywają z mężczyznami w uczciwej rywalizacji, zwykle narzekają na dyskryminację."
+      },
+      {
+        "number": 19,
+        "text": "Dobra żona powinna być stawiana na piedestale przez swojego męża."
+      },
+      {
+        "number": 20,
+        "text": "Wielu kobietom sprawia frajdę, gdy drażnią mężczyzn udając, że są dostępne seksualnie."
+      },
+      {
+        "number": 21,
+        "text": "Kobiety mają większą wrażliwość moralną niż mężczyźni."
+      },
+      {
+        "number": 22,
+        "text": "Mężczyzna powinien poświęcić się, by utrzymać bliskie kobiety."
+      },
+      {
+        "number": 23,
+        "text": "Feministki stawiają nierozsądne żądania wobec mężczyzn."
+      },
+      {
+        "number": 24,
+        "text": "Kobiety mają bardziej wyrafinowany gust niż mężczyźni."
+      }
+    ],
+    "answerOptions": [
+      "Zdecydowanie się nie zgadzam",
+      "Raczej się nie zgadzam",
+      "Raczej się zgadzam",
+      "Zdecydowanie się zgadzam"
+    ],
+    "respondents": [
+      {
+        "id": 1,
+        "profile": "Mężczyzna 45–54, duże miasto, pracownik umysłowy",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 5,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 6,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 7,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 8,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 9,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 10,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 11,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 12,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 13,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 14,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 15,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 16,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 17,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 18,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 19,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 20,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 21,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 22,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 23,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 24,
+            "answer": "Raczej się zgadzam"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "profile": "Kobieta 25–34, średnie miasto, studentka",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 5,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 6,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 7,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 8,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 9,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 10,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 11,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 12,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 13,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 14,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 15,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 16,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 17,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 18,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 19,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 20,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 21,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 22,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 23,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 24,
+            "answer": "Raczej się nie zgadzam"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "profile": "Mężczyzna 35–44, małe miasto, pracownik fizyczny",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 5,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 6,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 7,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 8,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 9,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 10,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 11,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 12,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 13,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 14,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 15,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 16,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 17,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 18,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 19,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 20,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 21,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 22,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 23,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 24,
+            "answer": "Raczej się zgadzam"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "profile": "Kobieta 55–64, duże miasto, menedżerka",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 5,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 6,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 7,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 8,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 9,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 10,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 11,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 12,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 13,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 14,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 15,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 16,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 17,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 18,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 19,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 20,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 21,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 22,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 23,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 24,
+            "answer": "Raczej się zgadzam"
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "profile": "Mężczyzna 25–34, średnie miasto, przedsiębiorca",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 5,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 6,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 7,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 8,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 9,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 10,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 11,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 12,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 13,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 14,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 15,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 16,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 17,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 18,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 19,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 20,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 21,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 22,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 23,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 24,
+            "answer": "Raczej się zgadzam"
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "profile": "Kobieta 35–44, małe miasto, nauczycielka",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 5,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 6,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 7,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 8,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 9,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 10,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 11,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 12,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 13,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 14,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 15,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 16,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 17,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 18,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 19,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 20,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 21,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 22,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 23,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 24,
+            "answer": "Raczej się nie zgadzam"
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "profile": "Mężczyzna 45–54, duże miasto, IT specialist",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 5,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 6,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 7,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 8,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 9,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 10,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 11,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 12,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 13,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 14,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 15,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 16,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 17,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 18,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 19,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 20,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 21,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 22,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 23,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 24,
+            "answer": "Raczej się nie zgadzam"
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "profile": "Kobieta 25–34, duże miasto, prawniczka",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 5,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 6,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 7,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 8,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 9,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 10,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 11,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 12,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 13,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 14,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 15,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 16,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 17,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 18,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 19,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 20,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 21,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 22,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 23,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 24,
+            "answer": "Raczej się nie zgadzam"
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "profile": "Mężczyzna 55–64, średnie miasto, rzemieślnik",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 5,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 6,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 7,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 8,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 9,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 10,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 11,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 12,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 13,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 14,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 15,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 16,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 17,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 18,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 19,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 20,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 21,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 22,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 23,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 24,
+            "answer": "Raczej się zgadzam"
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "profile": "Kobieta 35–44, duże miasto, lekarka",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 5,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 6,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 7,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 8,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 9,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 10,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 11,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 12,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 13,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 14,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 15,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 16,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 17,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 18,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 19,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 20,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 21,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 22,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 23,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 24,
+            "answer": "Raczej się zgadzam"
+          }
+        ]
+      },
+      {
+        "id": 11,
+        "profile": "Mężczyzna 25–34, małe miasto, student",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 5,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 6,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 7,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 8,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 9,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 10,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 11,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 12,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 13,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 14,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 15,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 16,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 17,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 18,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 19,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 20,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 21,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 22,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 23,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 24,
+            "answer": "Raczej się zgadzam"
+          }
+        ]
+      },
+      {
+        "id": 12,
+        "profile": "Kobieta 45–54, średnie miasto, księgowa",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 5,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 6,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 7,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 8,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 9,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 10,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 11,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 12,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 13,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 14,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 15,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 16,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 17,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 18,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 19,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 20,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 21,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 22,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 23,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 24,
+            "answer": "Raczej się zgadzam"
+          }
+        ]
+      },
+      {
+        "id": 13,
+        "profile": "Mężczyzna 35–44, duże miasto, inżynier",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 5,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 6,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 7,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 8,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 9,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 10,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 11,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 12,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 13,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 14,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 15,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 16,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 17,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 18,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 19,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 20,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 21,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 22,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 23,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 24,
+            "answer": "Raczej się zgadzam"
+          }
+        ]
+      },
+      {
+        "id": 14,
+        "profile": "Kobieta 25–34, małe miasto, pracownik handlowy",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 5,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 6,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 7,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 8,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 9,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 10,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 11,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 12,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 13,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 14,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 15,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 16,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 17,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 18,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 19,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 20,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 21,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 22,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 23,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 24,
+            "answer": "Raczej się zgadzam"
+          }
+        ]
+      },
+      {
+        "id": 15,
+        "profile": "Mężczyzna 55–64, duże miasto, konsultant",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 5,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 6,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 7,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 8,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 9,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 10,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 11,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 12,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 13,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 14,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 15,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 16,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 17,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 18,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 19,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 20,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 21,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 22,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 23,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 24,
+            "answer": "Raczej się zgadzam"
+          }
+        ]
+      },
+      {
+        "id": 16,
+        "profile": "Kobieta 35–44, średnie miasto, pracownik administracyjny",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 5,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 6,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 7,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 8,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 9,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 10,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 11,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 12,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 13,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 14,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 15,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 16,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 17,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 18,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 19,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 20,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 21,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 22,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 23,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 24,
+            "answer": "Zdecydowanie się zgadzam"
+          }
+        ]
+      },
+      {
+        "id": 17,
+        "profile": "Mężczyzna 25–34, duże miasto, analityk",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 5,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 6,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 7,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 8,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 9,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 10,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 11,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 12,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 13,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 14,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 15,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 16,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 17,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 18,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 19,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 20,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 21,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 22,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 23,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 24,
+            "answer": "Raczej się nie zgadzam"
+          }
+        ]
+      },
+      {
+        "id": 18,
+        "profile": "Kobieta 45–54, małe miasto, pielęgniarka",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 5,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 6,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 7,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 8,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 9,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 10,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 11,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 12,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 13,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 14,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 15,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 16,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 17,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 18,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 19,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 20,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 21,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 22,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 23,
+            "answer": "Zdecydowanie się zgadzam"
+          },
+          {
+            "questionNumber": 24,
+            "answer": "Raczej się zgadzam"
+          }
+        ]
+      },
+      {
+        "id": 19,
+        "profile": "Mężczyzna 35–44, średnie miasto, kierowca",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 5,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 6,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 7,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 8,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 9,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 10,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 11,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 12,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 13,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 14,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 15,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 16,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 17,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 18,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 19,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 20,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 21,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 22,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 23,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 24,
+            "answer": "Raczej się nie zgadzam"
+          }
+        ]
+      },
+      {
+        "id": 20,
+        "profile": "Kobieta 25–34, duże miasto, architektka",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 5,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 6,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 7,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 8,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 9,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 10,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 11,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 12,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 13,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 14,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 15,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 16,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 17,
+            "answer": "Zdecydowanie się nie zgadzam"
+          },
+          {
+            "questionNumber": 18,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 19,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 20,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 21,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 22,
+            "answer": "Raczej się zgadzam"
+          },
+          {
+            "questionNumber": 23,
+            "answer": "Raczej się nie zgadzam"
+          },
+          {
+            "questionNumber": 24,
+            "answer": "Raczej się zgadzam"
+          }
+        ]
+      }
+    ]
+  }
+}

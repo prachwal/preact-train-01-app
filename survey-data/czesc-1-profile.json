@@ -1,0 +1,290 @@
+{
+  "czesc_1_z_5": {
+    "description": "Część 1 z 5. Dane demograficzne respondentów.",
+    "questions": [
+      {
+        "number": 1,
+        "text": "Zgoda na uczestnictwo",
+        "field": "consent",
+        "answerOptions": ["TAK", "NIE"]
+      },
+      {
+        "number": 2,
+        "text": "Wiek",
+        "field": "age",
+        "answerOptions": ["18-24", "25-34", "35-44", "45-54", "55-64", "65+"]
+      },
+      {
+        "number": 3,
+        "text": "Płeć",
+        "field": "gender",
+        "answerOptions": ["Mężczyzna", "Kobieta", "Inna", "Wolę nie odpowiadać"]
+      },
+      {
+        "number": 4,
+        "text": "Wykształcenie",
+        "field": "education",
+        "answerOptions": [
+          "Podstawowe",
+          "Zawodowe",
+          "Średnie",
+          "Wyższe licencjackie/inżynierskie",
+          "Wyższe magisterskie/doctoral"
+        ]
+      },
+      {
+        "number": 5,
+        "text": "Miejsce zamieszkania (wielkość miejscowości)",
+        "field": "citySize",
+        "answerOptions": [
+          "Wieś",
+          "Małe miasto (do 50 tys.)",
+          "Średnie miasto (do 150 tys.)",
+          "Duże miasto (powyżej 150 tys.)"
+        ]
+      }
+    ],
+    "profiles": [
+      {
+        "id": 1,
+        "label": "Mężczyzna 45–54, duże miasto, pracownik umysłowy",
+        "demographics": {
+          "consent": "TAK",
+          "age": "45-54",
+          "gender": "Mężczyzna",
+          "education": "Wyższe magisterskie/doctoral",
+          "occupation": "Pracownik umysłowy",
+          "citySize": "Duże miasto (powyżej 150 tys.)"
+        }
+      },
+      {
+        "id": 2,
+        "label": "Kobieta 25–34, średnie miasto, studentka",
+        "demographics": {
+          "consent": "TAK",
+          "age": "25-34",
+          "gender": "Kobieta",
+          "education": "Wyższe licencjackie/inżynierskie",
+          "occupation": "Studentka",
+          "citySize": "Średnie miasto (do 150 tys.)"
+        }
+      },
+      {
+        "id": 3,
+        "label": "Mężczyzna 35–44, małe miasto, pracownik fizyczny",
+        "demographics": {
+          "consent": "TAK",
+          "age": "35-44",
+          "gender": "Mężczyzna",
+          "education": "Zawodowe",
+          "occupation": "Pracownik fizyczny",
+          "citySize": "Małe miasto (do 50 tys.)"
+        }
+      },
+      {
+        "id": 4,
+        "label": "Kobieta 55–64, duże miasto, menedżerka",
+        "demographics": {
+          "consent": "TAK",
+          "age": "55-64",
+          "gender": "Kobieta",
+          "education": "Wyższe magisterskie/doctoral",
+          "occupation": "Menedżerka",
+          "citySize": "Duże miasto (powyżej 150 tys.)"
+        }
+      },
+      {
+        "id": 5,
+        "label": "Mężczyzna 25–34, średnie miasto, przedsiębiorca",
+        "demographics": {
+          "consent": "TAK",
+          "age": "25-34",
+          "gender": "Mężczyzna",
+          "education": "Wyższe licencjackie/inżynierskie",
+          "occupation": "Przedsiębiorca",
+          "citySize": "Średnie miasto (do 150 tys.)"
+        }
+      },
+      {
+        "id": 6,
+        "label": "Kobieta 35–44, małe miasto, nauczycielka",
+        "demographics": {
+          "consent": "TAK",
+          "age": "35-44",
+          "gender": "Kobieta",
+          "education": "Wyższe magisterskie/doctoral",
+          "occupation": "Nauczycielka",
+          "citySize": "Małe miasto (do 50 tys.)"
+        }
+      },
+      {
+        "id": 7,
+        "label": "Mężczyzna 45–54, duże miasto, IT specialist",
+        "demographics": {
+          "consent": "TAK",
+          "age": "45-54",
+          "gender": "Mężczyzna",
+          "education": "Wyższe magisterskie/doctoral",
+          "occupation": "IT specialist",
+          "citySize": "Duże miasto (powyżej 150 tys.)"
+        }
+      },
+      {
+        "id": 8,
+        "label": "Kobieta 25–34, duże miasto, prawniczka",
+        "demographics": {
+          "consent": "TAK",
+          "age": "25-34",
+          "gender": "Kobieta",
+          "education": "Wyższe magisterskie/doctoral",
+          "occupation": "Prawniczka",
+          "citySize": "Duże miasto (powyżej 150 tys.)"
+        }
+      },
+      {
+        "id": 9,
+        "label": "Mężczyzna 55–64, średnie miasto, rzemieślnik",
+        "demographics": {
+          "consent": "TAK",
+          "age": "55-64",
+          "gender": "Mężczyzna",
+          "education": "Zawodowe",
+          "occupation": "Rzemieślnik",
+          "citySize": "Średnie miasto (do 150 tys.)"
+        }
+      },
+      {
+        "id": 10,
+        "label": "Kobieta 35–44, duże miasto, lekarka",
+        "demographics": {
+          "consent": "TAK",
+          "age": "35-44",
+          "gender": "Kobieta",
+          "education": "Wyższe magisterskie/doctoral",
+          "occupation": "Lekarka",
+          "citySize": "Duże miasto (powyżej 150 tys.)"
+        }
+      },
+      {
+        "id": 11,
+        "label": "Mężczyzna 25–34, małe miasto, student",
+        "demographics": {
+          "consent": "TAK",
+          "age": "25-34",
+          "gender": "Mężczyzna",
+          "education": "Wyższe licencjackie/inżynierskie",
+          "occupation": "Student",
+          "citySize": "Małe miasto (do 50 tys.)"
+        }
+      },
+      {
+        "id": 12,
+        "label": "Kobieta 45–54, średnie miasto, księgowa",
+        "demographics": {
+          "consent": "TAK",
+          "age": "45-54",
+          "gender": "Kobieta",
+          "education": "Wyższe licencjackie/inżynierskie",
+          "occupation": "Księgowa",
+          "citySize": "Średnie miasto (do 150 tys.)"
+        }
+      },
+      {
+        "id": 13,
+        "label": "Mężczyzna 35–44, duże miasto, inżynier",
+        "demographics": {
+          "consent": "TAK",
+          "age": "35-44",
+          "gender": "Mężczyzna",
+          "education": "Wyższe magisterskie/doctoral",
+          "occupation": "Inżynier",
+          "citySize": "Duże miasto (powyżej 150 tys.)"
+        }
+      },
+      {
+        "id": 14,
+        "label": "Kobieta 25–34, małe miasto, pracownik handlowy",
+        "demographics": {
+          "consent": "TAK",
+          "age": "25-34",
+          "gender": "Kobieta",
+          "education": "Średnie",
+          "occupation": "Pracownik handlowy",
+          "citySize": "Małe miasto (do 50 tys.)"
+        }
+      },
+      {
+        "id": 15,
+        "label": "Mężczyzna 55–64, duże miasto, konsultant",
+        "demographics": {
+          "consent": "TAK",
+          "age": "55-64",
+          "gender": "Mężczyzna",
+          "education": "Wyższe magisterskie/doctoral",
+          "occupation": "Konsultant",
+          "citySize": "Duże miasto (powyżej 150 tys.)"
+        }
+      },
+      {
+        "id": 16,
+        "label": "Kobieta 35–44, średnie miasto, pracownik administracyjny",
+        "demographics": {
+          "consent": "TAK",
+          "age": "35-44",
+          "gender": "Kobieta",
+          "education": "Średnie",
+          "occupation": "Pracownik administracyjny",
+          "citySize": "Średnie miasto (do 150 tys.)"
+        }
+      },
+      {
+        "id": 17,
+        "label": "Mężczyzna 25–34, duże miasto, analityk",
+        "demographics": {
+          "consent": "TAK",
+          "age": "25-34",
+          "gender": "Mężczyzna",
+          "education": "Wyższe magisterskie/doctoral",
+          "occupation": "Analityk",
+          "citySize": "Duże miasto (powyżej 150 tys.)"
+        }
+      },
+      {
+        "id": 18,
+        "label": "Kobieta 45–54, małe miasto, pielęgniarka",
+        "demographics": {
+          "consent": "TAK",
+          "age": "45-54",
+          "gender": "Kobieta",
+          "education": "Średnie",
+          "occupation": "Pielęgniarka",
+          "citySize": "Małe miasto (do 50 tys.)"
+        }
+      },
+      {
+        "id": 19,
+        "label": "Mężczyzna 35–44, średnie miasto, kierowca",
+        "demographics": {
+          "consent": "TAK",
+          "age": "35-44",
+          "gender": "Mężczyzna",
+          "education": "Zawodowe",
+          "occupation": "Kierowca",
+          "citySize": "Średnie miasto (do 150 tys.)"
+        }
+      },
+      {
+        "id": 20,
+        "label": "Kobieta 25–34, duże miasto, architektka",
+        "demographics": {
+          "consent": "TAK",
+          "age": "25-34",
+          "gender": "Kobieta",
+          "education": "Wyższe magisterskie/doctoral",
+          "occupation": "Architektka",
+          "citySize": "Duże miasto (powyżej 150 tys.)"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,485 @@
+{
+  "czesc_3_z_5": {
+    "description": "Część 3 z 5. Pytania o preferencje dotyczące liderek i stylu zarządzania.",
+    "questions": [
+      {
+        "number": 1,
+        "text": "Jakie stanowisko zajmują te osoby zgodnie z tekstem?",
+        "answerOptions": [
+          "dyrektorki generalnej",
+          "menedżerki projektów",
+          "kierowniczki działu"
+        ]
+      },
+      {
+        "number": 2,
+        "text": "Wyobraź sobie, że w Twojej firmie trwa rekrutacja do zespołu prowadzonego przez te osoby. Do którego zespołu chciałbyś dołączyć?",
+        "answerOptions": [
+          "do zespołu osoby nr 1",
+          "do zespołu osoby nr 2",
+          "do zespołu osoby nr 3"
+        ]
+      },
+      {
+        "number": 3,
+        "text": "Która z przedstawionych kobiet potencjalnie pomogłaby Ci bardziej w rozwoju zawodowym w tej firmie i osiąganiu celów?",
+        "answerOptions": [
+          "osoba nr 1",
+          "osoba nr 2",
+          "osoba nr 3"
+        ]
+      },
+      {
+        "number": 4,
+        "text": "Jak uważasz, który styl zarządzania sprawdziłby się w Twoim miejscu pracy?",
+        "answerOptions": [
+          "osoby nr 1",
+          "osoby nr 2",
+          "osoby nr 3"
+        ]
+      }
+    ],
+    "respondents": [
+      {
+        "id": 1,
+        "profile": "Mężczyzna 45–54, duże miasto, pracownik umysłowy",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "dyrektorki generalnej"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "do zespołu osoby nr 2"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "osoba nr 2"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "osoby nr 2"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "profile": "Kobieta 25–34, średnie miasto, studentka",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "dyrektorki generalnej"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "do zespołu osoby nr 1"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "osoba nr 1"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "osoby nr 1"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "profile": "Mężczyzna 35–44, małe miasto, pracownik fizyczny",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "dyrektorki generalnej"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "do zespołu osoby nr 3"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "osoba nr 3"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "osoby nr 3"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "profile": "Kobieta 55–64, duże miasto, menedżerka",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "dyrektorki generalnej"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "do zespołu osoby nr 2"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "osoba nr 2"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "osoby nr 2"
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "profile": "Mężczyzna 25–34, średnie miasto, przedsiębiorca",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "dyrektorki generalnej"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "do zespołu osoby nr 1"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "osoba nr 1"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "osoby nr 1"
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "profile": "Kobieta 35–44, małe miasto, nauczycielka",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "dyrektorki generalnej"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "do zespołu osoby nr 2"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "osoba nr 2"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "osoby nr 2"
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "profile": "Mężczyzna 45–54, duże miasto, IT specialist",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "dyrektorki generalnej"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "do zespołu osoby nr 1"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "osoba nr 1"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "osoby nr 1"
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "profile": "Kobieta 25–34, duże miasto, prawniczka",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "dyrektorki generalnej"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "do zespołu osoby nr 2"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "osoba nr 2"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "osoby nr 2"
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "profile": "Mężczyzna 55–64, średnie miasto, rzemieślnik",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "dyrektorki generalnej"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "do zespołu osoby nr 3"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "osoba nr 3"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "osoby nr 3"
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "profile": "Kobieta 35–44, duże miasto, lekarka",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "dyrektorki generalnej"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "do zespołu osoby nr 1"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "osoba nr 1"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "osoby nr 1"
+          }
+        ]
+      },
+      {
+        "id": 11,
+        "profile": "Mężczyzna 25–34, małe miasto, student",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "dyrektorki generalnej"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "do zespołu osoby nr 2"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "osoba nr 2"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "osoby nr 2"
+          }
+        ]
+      },
+      {
+        "id": 12,
+        "profile": "Kobieta 45–54, średnie miasto, księgowa",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "dyrektorki generalnej"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "do zespołu osoby nr 2"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "osoba nr 2"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "osoby nr 2"
+          }
+        ]
+      },
+      {
+        "id": 13,
+        "profile": "Mężczyzna 35–44, duże miasto, inżynier",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "dyrektorki generalnej"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "do zespołu osoby nr 1"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "osoba nr 1"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "osoby nr 1"
+          }
+        ]
+      },
+      {
+        "id": 14,
+        "profile": "Kobieta 25–34, małe miasto, pracownik handlowy",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "dyrektorki generalnej"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "do zespołu osoby nr 3"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "osoba nr 3"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "osoby nr 3"
+          }
+        ]
+      },
+      {
+        "id": 15,
+        "profile": "Mężczyzna 55–64, duże miasto, konsultant",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "dyrektorki generalnej"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "do zespołu osoby nr 2"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "osoba nr 2"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "osoby nr 2"
+          }
+        ]
+      },
+      {
+        "id": 16,
+        "profile": "Kobieta 35–44, średnie miasto, pracownik administracyjny",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "dyrektorki generalnej"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "do zespołu osoby nr 1"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "osoba nr 1"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "osoby nr 1"
+          }
+        ]
+      },
+      {
+        "id": 17,
+        "profile": "Mężczyzna 25–34, duże miasto, analityk",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "dyrektorki generalnej"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "do zespołu osoby nr 2"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "osoba nr 2"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "osoby nr 2"
+          }
+        ]
+      },
+      {
+        "id": 18,
+        "profile": "Kobieta 45–54, małe miasto, pielęgniarka",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "dyrektorki generalnej"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "do zespołu osoby nr 1"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "osoba nr 1"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "osoby nr 1"
+          }
+        ]
+      },
+      {
+        "id": 19,
+        "profile": "Mężczyzna 35–44, średnie miasto, kierowca",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "dyrektorki generalnej"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "do zespołu osoby nr 3"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "osoba nr 3"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "osoby nr 3"
+          }
+        ]
+      },
+      {
+        "id": 20,
+        "profile": "Kobieta 25–34, duże miasto, architektka",
+        "answers": [
+          {
+            "questionNumber": 1,
+            "answer": "dyrektorki generalnej"
+          },
+          {
+            "questionNumber": 2,
+            "answer": "do zespołu osoby nr 2"
+          },
+          {
+            "questionNumber": 3,
+            "answer": "osoba nr 2"
+          },
+          {
+            "questionNumber": 4,
+            "answer": "osoby nr 2"
+          }
+        ]
+      }
+    ]
+  }
+}

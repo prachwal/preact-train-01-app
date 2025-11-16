@@ -142,3 +142,10 @@ vite.config.ts.timestamp-*
 
 test-results/
 playwright-report/
+
+# Survey data batches (may contain sensitive research data)
+survey-data/batches/
+
+# Survey analysis outputs
+analysis/
+
