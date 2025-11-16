@@ -23,6 +23,9 @@ export type Theme = 'light' | 'dark' | 'auto';
 // Warianty przycisków
 export type ButtonVariant = 'primary' | 'secondary' | 'success' | 'danger' | 'disabled';
 
+// Warianty kart
+export type CardVariant = 'default' | 'elevated' | 'outlined';
+
 // Stany semantyczne
 export type SemanticState = 'success' | 'error' | 'warning' | 'info';
 
@@ -455,6 +458,14 @@ export interface ButtonComponentProps extends SizedComponentProps, ThemedCompone
   disabled?: boolean;
   type?: 'button' | 'submit' | 'reset';
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  children?: React.ReactNode;
+}
+
+export interface CardComponentProps extends SizedComponentProps, ThemedComponentProps {
+  variant?: CardVariant;
+  semanticState?: SemanticState;
+  shadow?: ShadowVariant;
+  title?: string;
   children?: React.ReactNode;
 }
 

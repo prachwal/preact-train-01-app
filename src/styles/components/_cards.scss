@@ -1,0 +1,158 @@
+@use '../variables.scss' as *;
+
+.pta-card {
+  background-color: var(--pta-color-bg, #{$pta-color-light-bg});
+  color: var(--pta-color-text, #{$pta-color-light-text});
+  border: 1px solid var(--pta-color-border, #{$pta-color-light-border});
+  border-radius: var(--border-radius-md, #{$border-radius-md});
+  padding: var(--spacing-lg, #{$spacing-lg});
+  box-shadow: 0 4px 8px var(--pta-color-shadow, #{$pta-color-light-shadow});
+  width: 100%;
+  max-width: 20rem;
+  text-align: center;
+
+  @media (min-width: $breakpoint-tablet) {
+    max-width: 28rem;
+    padding: var(--spacing-xl, #{$spacing-xl});
+    border-radius: var(--border-radius-lg, #{$border-radius-lg});
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    max-width: 32rem;
+    padding: var(--spacing-2xl, #{$spacing-2xl});
+    border-radius: var(--border-radius-xl, #{$border-radius-xl});
+  }
+
+  @media (min-width: $breakpoint-large) {
+    max-width: 36rem;
+  }
+
+  // Size variants
+  &--sm {
+    padding: var(--spacing-md, #{$spacing-md});
+    max-width: 16rem;
+
+    @media (min-width: $breakpoint-tablet) {
+      max-width: 20rem;
+      padding: var(--spacing-lg, #{$spacing-lg});
+    }
+
+    @media (min-width: $breakpoint-desktop) {
+      max-width: 24rem;
+      padding: var(--spacing-xl, #{$spacing-xl});
+    }
+
+    @media (min-width: $breakpoint-large) {
+      max-width: 28rem;
+    }
+  }
+
+  &--md {
+    padding: var(--spacing-lg, #{$spacing-lg});
+    max-width: 20rem;
+
+    @media (min-width: $breakpoint-tablet) {
+      max-width: 28rem;
+      padding: var(--spacing-xl, #{$spacing-xl});
+    }
+
+    @media (min-width: $breakpoint-desktop) {
+      max-width: 32rem;
+      padding: var(--spacing-2xl, #{$spacing-2xl});
+    }
+
+    @media (min-width: $breakpoint-large) {
+      max-width: 36rem;
+    }
+  }
+
+  &--lg {
+    padding: var(--spacing-xl, #{$spacing-xl});
+    max-width: 24rem;
+
+    @media (min-width: $breakpoint-tablet) {
+      max-width: 32rem;
+      padding: var(--spacing-2xl, #{$spacing-2xl});
+    }
+
+    @media (min-width: $breakpoint-desktop) {
+      max-width: 36rem;
+      padding: var(--spacing-2xl, #{$spacing-2xl});
+    }
+
+    @media (min-width: $breakpoint-large) {
+      max-width: 40rem;
+    }
+  }
+
+  &--xl {
+    padding: var(--spacing-2xl, #{$spacing-2xl});
+    max-width: 28rem;
+
+    @media (min-width: $breakpoint-tablet) {
+      max-width: 36rem;
+    }
+
+    @media (min-width: $breakpoint-desktop) {
+      max-width: 40rem;
+    }
+
+    @media (min-width: $breakpoint-large) {
+      max-width: 44rem;
+    }
+  }
+
+  // Card variants
+  &--elevated {
+    box-shadow: 0 8px 16px var(--pta-color-shadow-medium, #{$pta-color-light-shadow-medium});
+  }
+
+  &--outlined {
+    background-color: transparent;
+    border: 2px solid var(--pta-color-border, #{$pta-color-light-border});
+    box-shadow: none;
+  }
+
+  // Semantic states
+  &--state-success {
+    border-color: var(--pta-color-success, #{$pta-color-light-success});
+  }
+
+  &--state-error {
+    border-color: var(--pta-color-error, #{$pta-color-light-error});
+  }
+
+  &--state-warning {
+    border-color: var(--pta-color-warning, #{$pta-color-light-warning});
+  }
+
+  &--state-info {
+    border-color: var(--pta-color-info, #{$pta-color-light-info});
+  }
+
+  // Shadow variants
+  &--light {
+    box-shadow: 0 2px 4px var(--pta-color-shadow, #{$pta-color-light-shadow});
+  }
+
+  &--medium {
+    box-shadow: 0 4px 8px var(--pta-color-shadow-medium, #{$pta-color-light-shadow-medium});
+  }
+
+  &--heavy {
+    box-shadow: 0 6px 12px var(--pta-color-shadow-heavy, #{$pta-color-light-shadow-heavy});
+  }
+
+  // Card elements
+  &__title {
+    margin: 0 0 var(--spacing-md, #{$spacing-md}) 0;
+    font-size: var(--font-size-lg, #{$font-size-lg});
+    font-weight: 600;
+    color: var(--pta-color-text, #{$pta-color-light-text});
+  }
+
+  &__content {
+    color: var(--pta-color-text-secondary, #{$pta-color-light-text-secondary});
+    line-height: 1.5;
+  }
+}

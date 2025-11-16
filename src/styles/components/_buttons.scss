@@ -1,4 +1,4 @@
-@use 'variables.scss' as *;
+@use '../variables.scss' as *;
 
 .pta-button {
   padding: var(--spacing-sm, #{$spacing-sm}) var(--spacing-md, #{$spacing-md});

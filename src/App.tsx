@@ -1,12 +1,12 @@
 import { memo, useContext } from 'preact/compat';
 import { Theme } from './ThemeProvider';
-import { Button } from './components';
+import { Button, Card } from './components';
 
 function App() {
   const { theme, setTheme, nextTheme } = useContext(Theme);
 
   return (
-    <div className="card">
+    <Card variant="elevated" shadow="medium" size="xl">
       <h1>Hello, Preact!</h1>
       <p>Welcome to your Preact training application.</p>
       <p>Current Theme: {theme}</p>
@@ -61,7 +61,7 @@ function App() {
         <Button variant="success" semanticState="success" shadow="light">Success with State</Button>
         <Button variant="danger" size="sm" shadow="heavy">Danger Small Heavy</Button>
       </div>
-    </div>
+    </Card>
   );
 }
 

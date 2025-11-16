@@ -43,31 +43,3 @@ body {
   background-color: var(--pta-color-bg, #{$pta-color-light-bg});
   color: var(--pta-color-text, #{$pta-color-light-text});
 }
-
-.card {
-  background-color: var(--pta-color-bg, #{$pta-color-light-bg});
-  color: var(--pta-color-text, #{$pta-color-light-text});
-  border: 1px solid var(--pta-color-border, #{$pta-color-light-border});
-  border-radius: var(--border-radius-md, #{$border-radius-md});
-  padding: var(--spacing-lg, #{$spacing-lg});
-  box-shadow: 0 4px 8px var(--pta-color-shadow, #{$pta-color-light-shadow});
-  width: 100%;
-  max-width: 20rem;
-  text-align: center;
-
-  @media (min-width: $breakpoint-tablet) {
-    max-width: 28rem;
-    padding: var(--spacing-xl, #{$spacing-xl});
-    border-radius: var(--border-radius-lg, #{$border-radius-lg});
-  }
-
-  @media (min-width: $breakpoint-desktop) {
-    max-width: 32rem;
-    padding: var(--spacing-2xl, #{$spacing-2xl});
-    border-radius: var(--border-radius-xl, #{$border-radius-xl});
-  }
-
-  @media (min-width: $breakpoint-large) {
-    max-width: 36rem;
-  }
-}
