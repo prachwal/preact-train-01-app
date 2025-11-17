@@ -7,7 +7,7 @@ import type {
 } from '../types';
 import { buildClassName } from '../types';
 
-interface CardProps {
+export interface CardProps {
   size?: ComponentSize;
   theme?: Theme;
   variant?: CardVariant;

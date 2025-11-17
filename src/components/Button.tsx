@@ -1,7 +1,13 @@
-import type { ButtonVariant, ComponentSize, SemanticState, ShadowVariant, Theme } from '../types';
+import type {
+  ButtonVariant,
+  ComponentSize,
+  SemanticState,
+  ShadowVariant,
+  Theme,
+} from '../types';
 import { buildClassName } from '../types';
 
-interface ButtonProps {
+export interface ButtonProps {
   size?: ComponentSize;
   theme?: Theme;
   variant?: ButtonVariant;
@@ -12,29 +18,33 @@ interface ButtonProps {
   children: React.ReactNode;
 }
 
-export const Button = ({ 
-  size = 'md', 
-  theme, 
+export const Button = ({
+  size = 'md',
+  theme,
   variant,
   semanticState,
   shadow,
   disabled = false,
-  onClick, 
+  onClick,
   children,
   className: additionalClassName,
   ...props
 }: ButtonProps & { className?: string }) => {
-  const modifiers: Record<string, boolean | string | undefined> = { [size]: true };
+  const modifiers: Record<string, boolean | string | undefined> = {
+    [size]: true,
+  };
   if (variant) modifiers[variant] = true;
   if (semanticState) modifiers[`state-${semanticState}`] = true;
   if (shadow) modifiers[shadow] = true;
   if (disabled) modifiers.disabled = true;
-  
+
   const baseClassName = buildClassName('pta-button', modifiers);
-  const finalClassName = additionalClassName ? `${baseClassName} ${additionalClassName}` : baseClassName;
-  
+  const finalClassName = additionalClassName
+    ? `${baseClassName} ${additionalClassName}`
+    : baseClassName;
+
   return (
-    <button 
+    <button
       className={finalClassName}
       data-theme={theme}
       disabled={disabled}

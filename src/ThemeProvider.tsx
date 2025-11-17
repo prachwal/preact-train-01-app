@@ -18,8 +18,15 @@ export const Theme = createContext<ThemeContextType>({
   },
 });
 
-function ThemeProvider({ children }: { children: any }) {
+function ThemeProvider({
+  children,
+  initialTheme,
+}: {
+  children: any;
+  initialTheme?: Themes;
+}) {
   const [theme, setTheme] = useState<Themes>(() => {
+    if (initialTheme) return initialTheme;
     const saved = localStorage.getItem('theme');
     return saved === 'light' || saved === 'dark' || saved === 'auto'
       ? saved
