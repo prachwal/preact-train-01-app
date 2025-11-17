@@ -1,0 +1,58 @@
+// ============================================
+// GRID COMPONENT
+// ============================================
+
+@use "../variables.scss" as *;
+@use "../mixins.scss" as *;
+
+.pta-grid {
+  display: flex;
+
+  // Direction
+  @include direction-variant(row);
+  @include direction-variant(column);
+  @include direction-variant(row-reverse);
+  @include direction-variant(column-reverse);
+
+  // Justify
+  @include justify-variant(start);
+  @include justify-variant(center);
+  @include justify-variant(end);
+  @include justify-variant(between);
+  @include justify-variant(around);
+  @include justify-variant(evenly);
+
+  // Align
+  @include align-variant(start);
+  @include align-variant(center);
+  @include align-variant(end);
+  @include align-variant(stretch);
+  @include align-variant(baseline);
+
+  // Gap
+  @include gap-variant(xs);
+  @include gap-variant(sm);
+  @include gap-variant(md);
+  @include gap-variant(lg);
+  @include gap-variant(xl);
+  @include gap-variant(2xl);
+
+  // Wrap
+  &--wrap {
+    flex-wrap: wrap;
+  }
+
+  // Grid mode
+  &--mode-grid {
+    display: grid;
+    grid-template-columns: var(--grid-template-columns, auto);
+    grid-template-rows: var(--grid-template-rows, auto);
+  }
+
+  // Grid auto flow
+  @include grid-auto-flow-variant(row);
+  @include grid-auto-flow-variant(column);
+  @include grid-auto-flow-variant(dense);
+  @include grid-auto-flow-variant(row-dense);
+  @include grid-auto-flow-variant(column-dense);
+}

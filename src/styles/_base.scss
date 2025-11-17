@@ -1,8 +1,10 @@
-@use 'variables.scss' as *;
-@use 'themes.scss' as *;
+@use "variables.scss" as *;
+@use "themes.scss" as *;
 
 // Reset box-sizing
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -21,10 +23,15 @@
   --font-size-xl: #{$font-size-xl};
   --font-size-2xl: #{$font-size-2xl};
   --font-size-3xl: #{$font-size-3xl};
+  --border-radius-none: 0;
   --border-radius-sm: #{$border-radius-sm};
   --border-radius-md: #{$border-radius-md};
   --border-radius-lg: #{$border-radius-lg};
   --border-radius-xl: #{$border-radius-xl};
+  --border-width-none: 0;
+  --border-width-thin: #{$border-width-thin};
+  --border-width-medium: #{$border-width-medium};
+  --border-width-thick: #{$border-width-thick};
 }
 
 html {

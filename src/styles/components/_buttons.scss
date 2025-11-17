@@ -1,23 +1,25 @@
-@use '../variables.scss' as *;
+@use "../variables.scss" as *;
+@use "../mixins.scss" as *;
 
 .pta-button {
-  padding: var(--spacing-sm, #{$spacing-sm}) var(--spacing-md, #{$spacing-md});
   border: none;
   border-radius: var(--border-radius-sm, #{$border-radius-sm});
   background-color: var(--pta-color-button-bg, #{$pta-color-light-button-primary-bg});
   color: var(--pta-color-button-text, #{$pta-color-light-button-primary-text});
   cursor: pointer;
-  font-size: var(--font-size-base, #{$font-size-base});
   font-family: inherit;
   font-weight: 500;
-  transition: background-color 0.3s ease, transform 0.1s ease;
+  transition:
+    background-color 0.3s ease,
+    transform 0.1s ease;
   width: 100%;
   touch-action: manipulation;
+
+  @include responsive-button-size(md);
 
   @media (min-width: $breakpoint-tablet) {
     width: auto;
     min-width: 10rem;
-    padding: var(--spacing-sm, #{$spacing-sm}) var(--spacing-xl, #{$spacing-xl});
   }
 
   &:hover {
@@ -37,40 +39,17 @@
     transform: scale(0.98);
   }
 
+  // Size variants
   &--sm {
-    padding: var(--spacing-xs, #{$spacing-xs}) var(--spacing-sm, #{$spacing-sm});
-    font-size: var(--font-size-sm, #{$font-size-sm});
-
-    @media (min-width: $breakpoint-tablet) {
-      padding: var(--spacing-xs, #{$spacing-xs}) var(--spacing-lg, #{$spacing-lg});
-    }
-  }
-
-  &--md {
-    padding: var(--spacing-sm, #{$spacing-sm}) var(--spacing-md, #{$spacing-md});
-    font-size: var(--font-size-base, #{$font-size-base});
-
-    @media (min-width: $breakpoint-tablet) {
-      padding: var(--spacing-sm, #{$spacing-sm}) var(--spacing-xl, #{$spacing-xl});
-    }
+    @include responsive-button-size(sm);
   }
 
   &--lg {
-    padding: var(--spacing-md, #{$spacing-md}) var(--spacing-lg, #{$spacing-lg});
-    font-size: var(--font-size-lg, #{$font-size-lg});
-
-    @media (min-width: $breakpoint-tablet) {
-      padding: var(--spacing-md, #{$spacing-md}) var(--spacing-2xl, #{$spacing-2xl});
-    }
+    @include responsive-button-size(lg);
   }
 
   &--xl {
-    padding: var(--spacing-lg, #{$spacing-lg}) var(--spacing-xl, #{$spacing-xl});
-    font-size: var(--font-size-xl, #{$font-size-xl});
-
-    @media (min-width: $breakpoint-tablet) {
-      padding: var(--spacing-lg, #{$spacing-lg}) var(--spacing-2xl, #{$spacing-2xl});
-    }
+    @include responsive-button-size(xl);
   }
 
   // Button variants
@@ -119,32 +98,27 @@
   }
 
   // Semantic states
-  &--state-success {
-    border: 2px solid var(--pta-color-success, #{$pta-color-light-success});
-  }
-
-  &--state-error {
-    border: 2px solid var(--pta-color-error, #{$pta-color-light-error});
-  }
-
-  &--state-warning {
-    border: 2px solid var(--pta-color-warning, #{$pta-color-light-warning});
-  }
-
-  &--state-info {
-    border: 2px solid var(--pta-color-info, #{$pta-color-light-info});
-  }
+  @include semantic-border-variant(success);
+  @include semantic-border-variant(error);
+  @include semantic-border-variant(warning);
+  @include semantic-border-variant(info);
 
   // Shadow variants
-  &--light {
-    box-shadow: 0 2px 4px var(--pta-color-shadow, #{$pta-color-light-shadow});
-  }
+  @include shadow-variant(light);
+  @include shadow-variant(medium);
+  @include shadow-variant(heavy);
+  @include shadow-variant(none);
 
-  &--medium {
-    box-shadow: 0 4px 8px var(--pta-color-shadow-medium, #{$pta-color-light-shadow-medium});
-  }
+  // Border radius variants
+  @include border-radius-variant(none);
+  @include border-radius-variant(sm);
+  @include border-radius-variant(md);
+  @include border-radius-variant(lg);
+  @include border-radius-variant(xl);
 
-  &--heavy {
-    box-shadow: 0 6px 12px var(--pta-color-shadow-heavy, #{$pta-color-light-shadow-heavy});
-  }
+  // Border width variants
+  @include border-width-variant(none);
+  @include border-width-variant(thin);
+  @include border-width-variant(medium);
+  @include border-width-variant(thick);
 }

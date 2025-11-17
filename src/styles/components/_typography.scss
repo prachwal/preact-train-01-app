@@ -1,0 +1,156 @@
+// src/styles/components/_typography.scss
+@use "sass:map";
+@use "../variables.scss" as *;
+@use "../mixins.scss" as *;
+
+// Mapa wariantów z stylami (font-size, weight, line-height, margin)
+$typography-variants: (
+  h1: (
+    font-size: $font-size-3xl,
+    font-weight: 300,
+    line-height: 1.167,
+    margin: 0
+  ),
+  h2: (
+    font-size: $font-size-2xl,
+    font-weight: 300,
+    line-height: 1.2,
+    margin: 0
+  ),
+  h3: (
+    font-size: $font-size-xl,
+    font-weight: 400,
+    line-height: 1.167,
+    margin: 0
+  ),
+  h4: (
+    font-size: $font-size-lg,
+    font-weight: 400,
+    line-height: 1.235,
+    margin: 0
+  ),
+  h5: (
+    font-size: $font-size-base,
+    font-weight: 400,
+    line-height: 1.334,
+    margin: 0
+  ),
+  h6: (
+    font-size: $font-size-sm,
+    font-weight: 500,
+    line-height: 1.6,
+    margin: 0
+  ),
+  subtitle1: (
+    font-size: $font-size-base,
+    font-weight: 400,
+    line-height: 1.75,
+    margin: 0
+  ),
+  subtitle2: (
+    font-size: $font-size-sm,
+    font-weight: 500,
+    line-height: 1.57,
+    margin: 0
+  ),
+  body1: (
+    font-size: $font-size-base,
+    font-weight: 400,
+    line-height: 1.5,
+    margin: 0
+  ),
+  body2: (
+    font-size: $font-size-sm,
+    font-weight: 400,
+    line-height: 1.43,
+    margin: 0
+  ),
+  caption: (
+    font-size: $font-size-xs,
+    font-weight: 400,
+    line-height: 1.66,
+    margin: 0
+  ),
+  overline: (
+    font-size: $font-size-xs,
+    font-weight: 400,
+    line-height: 2.66,
+    margin: 0,
+    text-transform: uppercase
+  )
+);
+
+// Mixin dla wariantów
+@mixin typography-variant($variant) {
+  $props: map.get($typography-variants, $variant);
+
+  font-size: map.get($props, font-size);
+  font-weight: map.get($props, font-weight);
+  line-height: map.get($props, line-height);
+  margin: map.get($props, margin);
+
+  @if map.has-key($props, text-transform) {
+    text-transform: map.get($props, text-transform);
+  }
+}
+
+// Mixin dla kolorów
+$typography-colors: (
+  primary: var(--pta-color-accent, #{$pta-color-light-accent}),
+  secondary: var(--pta-color-text-secondary, #{$pta-color-light-text-secondary}),
+  error: var(--pta-color-error, #{$pta-color-light-error}),
+  warning: var(--pta-color-warning, #{$pta-color-light-warning}),
+  info: var(--pta-color-info, #{$pta-color-light-info}),
+  success: var(--pta-color-success, #{$pta-color-light-success})
+);
+
+@mixin typography-color($color) {
+  color: map.get($typography-colors, $color);
+}
+
+// Mixin dla align
+$typography-aligns: (
+  center: center,
+  right: right,
+  justify: justify
+);
+
+@mixin typography-align($align) {
+  text-align: map.get($typography-aligns, $align);
+}
+
+.pta-typography {
+  font-family: inherit;
+
+  // Warianty
+  @each $variant, $props in $typography-variants {
+    &--variant-#{$variant} {
+      @include typography-variant($variant);
+    }
+  }
+
+  // Kolory
+  @each $color, $value in $typography-colors {
+    &--color-#{$color} {
+      @include typography-color($color);
+    }
+  }
+
+  // Align
+  @each $align, $value in $typography-aligns {
+    &--align-#{$align} {
+      @include typography-align($align);
+    }
+  }
+
+  // Inne opcje
+  &--gutter-bottom {
+    margin-bottom: 0.35em;
+  }
+
+  &--no-wrap {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}

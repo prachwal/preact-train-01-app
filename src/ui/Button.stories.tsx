@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/preact';
-
-import { Button, type ButtonProps } from './Button';
+import { Button } from './Button';
+import type { ButtonProps } from '../types';
 
 const meta: Meta<ButtonProps> = {
   title: 'Components/Button',
@@ -24,7 +24,15 @@ const meta: Meta<ButtonProps> = {
     },
     shadow: {
       control: { type: 'select' },
-      options: ['light', 'medium', 'heavy'],
+      options: ['none', 'light', 'medium', 'heavy'],
+    },
+    borderRadius: {
+      control: { type: 'select' },
+      options: ['sm', 'md', 'lg', 'xl'],
+    },
+    borderWidth: {
+      control: { type: 'select' },
+      options: ['thin', 'medium', 'thick'],
     },
     disabled: {
       control: { type: 'boolean' },
@@ -95,5 +103,27 @@ export const WithShadow: Story = {
   args: {
     shadow: 'medium',
     children: 'Button with Shadow',
+  },
+};
+
+export const NoShadow: Story = {
+  args: {
+    shadow: 'none',
+    children: 'Button with No Shadow',
+  },
+};
+
+export const RoundedButton: Story = {
+  args: {
+    borderRadius: 'lg',
+    children: 'Rounded Button',
+  },
+};
+
+export const ThickBorderButton: Story = {
+  args: {
+    borderWidth: 'thick',
+    variant: 'secondary',
+    children: 'Thick Border Button',
   },
 };

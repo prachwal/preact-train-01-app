@@ -150,3 +150,5 @@ survey-data/batches/
 analysis/
 
 storybook-static/
+
+tmp/

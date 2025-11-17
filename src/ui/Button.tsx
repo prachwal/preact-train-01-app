@@ -1,22 +1,5 @@
-import type {
-  ButtonVariant,
-  ComponentSize,
-  SemanticState,
-  ShadowVariant,
-  Theme,
-} from '../types';
+import type { ButtonProps } from '../types';
 import { buildClassName } from '../types';
-
-export interface ButtonProps {
-  size?: ComponentSize;
-  theme?: Theme;
-  variant?: ButtonVariant;
-  semanticState?: SemanticState;
-  shadow?: ShadowVariant;
-  disabled?: boolean;
-  onClick?: () => void;
-  children: React.ReactNode;
-}
 
 export const Button = ({
   size = 'md',
@@ -24,6 +7,8 @@ export const Button = ({
   variant,
   semanticState,
   shadow,
+  borderRadius,
+  borderWidth,
   disabled = false,
   onClick,
   children,
@@ -36,6 +21,8 @@ export const Button = ({
   if (variant) modifiers[variant] = true;
   if (semanticState) modifiers[`state-${semanticState}`] = true;
   if (shadow) modifiers[shadow] = true;
+  if (borderRadius) modifiers[`border-radius-${borderRadius}`] = true;
+  if (borderWidth) modifiers[`border-width-${borderWidth}`] = true;
   if (disabled) modifiers.disabled = true;
 
   const baseClassName = buildClassName('pta-button', modifiers);

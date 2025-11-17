@@ -231,6 +231,7 @@ describe('Types', () => {
     describe('BORDER_RADIUS_VALUES', () => {
       it('should have all border radius sizes', () => {
         expect(BORDER_RADIUS_VALUES).toEqual({
+          none: '0',
           sm: '0.3125rem',
           md: '0.5rem',
           lg: '0.75rem',

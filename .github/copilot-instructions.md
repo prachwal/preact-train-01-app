@@ -1,13 +1,16 @@
 ### Purpose
+
 This repository is a Preact + Vite TypeScript single-page app with a comprehensive design system. These instructions guide AI coding agents to maintain architectural consistency and developer productivity.
 
 **Quick Start (dev / build / preview)**
+
 - Install: `npm install`
 - Dev server: `npm run dev` (Vite — open http://localhost:5173)
 - Build: `npm run build` (outputs `dist`)
 - Preview: `npx vite preview` (serves built files)
 
 **Key files & responsibilities**
+
 - `package.json` — scripts for build/dev/test; Preact + Vite core deps; testing stack (Vitest + Playwright)
 - `vite.config.ts` — enables `@preact/preset-vite` plugin
 - `index.html` — Vite entry; **must** contain `<div id="app"></div>` (app throws if missing)
@@ -26,6 +29,7 @@ This repository is a Preact + Vite TypeScript single-page app with a comprehensi
 - `e2e/` — Playwright tests for cross-browser validation
 
 **Big-picture architecture & data flows**
+
 - **Single client SPA**; no backend; Context-based state management
 - **Theme flow**: UI → `Theme` context → localStorage + `document.documentElement.setAttribute('data-theme', ...)` → CSS `[data-theme]` selectors
 - **Component flow**: Typed props → `buildClassName()` → BEM classes → SCSS styles
@@ -33,6 +37,7 @@ This repository is a Preact + Vite TypeScript single-page app with a comprehensi
 - **Cross-component communication**: Context providers (currently `Theme`)
 
 **Project-specific conventions & patterns**
+
 - **Preact/compat**: Use React-like hooks (`useState`, `useEffect`, `useContext`, `memo`)
 - **Strict TypeScript**: All component props use literal unions; no generic `string` types
 - **Component API**: Spread `...props` with special `className` merging: `className ? `${baseClassName} ${className}` : baseClassName`
@@ -40,6 +45,7 @@ This repository is a Preact + Vite TypeScript single-page app with a comprehensi
 - **Design tokens**: Update `src/types/index.ts` first, then sync SCSS variables
 
 **CSS class naming convention (strict BEM required)**
+
 - **Block**: `pta-component` (kebab-case, `pta-` prefix)
 - **Element**: `pta-component__element` (double underscore)
 - **Modifier**: `pta-component--modifier` (double hyphen)
@@ -49,17 +55,19 @@ This repository is a Preact + Vite TypeScript single-page app with a comprehensi
 - **Transient state**: `is-*` prefix (e.g., `is-open`)
 
 **buildClassName utility (required for consistency)**
+
 ```typescript
-buildClassName('pta-button', { 
-  sm: true,           // → 'pta-button pta-button--sm'
-  variant: 'primary', // → 'pta-button pta-button--primary'  
-  disabled: false     // → ignored (falsy)
-})
+buildClassName('pta-button', {
+  sm: true, // → 'pta-button pta-button--sm'
+  variant: 'primary', // → 'pta-button pta-button--primary'
+  disabled: false, // → ignored (falsy)
+});
 ```
 
 **Developer workflows, scripts & gotchas**
+
 - **Development**: `npm run dev` (hot reload)
-- **Unit tests**: `npm run test:run` (Vitest, jsdom, src/**/*.test.ts only)
+- **Unit tests**: `npm run test:run` (Vitest, jsdom, src/\*_/_.test.ts only)
 - **E2E tests**: `npm run test:e2e` (Playwright, real browsers)
 - **Type checking**: `npm run type-check` (TypeScript)
 - **CSS linting**: `npm run lint:css` (Stylelint with BEM validation)
@@ -69,20 +77,31 @@ buildClassName('pta-button', {
 
 **Critical sync requirements (do not break)**
 When changing design tokens:
+
 1. Update TypeScript constants in `src/types/index.ts` first
 2. Sync SCSS variables in `src/styles/_variables.scss`
 3. Update CSS custom properties in `src/styles/_themes.scss` if needed
 4. Run `npm run dev` and verify no regressions
 
 **Testing patterns**
+
 - **Unit tests**: Focus on `src/types/index.ts` utilities and type definitions
 - **E2E tests**: Validate real browser behavior, theme switching, component interactions
 - **Test selectors**: Use `getByRole('button', { name: '...', exact: true })` to avoid text conflicts
 
-**Recommendations for AI agents**
-- **Preserve type safety**: Never use generic types where literal unions exist
-- **Maintain BEM consistency**: Always use `buildClassName()` for dynamic classes
-- **Sync design tokens**: Update TypeScript → SCSS → CSS custom properties
-- **Test thoroughly**: Write both unit tests (Vitest) and e2e tests (Playwright) for new features
-- **Follow component patterns**: Props spread with className merging, typed unions for variants
-- **Theme awareness**: Components should respect `data-theme` attributes and theme context
+**Storybook Development**
+
+- **Creating Stories**: When creating Storybook stories for components, use the component's props type in the Meta type, e.g., `Meta<ComponentProps>`. This ensures type safety and auto-completion in Storybook controls.
+- **Example**: For a component like Grid, use `Meta<GridComponentProps>` and define argTypes based on the props.
+- **Theme Integration**: Stories should use decorators to wrap in ThemeProvider and include globalTypes for theme switching.
+- **Best Practices**: Include various prop combinations in stories to showcase component flexibility.
+
+**Component Creation Process**
+
+1. Create TSX component in `src/components/` with typed props, `buildClassName`, and dynamic JSX via `h()`.
+2. Add types/interfaces in `src/types/` (update `types.ts`, `component-props.ts`).
+3. Add SCSS styles in `src/styles/components/_component.scss` using mixins/maps for DRY.
+4. Update `src/styles/components/index.scss` with `@forward`.
+5. Export in `src/components/index.ts`.
+6. Add Storybook stories in `src/components/Component.stories.tsx` with decorators and argTypes.
+7. Build (`npm run build`), lint (`npm run lint:css`), and test in Storybook (`npm run storybook`).

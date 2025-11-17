@@ -1,0 +1,252 @@
+// ============================================
+// MIXINS
+// ============================================
+
+@use "sass:map";
+@use "variables.scss" as *;
+
+// Border radius mixins
+@mixin border-radius-variant($size) {
+  $map: (
+    none: 0,
+    sm: $border-radius-sm,
+    md: $border-radius-md,
+    lg: $border-radius-lg,
+    xl: $border-radius-xl
+  );
+  $value: map.get($map, $size);
+
+  &--border-radius-#{$size} {
+    border-radius: var(--border-radius-#{$size}, $value);
+  }
+}
+
+// Border width mixins
+@mixin border-width-variant($size) {
+  $map: (
+    none: 0,
+    thin: $border-width-thin,
+    medium: $border-width-medium,
+    thick: $border-width-thick
+  );
+  $value: map.get($map, $size);
+
+  &--border-width-#{$size} {
+    border-width: var(--border-width-#{$size}, $value);
+  }
+}
+
+// Shadow mixins
+$shadows: (
+  light: 0 2px 4px var(--pta-color-shadow, #{$pta-color-light-shadow}),
+  medium: 0 4px 8px var(--pta-color-shadow-medium, #{$pta-color-light-shadow-medium}),
+  heavy: 0 6px 12px var(--pta-color-shadow-heavy, #{$pta-color-light-shadow-heavy}),
+  none: none
+);
+
+@mixin shadow-variant($type) {
+  $value: map.get($shadows, $type);
+  &--#{$type} {
+    box-shadow: $value;
+  }
+} // Semantic state mixins
+$semantic-colors: (
+  success: $pta-color-light-success,
+  error: $pta-color-light-error,
+  warning: $pta-color-light-warning,
+  info: $pta-color-light-info
+);
+
+@mixin semantic-border-color-variant($state) {
+  $color: map.get($semantic-colors, $state);
+  &--state-#{$state} {
+    border-color: var(--pta-color-#{$state}, $color);
+  }
+}
+
+@mixin semantic-border-variant($state) {
+  $color: map.get($semantic-colors, $state);
+  &--state-#{$state} {
+    border: 2px solid var(--pta-color-#{$state}, $color);
+  }
+}
+
+// Grid mixins
+$directions: (
+  row: row,
+  column: column,
+  row-reverse: row-reverse,
+  column-reverse: column-reverse
+);
+
+@mixin direction-variant($direction) {
+  $value: map.get($directions, $direction);
+  &--direction-#{$direction} {
+    flex-direction: $value;
+  }
+}
+
+$justify-options: (
+  start: flex-start,
+  center: center,
+  end: flex-end,
+  between: space-between,
+  around: space-around,
+  evenly: space-evenly
+);
+
+@mixin justify-variant($justify) {
+  $value: map.get($justify-options, $justify);
+  &--justify-#{$justify} {
+    justify-content: $value;
+  }
+}
+
+$align-options: (
+  start: flex-start,
+  center: center,
+  end: flex-end,
+  stretch: stretch,
+  baseline: baseline
+);
+
+@mixin align-variant($align) {
+  $value: map.get($align-options, $align);
+  &--align-#{$align} {
+    align-items: $value;
+  }
+}
+
+@mixin gap-variant($size) {
+  $map: (
+    xs: $spacing-xs,
+    sm: $spacing-sm,
+    md: $spacing-md,
+    lg: $spacing-lg,
+    xl: $spacing-xl,
+    2xl: $spacing-2xl
+  );
+  $value: map.get($map, $size);
+  &--gap-#{$size} {
+    gap: var(--spacing-#{$size}, $value);
+  }
+}
+
+$grid-auto-flow-options: (
+  row: row,
+  column: column,
+  dense: dense,
+  row-dense: row dense,
+  column-dense: column dense
+);
+
+@mixin grid-auto-flow-variant($flow) {
+  $value: map.get($grid-auto-flow-options, $flow);
+  &--grid-auto-flow-#{$flow} {
+    grid-auto-flow: $value;
+  }
+}
+
+// Card size responsive mixins
+@mixin responsive-card-size($size) {
+  @if $size == sm {
+    padding: var(--spacing-md, #{$spacing-md});
+    max-width: 16rem;
+
+    @media (min-width: $breakpoint-tablet) {
+      padding: var(--spacing-lg, #{$spacing-lg});
+      max-width: 20rem;
+    }
+
+    @media (min-width: $breakpoint-desktop) {
+      padding: var(--spacing-xl, #{$spacing-xl});
+      max-width: 24rem;
+    }
+
+    @media (min-width: $breakpoint-large) {
+      max-width: 28rem;
+    }
+  } @else if $size == md {
+    padding: var(--spacing-lg, #{$spacing-lg});
+    max-width: 20rem;
+
+    @media (min-width: $breakpoint-tablet) {
+      padding: var(--spacing-xl, #{$spacing-xl});
+      max-width: 28rem;
+    }
+
+    @media (min-width: $breakpoint-desktop) {
+      padding: var(--spacing-2xl, #{$spacing-2xl});
+      max-width: 32rem;
+    }
+
+    @media (min-width: $breakpoint-large) {
+      max-width: 36rem;
+    }
+  } @else if $size == lg {
+    padding: var(--spacing-xl, #{$spacing-xl});
+    max-width: 24rem;
+
+    @media (min-width: $breakpoint-tablet) {
+      padding: var(--spacing-2xl, #{$spacing-2xl});
+      max-width: 32rem;
+    }
+
+    @media (min-width: $breakpoint-desktop) {
+      padding: var(--spacing-2xl, #{$spacing-2xl});
+      max-width: 36rem;
+    }
+
+    @media (min-width: $breakpoint-large) {
+      max-width: 40rem;
+    }
+  } @else if $size == xl {
+    padding: var(--spacing-2xl, #{$spacing-2xl});
+    max-width: 28rem;
+
+    @media (min-width: $breakpoint-tablet) {
+      max-width: 36rem;
+    }
+
+    @media (min-width: $breakpoint-desktop) {
+      max-width: 40rem;
+    }
+
+    @media (min-width: $breakpoint-large) {
+      max-width: 44rem;
+    }
+  }
+}
+
+// Button size responsive mixins
+@mixin responsive-button-size($size) {
+  @if $size == sm {
+    padding: var(--spacing-xs, #{$spacing-xs}) var(--spacing-sm, #{$spacing-sm});
+    font-size: var(--font-size-sm, #{$font-size-sm});
+
+    @media (min-width: $breakpoint-tablet) {
+      padding: var(--spacing-xs, #{$spacing-xs}) var(--spacing-lg, #{$spacing-lg});
+    }
+  } @else if $size == md {
+    padding: var(--spacing-sm, #{$spacing-sm}) var(--spacing-md, #{$spacing-md});
+    font-size: var(--font-size-base, #{$font-size-base});
+
+    @media (min-width: $breakpoint-tablet) {
+      padding: var(--spacing-sm, #{$spacing-sm}) var(--spacing-xl, #{$spacing-xl});
+    }
+  } @else if $size == lg {
+    padding: var(--spacing-md, #{$spacing-md}) var(--spacing-lg, #{$spacing-lg});
+    font-size: var(--font-size-lg, #{$font-size-lg});
+
+    @media (min-width: $breakpoint-tablet) {
+      padding: var(--spacing-md, #{$spacing-md}) var(--spacing-2xl, #{$spacing-2xl});
+    }
+  } @else if $size == xl {
+    padding: var(--spacing-lg, #{$spacing-lg}) var(--spacing-xl, #{$spacing-xl});
+    font-size: var(--font-size-xl, #{$font-size-xl});
+
+    @media (min-width: $breakpoint-tablet) {
+      padding: var(--spacing-lg, #{$spacing-lg}) var(--spacing-2xl, #{$spacing-2xl});
+    }
+  }
+}

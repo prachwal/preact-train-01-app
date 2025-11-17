@@ -1,4 +1,5 @@
-@use '../variables.scss' as *;
+@use "../variables.scss" as *;
+@use "../mixins.scss" as *;
 
 .pta-card {
   background-color: var(--pta-color-bg, #{$pta-color-light-bg});
@@ -11,15 +12,13 @@
   max-width: 20rem;
   text-align: center;
 
+  @include responsive-card-size(md);
+
   @media (min-width: $breakpoint-tablet) {
-    max-width: 28rem;
-    padding: var(--spacing-xl, #{$spacing-xl});
     border-radius: var(--border-radius-lg, #{$border-radius-lg});
   }
 
   @media (min-width: $breakpoint-desktop) {
-    max-width: 32rem;
-    padding: var(--spacing-2xl, #{$spacing-2xl});
     border-radius: var(--border-radius-xl, #{$border-radius-xl});
   }
 
@@ -29,77 +28,15 @@
 
   // Size variants
   &--sm {
-    padding: var(--spacing-md, #{$spacing-md});
-    max-width: 16rem;
-
-    @media (min-width: $breakpoint-tablet) {
-      max-width: 20rem;
-      padding: var(--spacing-lg, #{$spacing-lg});
-    }
-
-    @media (min-width: $breakpoint-desktop) {
-      max-width: 24rem;
-      padding: var(--spacing-xl, #{$spacing-xl});
-    }
-
-    @media (min-width: $breakpoint-large) {
-      max-width: 28rem;
-    }
-  }
-
-  &--md {
-    padding: var(--spacing-lg, #{$spacing-lg});
-    max-width: 20rem;
-
-    @media (min-width: $breakpoint-tablet) {
-      max-width: 28rem;
-      padding: var(--spacing-xl, #{$spacing-xl});
-    }
-
-    @media (min-width: $breakpoint-desktop) {
-      max-width: 32rem;
-      padding: var(--spacing-2xl, #{$spacing-2xl});
-    }
-
-    @media (min-width: $breakpoint-large) {
-      max-width: 36rem;
-    }
+    @include responsive-card-size(sm);
   }
 
   &--lg {
-    padding: var(--spacing-xl, #{$spacing-xl});
-    max-width: 24rem;
-
-    @media (min-width: $breakpoint-tablet) {
-      max-width: 32rem;
-      padding: var(--spacing-2xl, #{$spacing-2xl});
-    }
-
-    @media (min-width: $breakpoint-desktop) {
-      max-width: 36rem;
-      padding: var(--spacing-2xl, #{$spacing-2xl});
-    }
-
-    @media (min-width: $breakpoint-large) {
-      max-width: 40rem;
-    }
+    @include responsive-card-size(lg);
   }
 
   &--xl {
-    padding: var(--spacing-2xl, #{$spacing-2xl});
-    max-width: 28rem;
-
-    @media (min-width: $breakpoint-tablet) {
-      max-width: 36rem;
-    }
-
-    @media (min-width: $breakpoint-desktop) {
-      max-width: 40rem;
-    }
-
-    @media (min-width: $breakpoint-large) {
-      max-width: 44rem;
-    }
+    @include responsive-card-size(xl);
   }
 
   // Card variants
@@ -114,34 +51,29 @@
   }
 
   // Semantic states
-  &--state-success {
-    border-color: var(--pta-color-success, #{$pta-color-light-success});
-  }
-
-  &--state-error {
-    border-color: var(--pta-color-error, #{$pta-color-light-error});
-  }
-
-  &--state-warning {
-    border-color: var(--pta-color-warning, #{$pta-color-light-warning});
-  }
-
-  &--state-info {
-    border-color: var(--pta-color-info, #{$pta-color-light-info});
-  }
+  @include semantic-border-color-variant(success);
+  @include semantic-border-color-variant(error);
+  @include semantic-border-color-variant(warning);
+  @include semantic-border-color-variant(info);
 
   // Shadow variants
-  &--light {
-    box-shadow: 0 2px 4px var(--pta-color-shadow, #{$pta-color-light-shadow});
-  }
+  @include shadow-variant(light);
+  @include shadow-variant(medium);
+  @include shadow-variant(heavy);
+  @include shadow-variant(none);
 
-  &--medium {
-    box-shadow: 0 4px 8px var(--pta-color-shadow-medium, #{$pta-color-light-shadow-medium});
-  }
+  // Border radius variants
+  @include border-radius-variant(none);
+  @include border-radius-variant(sm);
+  @include border-radius-variant(md);
+  @include border-radius-variant(lg);
+  @include border-radius-variant(xl);
 
-  &--heavy {
-    box-shadow: 0 6px 12px var(--pta-color-shadow-heavy, #{$pta-color-light-shadow-heavy});
-  }
+  // Border width variants
+  @include border-width-variant(none);
+  @include border-width-variant(thin);
+  @include border-width-variant(medium);
+  @include border-width-variant(thick);
 
   // Card elements
   &__title {
