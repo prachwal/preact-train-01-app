@@ -7,7 +7,7 @@ import type {
   FontSize,
   BorderRadiusSize,
   Breakpoint,
-  ThemeButtonSize,
+  HeaderIconSize,
 } from './types';
 
 // Konfiguracja spacing (w rem)
@@ -18,6 +18,7 @@ export const SPACING_VALUES: Record<SpacingSize, string> = {
   lg: '0.75rem',
   xl: '1rem',
   '2xl': '1.5rem',
+  '3xl': '2rem',
 } as const;
 
 // Konfiguracja font sizes (w rem)
@@ -38,6 +39,7 @@ export const BORDER_RADIUS_VALUES: Record<BorderRadiusSize, string> = {
   md: '0.375rem',
   lg: '0.5rem',
   xl: '0.75rem',
+  '2xl': '1rem',
 } as const;
 
 // Konfiguracja breakpointów (w px)
@@ -56,8 +58,9 @@ export const BREAKPOINT_NUMBERS: Record<Breakpoint, number> = {
   large: 1440,
 } as const;
 
-// Konfiguracja rozmiarów przycisku motywu (w px)
-export const THEME_BUTTON_SIZE_VALUES: Record<ThemeButtonSize, string> = {
-  tablet: '36px',
-  desktop: '44px',
+// Konfiguracja rozmiarów ikon w nagłówku (w px)
+export const HEADER_ICON_SIZE_VALUES: Record<HeaderIconSize, string> = {
+  mobile: '32px',
+  tablet: '34px',
+  desktop: '36px',
 } as const;

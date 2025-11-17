@@ -32,6 +32,7 @@
 
   // Mobile First - Full width on mobile
   width: 100%;
+
   @include responsive-button-size(md);
 
   // Tablet up - Auto width
@@ -192,7 +193,7 @@
   // ============================================
 
   // Mobile landscape
-  @media (max-height: 600px) and (orientation: landscape) {
+  @media (height <= 600px) and (orientation: landscape) {
     padding: $spacing-xs $spacing-sm;
     font-size: $font-size-xs;
   }
@@ -218,7 +219,7 @@
 
   // High contrast mode
   @media (prefers-contrast: high) {
-    border: 2px solid currentColor;
+    border: 2px solid currentcolor;
   }
 
   // ============================================

@@ -1,0 +1,304 @@
+// Switch Component Styles
+// iOS-style toggle switch with smooth animations
+
+@use "../variables.scss" as *;
+@use "../mixins.scss" as *;
+
+.pta-switch {
+  // Reset & Base
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  user-select: none;
+
+  &__input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+  }
+
+  &__slider {
+    position: relative;
+    --pta-switch-padding-x: 4px;
+    --pta-switch-thumb-size: 24px;
+    --pta-switch-slider-width: 60px;
+    width: 60px;
+    height: 32px;
+    background-color: var(--pta-color-text-tertiary);
+    border-radius: 32px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 0 var(--pta-switch-padding-x);
+    outline: none;
+
+    &:focus-visible {
+      box-shadow: 0 0 0 3px rgb(var(--pta-color-primary-rgb), 0.3);
+    }
+  }
+
+  &__thumb {
+    position: absolute;
+    top: calc((100% - var(--pta-switch-thumb-size)) / 2);
+    left: var(--pta-switch-padding-x);
+    width: var(--pta-switch-thumb-size);
+    height: var(--pta-switch-thumb-size);
+    background-color: var(--pta-color-bg);
+    border-radius: 50%;
+  }
+
+  &__label {
+    position: absolute;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+
+    &--on {
+      left: 8px;
+      color: var(--pta-color-bg);
+      opacity: 0;
+    }
+
+    &--off {
+      right: 6px;
+      color: var(--pta-color-bg);
+      opacity: 1;
+    }
+  }
+
+  &__text {
+    color: var(--pta-color-text-primary);
+    font-size: 0.875rem;
+  }
+
+  // ============================================
+  // SIZE VARIANTS
+  // ============================================
+
+  &--sm {
+    .pta-switch__slider {
+      --pta-switch-thumb-size: 20px;
+      --pta-switch-padding-x: 3px;
+      --pta-switch-slider-width: 48px;
+      width: 48px;
+      height: 26px;
+    }
+
+    /* thumb size is controlled by the slider variables */
+
+    .pta-switch__label {
+      font-size: 9px;
+
+      &--on {
+        left: 6px;
+      }
+
+      &--off {
+        right: 4px;
+      }
+    }
+
+    /* checked translation will be calculated globally */
+  }
+
+  /* default md size: no overrides */
+
+  &--lg {
+    .pta-switch__slider {
+      --pta-switch-thumb-size: 30px;
+      --pta-switch-padding-x: 6px;
+      --pta-switch-slider-width: 72px;
+      width: 72px;
+      height: 38px;
+    }
+
+    .pta-switch__label {
+      font-size: 11px;
+
+      &--on {
+        left: 10px;
+      }
+
+      &--off {
+        right: 8px;
+      }
+    }
+
+    /* checked translation will be calculated globally */
+  }
+
+  &--xl {
+    .pta-switch__slider {
+      --pta-switch-thumb-size: 36px;
+      --pta-switch-padding-x: 6px;
+      --pta-switch-slider-width: 84px;
+      width: 84px;
+      height: 44px;
+    }
+
+    .pta-switch__label {
+      font-size: 12px;
+
+      &--on {
+        left: 12px;
+      }
+
+      &--off {
+        right: 10px;
+      }
+    }
+
+    /* checked translation will be calculated globally */
+  }
+
+  // ============================================
+  // SEMANTIC STATES (border styling)
+  // ============================================
+
+  @include semantic-border-variant(success);
+  @include semantic-border-variant(error);
+  @include semantic-border-variant(warning);
+  @include semantic-border-variant(info);
+
+  // ============================================
+  // SHADOW VARIANTS
+  // ============================================
+
+  @include shadow-variant(light);
+  @include shadow-variant(medium);
+  @include shadow-variant(heavy);
+  @include shadow-variant(none);
+
+  // ============================================
+  // BORDER RADIUS VARIANTS
+  // ============================================
+
+  @include border-radius-variant(none);
+  @include border-radius-variant(sm);
+  @include border-radius-variant(md);
+  @include border-radius-variant(lg);
+  @include border-radius-variant(xl);
+
+  // Add 2xl variant specifically for switches
+  &--border-radius-2xl {
+    .pta-switch__slider {
+      border-radius: $border-radius-2xl;
+    }
+
+    .pta-switch__thumb {
+      border-radius: calc(#{$border-radius-2xl} / 2);
+    }
+  }
+
+  // ============================================
+  // BORDER WIDTH VARIANTS
+  // ============================================
+
+  @include border-width-variant(none);
+  @include border-width-variant(thin);
+  @include border-width-variant(medium);
+  @include border-width-variant(thick);
+
+  // ============================================
+  // CHECKED STATE
+  // ============================================
+
+  &--checked {
+    .pta-switch__slider {
+      background-color: var(--pta-color-success);
+    }
+
+    /* Move thumb to the far end but keep it centered using calc() */
+    .pta-switch__thumb {
+      transform: translateX(
+        calc(var(--pta-switch-slider-width) - var(--pta-switch-thumb-size) - (var(--pta-switch-padding-x) * 2))
+      );
+    }
+
+    .pta-switch__label--on {
+      opacity: 1;
+    }
+
+    .pta-switch__label--off {
+      opacity: 0;
+    }
+  }
+
+  // ============================================
+  // DISABLED STATE
+  // ============================================
+
+  &--disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+
+    .pta-switch__slider {
+      cursor: not-allowed;
+    }
+
+    .pta-switch__thumb {
+      background-color: var(--pta-color-text-disabled);
+    }
+  }
+
+  // ============================================
+  // HOVER EFFECT
+  // ============================================
+
+  &:not(&--disabled):hover {
+    .pta-switch__slider {
+      opacity: 0.9;
+    }
+  }
+
+  // ============================================
+  // RESPONSIVE ADJUSTMENTS
+  // ============================================
+
+  // Touch devices - larger tap targets
+  @media (hover: none) and (pointer: coarse) {
+    .pta-switch__slider {
+      min-height: 44px;
+    }
+  }
+
+  // Reduced motion
+  @media (prefers-reduced-motion: reduce) {
+    .pta-switch__slider,
+    .pta-switch__thumb,
+    .pta-switch__label {
+      transition: none;
+    }
+  }
+}
+
+// ============================================
+// VARIANT COLORS (override default checked color)
+// ============================================
+
+.pta-switch--primary.pta-switch--checked .pta-switch__slider {
+  background-color: var(--pta-color-accent);
+}
+
+.pta-switch--secondary.pta-switch--checked .pta-switch__slider {
+  background-color: var(--pta-color-text-secondary);
+}
+
+.pta-switch--success.pta-switch--checked .pta-switch__slider {
+  background-color: var(--pta-color-success);
+}
+
+.pta-switch--danger.pta-switch--checked .pta-switch__slider {
+  background-color: var(--pta-color-error);
+}
+
+.pta-switch--disabled.pta-switch--checked .pta-switch__slider {
+  background-color: var(--pta-color-text-disabled);
+}

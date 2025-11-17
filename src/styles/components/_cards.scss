@@ -9,9 +9,9 @@
   // Reset & Base
   background-color: var(--pta-color-surface, #{$pta-color-light-surface});
   color: var(--pta-color-text, #{$pta-color-light-text});
-  border: 1px solid rgba(var(--pta-color-border-rgb, 0, 0, 0), 0.08);
+  border: 1px solid rgb(var(--pta-color-border-rgb, 0, 0, 0), 0.08);
   border-radius: $border-radius-sm;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.04);
 
   // Flexible sizing - Mobile First
   @include responsive-card-size(md);
@@ -56,25 +56,25 @@
   // ============================================
 
   &--elevated {
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 3px rgb(0 0 0 / 0.05);
 
     &:hover {
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 2px 6px rgb(0 0 0 / 0.08);
       transform: translateY(-1px);
     }
 
     @include respond-above(lg) {
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 1px 4px rgb(0 0 0 / 0.06);
     }
   }
 
   &--outlined {
     background-color: transparent;
-    border: 1px solid rgba(var(--pta-color-border-rgb, 0, 0, 0), 0.12);
+    border: 1px solid rgb(var(--pta-color-border-rgb, 0, 0, 0), 0.12);
     box-shadow: none;
 
     &:hover {
-      border-color: rgba(var(--pta-color-border-rgb, 0, 0, 0), 0.2);
+      border-color: rgb(var(--pta-color-border-rgb, 0, 0, 0), 0.2);
     }
   }
 
@@ -120,7 +120,7 @@
   // ============================================
 
   &__title {
-    margin: 0 0 $spacing-md 0;
+    margin: 0 0 $spacing-md;
     font-size: $font-size-lg;
     font-weight: 600;
     line-height: 1.3;
@@ -249,7 +249,7 @@
   // ============================================
 
   // Mobile landscape
-  @media (max-height: 600px) and (orientation: landscape) {
+  @media (height <= 600px) and (orientation: landscape) {
     padding: $spacing-sm;
 
     &__title {
@@ -275,7 +275,7 @@
 
   // High contrast mode
   @media (prefers-contrast: high) {
-    border: 2px solid currentColor;
+    border: 2px solid currentcolor;
 
     &__header,
     &__footer {
@@ -286,7 +286,7 @@
   // Print optimization
   @media print {
     box-shadow: none !important;
-    border: 1px solid #000;
-    page-break-inside: avoid;
+    border: 1px solid #000000;
+    break-inside: avoid;
   }
 }

@@ -1,15 +1,5 @@
-import { h } from 'preact';
 import { buildClassName } from '../types';
-import './Switch.scss';
-
-export interface SwitchProps {
-  checked: boolean;
-  onChange: (checked: boolean) => void;
-  disabled?: boolean;
-  label?: string;
-  ariaLabel?: string;
-  className?: string;
-}
+import type { SwitchProps } from '../types/component-props';
 
 export function Switch({
   checked,
@@ -18,13 +8,28 @@ export function Switch({
   label,
   ariaLabel,
   className,
+  size = 'md',
+  theme,
+  variant,
+  semanticState,
+  shadow,
+  borderRadius,
+  borderWidth,
 }: SwitchProps) {
   console.log('🔄 Switch render:', { checked, disabled, label, ariaLabel });
 
-  const baseClassName = buildClassName('pta-switch', {
+  const modifiers: Record<string, boolean | string | undefined> = {
+    [size]: true,
     checked,
     disabled,
-  });
+  };
+  if (variant) modifiers[variant] = true;
+  if (semanticState) modifiers[`state-${semanticState}`] = true;
+  if (shadow) modifiers[shadow] = true;
+  if (borderRadius) modifiers[`border-radius-${borderRadius}`] = true;
+  if (borderWidth) modifiers[`border-width-${borderWidth}`] = true;
+
+  const baseClassName = buildClassName('pta-switch', modifiers);
 
   const handleClick = (e: MouseEvent) => {
     console.log('🖱️ Switch handleClick called, disabled:', disabled);
@@ -50,6 +55,7 @@ export function Switch({
   return (
     <label
       className={className ? `${baseClassName} ${className}` : baseClassName}
+      data-theme={theme}
     >
       <input
         type="checkbox"

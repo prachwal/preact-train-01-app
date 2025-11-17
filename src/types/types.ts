@@ -3,13 +3,13 @@
 // ============================================
 
 // Rozmiary spacing
-export type SpacingSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
+export type SpacingSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl';
 
 // Rozmiary font
 export type FontSize = 'xs' | 'sm' | 'base' | 'lg' | 'xl' | '2xl' | '3xl';
 
 // Rozmiary border-radius
-export type BorderRadiusSize = 'none' | 'sm' | 'md' | 'lg' | 'xl';
+export type BorderRadiusSize = 'none' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 
 // Rozmiary border-width
 export type BorderWidthSize = 'none' | 'thin' | 'medium' | 'thick';
@@ -40,8 +40,8 @@ export type SemanticState = 'success' | 'error' | 'warning' | 'info';
 // Warianty cieni
 export type ShadowVariant = 'none' | 'light' | 'medium' | 'heavy';
 
-// Rozmiary przycisku motywu
-export type ThemeButtonSize = 'tablet' | 'desktop';
+// Rozmiary ikon w nagłówku
+export type HeaderIconSize = 'mobile' | 'tablet' | 'desktop';
 
 // Warianty typografii
 export type TypographyVariant =

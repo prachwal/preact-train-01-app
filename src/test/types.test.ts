@@ -443,6 +443,7 @@ describe('Types', () => {
           lg: '0.75rem',
           xl: '1rem',
           '2xl': '1.5rem',
+          '3xl': '2rem',
         });
       });
     });
@@ -469,6 +470,7 @@ describe('Types', () => {
           md: '0.375rem',
           lg: '0.5rem',
           xl: '0.75rem',
+          '2xl': '1rem',
         });
       });
     });

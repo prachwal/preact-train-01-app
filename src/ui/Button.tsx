@@ -1,5 +1,6 @@
 import type { ButtonProps } from '../types';
 import { buildClassName } from '../types';
+import type { JSX } from 'preact';
 
 export const Button = ({
   size = 'md',
@@ -13,6 +14,7 @@ export const Button = ({
   onClick,
   children,
   className: additionalClassName,
+  type = 'button',
   ...props
 }: ButtonProps) => {
   const modifiers: Record<string, boolean | string | undefined> = {
@@ -30,12 +32,21 @@ export const Button = ({
     ? `${baseClassName} ${additionalClassName}`
     : baseClassName;
 
+  const handleClick = (e: JSX.TargetedMouseEvent<HTMLButtonElement>) => {
+    if (disabled) {
+      e.preventDefault();
+      return;
+    }
+    onClick?.(e);
+  };
+
   return (
     <button
+      type={type}
       className={finalClassName}
       data-theme={theme}
       disabled={disabled}
-      onClick={onClick}
+      onClick={disabled ? undefined : handleClick}
       {...props}
     >
       {children}

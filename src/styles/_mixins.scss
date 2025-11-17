@@ -107,6 +107,7 @@
   @if type-of($number) == "number" and not unitless($number) {
     @return $number / ($number * 0 + 1);
   }
+
   @return $number;
 }
 
@@ -453,4 +454,63 @@ $grid-auto-flow-options: (
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+// ============================================
+// SHADOW & BORDER MIXINS - DRY with Maps
+// ============================================
+
+// Shadow variants map
+$shadow-values: (
+  none: none,
+  light: $shadow-light,
+  medium: $shadow-medium,
+  heavy: $shadow-heavy
+);
+
+@mixin shadow-variant($shadow) {
+  $value: map.get($shadow-values, $shadow);
+  &--#{$shadow} {
+    box-shadow: $value;
+  }
+}
+
+// Border radius variants map
+$border-radius-map: (
+  none: 0,
+  sm: $border-radius-sm,
+  md: $border-radius-md,
+  lg: $border-radius-lg,
+  xl: $border-radius-xl,
+  2xl: $border-radius-2xl
+);
+
+@mixin border-radius-variant($size) {
+  $value: map.get($border-radius-map, $size);
+  &--border-radius-#{$size} {
+    border-radius: $value;
+  }
+}
+
+// Border width variants map
+$border-width-map: (
+  none: 0,
+  thin: $border-width-thin,
+  medium: $border-width-medium,
+  thick: $border-width-thick
+);
+
+@mixin border-width-variant($size) {
+  $value: map.get($border-width-map, $size);
+  &--border-width-#{$size} {
+    border-width: $value;
+  }
+}
+
+// Semantic background variant
+@mixin semantic-bg-variant($state) {
+  $color: map.get($semantic-colors, $state);
+  &--state-#{$state} {
+    background-color: var(--pta-color-#{$state}, $color);
+  }
 }

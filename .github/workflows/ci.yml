@@ -1,0 +1,269 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  # Job 1: Linting and Type Checking
+  lint-and-typecheck:
+    name: Lint and Type Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: TypeScript type check
+        run: npm run type-check
+
+      - name: CSS linting
+        run: npm run lint:css
+        continue-on-error: true # Don't fail build on CSS lint warnings
+
+  # Job 2: Unit Tests with Coverage
+  unit-tests:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run unit tests with coverage
+        run: npm run test:run -- --coverage
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          file: ./coverage/coverage-final.json
+          flags: unittests
+          name: unit-tests-coverage
+        continue-on-error: true
+
+      - name: Upload coverage artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: coverage/
+          retention-days: 7
+
+  # Job 3: E2E Tests
+  e2e-tests:
+    name: E2E Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Run E2E tests
+        run: npm run test:e2e
+
+      - name: Upload test results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7
+
+      - name: Upload test screenshots
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: playwright-screenshots
+          path: test-results/
+          retention-days: 7
+
+  # Job 4: Build
+  build:
+    name: Build Application
+    runs-on: ubuntu-latest
+    needs: [lint-and-typecheck, unit-tests]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build application
+        run: npm run build
+
+      - name: Check build size
+        run: |
+          echo "Build completed successfully!"
+          ls -lh dist/assets/
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifacts
+          path: dist/
+          retention-days: 7
+
+  # Job 5: Bundle Size Check
+  bundle-size:
+    name: Bundle Size Analysis
+    runs-on: ubuntu-latest
+    needs: [build]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build and analyze bundle
+        run: npm run build
+
+      - name: Check bundle size limits
+        run: |
+          echo "Checking bundle sizes..."
+          CSS_SIZE=$(stat -c%s dist/assets/*.css | awk '{sum+=$1} END {print sum}')
+          JS_SIZE=$(stat -c%s dist/assets/*.js | awk '{sum+=$1} END {print sum}')
+
+          echo "CSS Size: $((CSS_SIZE / 1024)) KB"
+          echo "JS Size: $((JS_SIZE / 1024)) KB"
+
+          # Fail if CSS > 50KB or JS > 100KB (gzipped sizes are smaller)
+          if [ $CSS_SIZE -gt 51200 ]; then
+            echo "❌ CSS bundle too large!"
+            exit 1
+          fi
+
+          if [ $JS_SIZE -gt 102400 ]; then
+            echo "❌ JS bundle too large!"
+            exit 1
+          fi
+
+          echo "✅ Bundle sizes are within limits"
+
+  # Job 6: Security Audit
+  security:
+    name: Security Audit
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Run npm audit
+        run: npm audit --audit-level=moderate
+        continue-on-error: true
+
+      - name: Run dependency check
+        run: npx depcheck
+        continue-on-error: true
+
+  # Job 7: Storybook Build (optional)
+  storybook:
+    name: Build Storybook
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Storybook
+        run: npm run build-storybook
+        continue-on-error: true
+
+      - name: Upload Storybook artifacts
+        uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: storybook-static
+          path: storybook-static/
+          retention-days: 7
+
+  # Summary Job
+  test-summary:
+    name: Test Summary
+    runs-on: ubuntu-latest
+    needs: [lint-and-typecheck, unit-tests, e2e-tests, build]
+    if: always()
+
+    steps:
+      - name: Check job status
+        run: |
+          echo "Pipeline Status Summary:"
+          echo "========================"
+          echo "Lint & Type Check: ${{ needs.lint-and-typecheck.result }}"
+          echo "Unit Tests: ${{ needs.unit-tests.result }}"
+          echo "E2E Tests: ${{ needs.e2e-tests.result }}"
+          echo "Build: ${{ needs.build.result }}"
+
+          if [ "${{ needs.lint-and-typecheck.result }}" != "success" ] || \
+             [ "${{ needs.unit-tests.result }}" != "success" ] || \
+             [ "${{ needs.e2e-tests.result }}" != "success" ] || \
+             [ "${{ needs.build.result }}" != "success" ]; then
+            echo "❌ Pipeline failed!"
+            exit 1
+          fi
+
+          echo "✅ All checks passed!"

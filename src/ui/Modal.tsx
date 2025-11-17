@@ -1,17 +1,7 @@
-import { h, type ComponentChildren } from 'preact';
 import { useEffect, useRef } from 'preact/hooks';
 import { createPortal } from 'preact/compat';
 import { Button, Typography } from './';
-import './Modal.scss';
-
-export interface ModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  title?: string;
-  children: ComponentChildren;
-  size?: 'sm' | 'md' | 'lg';
-  className?: string;
-}
+import type { ModalProps } from '../types/component-props';
 
 export function Modal({
   isOpen,
@@ -42,12 +32,12 @@ export function Modal({
     document.addEventListener('mousedown', handleClickOutside);
     document.body.style.overflow = 'hidden';
 
-    // Focus trap
-    const focusableElements = modalRef.current?.querySelectorAll(
-      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-    );
-    if (focusableElements && focusableElements.length > 0) {
-      (focusableElements[0] as HTMLElement)?.focus();
+    // Focus trap - focus the close button
+    const closeButton = modalRef.current?.querySelector(
+      '.pta-modal__close'
+    ) as HTMLElement;
+    if (closeButton) {
+      closeButton.focus();
     }
 
     return () => {
@@ -87,5 +77,8 @@ export function Modal({
     </div>
   );
 
-  return createPortal(modalContent, document.body);
+  return createPortal(
+    modalContent,
+    document.getElementById('modal-root') || document.body
+  );
 }

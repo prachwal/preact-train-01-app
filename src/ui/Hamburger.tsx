@@ -1,12 +1,5 @@
-import { h } from 'preact';
 import { buildClassName } from '../types';
-
-export interface HamburgerProps {
-  isOpen?: boolean;
-  onClick?: () => void;
-  className?: string;
-  ariaLabel?: string;
-}
+import type { HamburgerProps } from '../types/component-props';
 
 export const Hamburger = ({
   isOpen = false,

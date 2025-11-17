@@ -1,6 +1,5 @@
 // src/components/Typography.tsx
 import { h } from 'preact';
-import type { ComponentChildren } from 'preact';
 import { buildClassName } from '../types';
 import type { TypographyProps } from '../types';
 

@@ -1,9 +1,4 @@
-import { h } from 'preact';
-
-export interface ThemeIconProps {
-  theme: 'light' | 'dark' | 'auto';
-  className?: string;
-}
+import type { ThemeIconProps } from '../types/component-props';
 
 export function ThemeIcon({ theme, className }: ThemeIconProps) {
   if (theme === 'light') {

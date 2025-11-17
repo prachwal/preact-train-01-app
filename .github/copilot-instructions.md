@@ -21,28 +21,36 @@ This repository is a Preact + Vite TypeScript single-page app with a comprehensi
 - `src/ui/Card.tsx` — Card component with variants, shadows, borders, title support
 - `src/ui/Grid.tsx` — Layout Grid component with responsive support
 - `src/ui/Typography.tsx` — Text Typography component with variants, colors, alignment
-- `src/ui/Switch.tsx` — accessible toggle switch component with ARIA support
+- `src/ui/Switch.tsx` — accessible toggle switch component with ARIA support, variant colors
 - `src/ui/Modal.tsx` — modal dialog component for overlays
+- `src/ui/Hamburger.tsx` — hamburger menu icon with animation
+- `src/ui/ThemeIcon.tsx` — theme switcher icon (light/dark/auto)
 - `src/pages/Home.tsx` — dashboard page with metrics, quick actions, and recent activity
 - `src/pages/Settings.tsx` — user settings and preferences page with theme switching
 - `src/components/CardDemo.tsx` — Demo component for Button variants
 - `src/application/` — application-specific components and business logic
-- `src/types/index.ts` — **canonical source** for design tokens, types, and `buildClassName` utility
+- `src/types/index.ts` — **central export point** for all types, constants, and utilities
+- `src/types/types.ts` — **core type definitions** (ComponentSize, Theme, variants, etc.)
+- `src/types/constants.ts` — **design token constants** (SPACING_VALUES, SHADOW_VALUES, etc.)
+- `src/types/component-props.ts` — **ALL component prop interfaces** (ButtonProps, CardProps, SwitchProps, ModalProps, HamburgerProps, ThemeIconProps, etc.)
+- `src/types/utils.ts` — **buildClassName** utility for BEM class generation
 - `src/styles/index.scss` — global SCSS entry with `@use` imports
-- `src/styles/_variables.scss` — SCSS variables (must sync with `src/types/index.ts`)
+- `src/styles/_variables.scss` — SCSS variables (must sync with `src/types/constants.ts`)
 - `src/styles/_themes.scss` — CSS custom properties applied via `data-theme` attributes
 - `src/styles/_base.scss` — global reset, CSS variables, base component styles
+- `src/styles/_mixins.scss` — reusable mixins with maps and loops (DRY code)
 - `src/styles/components/_buttons.scss` — Button styles with mixins
 - `src/styles/components/_cards.scss` — Card styles with mixins
 - `src/styles/components/_grids.scss` — Grid styles
 - `src/styles/components/_typography.scss` — Typography styles with maps
-- `src/styles/components/_switches.scss` — Switch component styles
+- `src/styles/components/_switches.scss` — Switch component styles with variant colors
 - `src/styles/components/_modals.scss` — Modal component styles
 - `src/test/` — unit tests for components and utilities (Vitest)
 - `vitest.config.ts` — unit testing config (jsdom, excludes e2e)
 - `playwright.config.ts` — e2e testing config with Vite dev server integration
 - `e2e/` — Playwright tests for cross-browser validation
 - `storybook-static/` — built Storybook for component documentation
+- `.github/scss-architecture.md` — **SCSS architecture documentation** (structure, patterns, best practices)
 
 **Big-picture architecture & data flows**
 
@@ -93,13 +101,31 @@ buildClassName('pta-button', {
 - **Test separation**: Vitest excludes e2e/; Playwright uses Vite dev server
 
 **Critical sync requirements (do not break)**
+
 When changing design tokens:
 
-1. Update TypeScript constants in `src/types/index.ts` first (include 'none' for BorderRadiusSize, BorderWidthSize, ShadowVariant)
+1. Update TypeScript constants in `src/types/constants.ts` first (include 'none' for BorderRadiusSize, BorderWidthSize, ShadowVariant)
 2. Sync SCSS variables in `src/styles/_variables.scss`
 3. Add CSS custom properties in `src/styles/_base.scss`
-4. Update mixins in `src/styles/_mixins.scss` if needed
+4. Update mixins in `src/styles/_mixins.scss` if needed (prefer maps and loops for DRY code)
 5. Run `npm run dev` and verify no regressions
+
+**Component Props Management (CRITICAL)**
+
+- **ALL component prop interfaces MUST be defined in `src/types/component-props.ts`**
+- **DO NOT define props inline in component files** (e.g., `export interface ComponentProps` in `.tsx` files)
+- Components import props from `src/types/component-props`: `import type { ComponentProps } from '../types/component-props'`
+- Centralized props ensure consistency, type safety, and easier refactoring
+- Existing components: Button, Card, Grid, Typography (already centralized), Switch, Modal, Hamburger, ThemeIcon (newly centralized)
+
+**SCSS Best Practices (DRY Code)**
+
+- **Use maps and loops** instead of repetitive variant rules
+- **Centralize mixins** in `src/styles/_mixins.scss` for reusable patterns
+- **Follow mobile-first** responsive strategy with `respond-above()` mixin
+- **Avoid hardcoded values** - use SCSS variables from `_variables.scss`
+- **Document complex mixins** with comments explaining purpose and usage
+- See `.github/scss-architecture.md` for comprehensive SCSS documentation
 
 **Testing patterns**
 
@@ -117,12 +143,14 @@ When changing design tokens:
 **Component Creation Process**
 
 1. Create TSX component in `src/ui/` with typed props, `buildClassName`, and dynamic JSX via `h()`.
-2. Add types/interfaces in `src/types/` (update `types.ts`, `component-props.ts`).
-3. Add SCSS styles in `src/styles/components/_component.scss` using mixins/maps for DRY.
-4. Update `src/styles/components/index.scss` with `@forward`.
-5. Export in `src/ui/index.ts`.
-6. Add Storybook stories in `src/ui/Component.stories.tsx` with decorators and argTypes.
-7. Build (`npm run build`), lint (`npm run lint:css`), and test in Storybook (`npm run storybook`).
+2. **Define Props interface in `src/types/component-props.ts`** - centralized location for ALL component prop types.
+3. Import Props type from `src/types/component-props` in component file.
+4. Add SCSS styles in `src/styles/components/_component.scss` using mixins/maps for DRY.
+5. Update `src/styles/components/index.scss` with `@forward`.
+6. Export component in `src/ui/index.ts`.
+7. Add Storybook stories in `src/ui/Component.stories.tsx` with decorators and argTypes.
+8. Create unit tests in `src/test/Component.test.tsx` with comprehensive coverage.
+9. Build (`npm run build`), lint (`npm run lint:css`), and test (`npm run test:run`, `npm run storybook`).
 
 **Page Creation Process**
 

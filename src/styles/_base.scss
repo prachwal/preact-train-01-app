@@ -74,7 +74,7 @@ html {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
+  text-rendering: optimizelegibility;
   transition:
     background-color 0.2s ease,
     color 0.2s ease;
@@ -198,7 +198,7 @@ button {
 
 // Container utilities
 .container {
-  @include container();
+  @include container;
 }
 
 .container-sm {
@@ -270,7 +270,7 @@ button {
   *::before,
   *::after {
     background: transparent !important;
-    color: #000 !important;
+    color: #000000 !important;
     box-shadow: none !important;
     text-shadow: none !important;
   }
@@ -281,7 +281,7 @@ button {
   }
 
   img {
-    page-break-inside: avoid;
+    break-inside: avoid;
   }
 
   h2,
@@ -293,6 +293,6 @@ button {
 
   h2,
   h3 {
-    page-break-after: avoid;
+    break-after: avoid;
   }
 }

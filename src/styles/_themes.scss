@@ -98,7 +98,7 @@
 
   // App-level color variables
   --color-surface: #{$pta-color-dark-surface};
-  --color-border: rgba(255, 255, 255, 0.1);
+  --color-border: rgb(255 255 255 / 0.1);
 
   // Text
   --pta-color-text: #{$pta-color-dark-text};
@@ -109,11 +109,11 @@
   --pta-color-text-inverted: #{$pta-color-dark-text-inverted};
 
   // Border
-  --pta-color-border: rgba(255, 255, 255, 0.1);
-  --pta-color-border-light: rgba(255, 255, 255, 0.06);
-  --pta-color-border-medium: rgba(255, 255, 255, 0.14);
-  --pta-color-border-hover: rgba(255, 255, 255, 0.18);
-  --pta-color-border-focus: rgba(255, 255, 255, 0.24);
+  --pta-color-border: rgb(255 255 255 / 0.1);
+  --pta-color-border-light: rgb(255 255 255 / 0.06);
+  --pta-color-border-medium: rgb(255 255 255 / 0.14);
+  --pta-color-border-hover: rgb(255 255 255 / 0.18);
+  --pta-color-border-focus: rgb(255 255 255 / 0.24);
 
   // Accent
   --pta-color-accent: #{$pta-color-dark-accent};

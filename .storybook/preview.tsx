@@ -30,7 +30,14 @@ const preview: Preview = {
   },
   decorators: [
     (Story, context) => (
-      <div id="app">
+      <div
+        id="app"
+        style={{
+          minHeight: 'auto',
+          backgroundColor: 'var(--pta-color-bg)',
+          padding: '20px',
+        }}
+      >
         <ThemeProvider initialTheme={context.globals.theme}>
           {Story()}
         </ThemeProvider>

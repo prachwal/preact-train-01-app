@@ -4,6 +4,8 @@
 
 import type { ComponentChildren } from 'preact';
 import type { CSSProperties } from 'preact/compat';
+import type { JSX } from 'preact';
+
 import type {
   ComponentSize,
   Theme,
@@ -58,8 +60,9 @@ export interface ButtonProps extends BaseComponentProps {
   borderRadius?: BorderRadiusSize;
   borderWidth?: BorderWidthSize;
   disabled?: boolean;
-  onClick?: () => void;
+  onClick?: (e: JSX.TargetedMouseEvent<HTMLButtonElement>) => void;
   children: ComponentChildren;
+  type?: 'button' | 'submit' | 'reset';
 }
 
 export interface CardProps extends BaseComponentProps {
@@ -85,6 +88,39 @@ export interface TypographyProps extends BaseComponentProps {
   noWrap?: boolean;
   style?: CSSProperties;
   children?: ComponentChildren;
+}
+
+export interface SwitchProps extends BaseComponentProps {
+  checked: boolean;
+  onChange: (checked: boolean) => void;
+  disabled?: boolean;
+  label?: string;
+  ariaLabel?: string;
+  size?: ComponentSize;
+  theme?: Theme;
+  variant?: 'primary' | 'secondary' | 'success' | 'danger' | 'disabled';
+  semanticState?: SemanticState;
+  shadow?: ShadowVariant;
+  borderRadius?: BorderRadiusSize;
+  borderWidth?: BorderWidthSize;
+}
+
+export interface ModalProps extends BaseComponentProps {
+  isOpen: boolean;
+  onClose: () => void;
+  title?: string;
+  children: ComponentChildren;
+  size?: 'sm' | 'md' | 'lg';
+}
+
+export interface HamburgerProps extends BaseComponentProps {
+  isOpen?: boolean;
+  onClick?: () => void;
+  ariaLabel?: string;
+}
+
+export interface ThemeIconProps extends BaseComponentProps {
+  theme: Theme;
 }
 
 // Validation functions for component props
