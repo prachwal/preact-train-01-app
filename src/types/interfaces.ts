@@ -84,3 +84,68 @@ export interface ThemeColors {
   focus: string;
   focusRing: string;
 }
+
+// Validation function for ThemeColors interface
+export const isValidThemeColors = (colors: any): colors is ThemeColors => {
+  const requiredKeys: (keyof ThemeColors)[] = [
+    'bg',
+    'bgSecondary',
+    'surface',
+    'surfaceHover',
+    'text',
+    'textSecondary',
+    'textTertiary',
+    'textDisabled',
+    'textMuted',
+    'textInverted',
+    'border',
+    'borderLight',
+    'borderMedium',
+    'borderHover',
+    'borderFocus',
+    'accent',
+    'accentHover',
+    'accentActive',
+    'accentLight',
+    'success',
+    'successHover',
+    'successLight',
+    'error',
+    'errorHover',
+    'errorLight',
+    'warning',
+    'warningHover',
+    'warningLight',
+    'info',
+    'infoHover',
+    'infoLight',
+    'buttonPrimaryBg',
+    'buttonPrimaryText',
+    'buttonPrimaryHover',
+    'buttonSecondaryBg',
+    'buttonSecondaryText',
+    'buttonSecondaryHover',
+    'buttonSuccessBg',
+    'buttonSuccessText',
+    'buttonSuccessHover',
+    'buttonDangerBg',
+    'buttonDangerText',
+    'buttonDangerHover',
+    'buttonDisabledBg',
+    'buttonDisabledText',
+    'link',
+    'linkHover',
+    'linkVisited',
+    'linkActive',
+    'shadow',
+    'shadowMedium',
+    'shadowHeavy',
+    'overlay',
+    'focus',
+    'focusRing',
+  ];
+
+  return requiredKeys.every(
+    key => typeof colors[key] === 'string' && colors[key].length > 0
+  );
+};

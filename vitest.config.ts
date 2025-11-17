@@ -9,5 +9,21 @@ export default defineConfig({
     setupFiles: ['./src/test/setup.ts'],
     exclude: ['e2e/**', 'node_modules/**'],
     include: ['src/**/*.test.ts'],
+    coverage: {
+      provider: 'v8',
+      reporter: ['text', 'json', 'html'],
+      exclude: [
+        'node_modules/',
+        'src/test/',
+        'src/**/*.d.ts',
+        'src/**/*.stories.tsx',
+        'src/**/*.config.ts',
+        'src/vite.d.ts',
+        'coverage/',
+        'dist/',
+        'e2e/',
+        '**/*.config.*',
+      ],
+    },
   },
 });
