@@ -1,6 +1,6 @@
 ### Purpose
 
-This repository is a Preact + Vite TypeScript single-page app with a comprehensive design system. These instructions guide AI coding agents to maintain architectural consistency and developer productivity.
+This repository is a Preact + Vite TypeScript single-page app with a comprehensive design system and multiple pages. These instructions guide AI coding agents to maintain architectural consistency and developer productivity.
 
 **Quick Start (dev / build / preview)**
 
@@ -15,13 +15,18 @@ This repository is a Preact + Vite TypeScript single-page app with a comprehensi
 - `vite.config.ts` — enables `@preact/preset-vite` plugin
 - `index.html` — Vite entry; **must** contain `<div id="app"></div>` (app throws if missing)
 - `src/index.tsx` — app entry; provides `Theme` context; imports global SCSS
-- `src/App.tsx` — demo page showcasing components and theme switching
+- `src/App.tsx` — main app component with routing to different pages
 - `src/ThemeProvider.tsx` — Context provider for theme state with localStorage persistence and SSR safety
 - `src/ui/Button.tsx` — reusable Button with typed props (variant, size, shadow, semanticState, borderRadius, borderWidth)
 - `src/ui/Card.tsx` — Card component with variants, shadows, borders, title support
 - `src/ui/Grid.tsx` — Layout Grid component with responsive support
 - `src/ui/Typography.tsx` — Text Typography component with variants, colors, alignment
+- `src/ui/Switch.tsx` — accessible toggle switch component with ARIA support
+- `src/ui/Modal.tsx` — modal dialog component for overlays
+- `src/pages/Home.tsx` — dashboard page with metrics, quick actions, and recent activity
+- `src/pages/Settings.tsx` — user settings and preferences page with theme switching
 - `src/components/CardDemo.tsx` — Demo component for Button variants
+- `src/application/` — application-specific components and business logic
 - `src/types/index.ts` — **canonical source** for design tokens, types, and `buildClassName` utility
 - `src/styles/index.scss` — global SCSS entry with `@use` imports
 - `src/styles/_variables.scss` — SCSS variables (must sync with `src/types/index.ts`)
@@ -31,21 +36,26 @@ This repository is a Preact + Vite TypeScript single-page app with a comprehensi
 - `src/styles/components/_cards.scss` — Card styles with mixins
 - `src/styles/components/_grids.scss` — Grid styles
 - `src/styles/components/_typography.scss` — Typography styles with maps
+- `src/styles/components/_switches.scss` — Switch component styles
+- `src/styles/components/_modals.scss` — Modal component styles
+- `src/test/` — unit tests for components and utilities (Vitest)
 - `vitest.config.ts` — unit testing config (jsdom, excludes e2e)
 - `playwright.config.ts` — e2e testing config with Vite dev server integration
 - `e2e/` — Playwright tests for cross-browser validation
+- `storybook-static/` — built Storybook for component documentation
 
 **Big-picture architecture & data flows**
 
-- **Single client SPA**; no backend; Context-based state management
+- **Single client SPA**; no backend; routing with multiple pages; Context and signals-based state management
 - **Theme flow**: UI → `Theme` context → localStorage + `document.documentElement.setAttribute('data-theme', ...)` → CSS `[data-theme]` selectors
 - **Component flow**: Typed props → `buildClassName()` → BEM classes → SCSS styles
 - **Design tokens**: Centralized in `src/types/index.ts`; SCSS variables derive from these
-- **Cross-component communication**: Context providers (currently `Theme`)
+- **Cross-component communication**: Context providers (Theme) and @preact/signals for reactive state
+- **Routing**: Client-side routing in `src/App.tsx` with page components in `src/pages/`
 
 **Project-specific conventions & patterns**
 
-- **Preact/compat**: Use React-like hooks (`useState`, `useEffect`, `useContext`, `memo`)
+- **Preact/compat**: Use React-like hooks (`useState`, `useEffect`, `useContext`, `memo`) and @preact/signals for reactive state
 - **Strict TypeScript**: All component props use literal unions; no generic `string` types. Use `ComponentChildren` from Preact for `children` props instead of `React.ReactNode`.
 - **Component API**: Spread `...props` with special `className` merging: `className ? `${baseClassName} ${className}` : baseClassName`
 - **Theme system**: `Theme` type = `'light'|'dark'|'auto'`; auto mode respects `prefers-color-scheme`
@@ -93,8 +103,8 @@ When changing design tokens:
 
 **Testing patterns**
 
-- **Unit tests**: Focus on `src/types/index.ts` utilities and type definitions
-- **E2E tests**: Validate real browser behavior, theme switching, component interactions
+- **Unit tests**: Focus on `src/types/index.ts` utilities, `src/test/` component tests, and type definitions (Vitest)
+- **E2E tests**: Validate real browser behavior, theme switching, component interactions (Playwright)
 - **Test selectors**: Use `getByRole('button', { name: '...', exact: true })` to avoid text conflicts
 
 **Storybook Development**
@@ -114,11 +124,20 @@ When changing design tokens:
 6. Add Storybook stories in `src/ui/Component.stories.tsx` with decorators and argTypes.
 7. Build (`npm run build`), lint (`npm run lint:css`), and test in Storybook (`npm run storybook`).
 
+**Page Creation Process**
+
+1. Create TSX page component in `src/pages/` with routing logic and component composition.
+2. Add route to `src/App.tsx` Router with appropriate path and component.
+3. Use signals or context for state management within the page.
+4. Add responsive layouts using Grid and other UI components.
+5. Test navigation and functionality with E2E tests in `e2e/`.
+6. Build (`npm run build`) and verify routing works correctly.
+
 **Optimization Workflow with SED-Based Checklists**
 
 When performing large-scale optimizations, refactorings, or multi-step improvements:
 
-1. **Create or use optimization checklist**: `.github/optimization-checklist.md` contains structured tasks with SED-parseable format
+1. **Create or use optimization checklist**: `.github/feature-checklist.md` contains structured tasks with SED-parseable format
 2. **Task structure**: Each task has ID, status, type, target, description, priority, estimated time, dependencies, notes
 3. **Status tracking**: Use `sed` commands to query/update task status without opening files
 4. **Section-based organization**: Tasks grouped into logical sections (ANALYSIS_PHASE, SCSS_OPTIMIZATION, etc.)
@@ -128,25 +147,25 @@ When performing large-scale optimizations, refactorings, or multi-step improveme
 
 ```bash
 # Get task status
-sed -n '/^### Task: 1.1_code_scan$/,/^$/p' .github/optimization-checklist.md | grep "Status:"
+sed -n '/^### Task: 1.1_code_scan$/,/^$/p' .github/feature-checklist.md | grep "Status:"
 
 # Update task to in-progress
-sed -i '/^### Task: 1.1_code_scan$/,/^$/{s/Status: PENDING/Status: IN_PROGRESS/}' .github/optimization-checklist.md
+sed -i '/^### Task: 1.1_code_scan$/,/^$/{s/Status: PENDING/Status: IN_PROGRESS/}' .github/feature-checklist.md
 
 # Mark task as completed
-sed -i '/^### Task: 1.1_code_scan$/,/^$/{s/Status: IN_PROGRESS/Status: COMPLETED/}' .github/optimization-checklist.md
+sed -i '/^### Task: 1.1_code_scan$/,/^$/{s/Status: IN_PROGRESS/Status: COMPLETED/}' .github/feature-checklist.md
 
 # List all pending tasks
-sed -n '/Status: PENDING/p' .github/optimization-checklist.md
+sed -n '/Status: PENDING/p' .github/feature-checklist.md
 
 # Get section summary
-sed -n '/^## Section: SCSS_OPTIMIZATION$/,/^## Section:/p' .github/optimization-checklist.md
+sed -n '/^## Section: SCSS_OPTIMIZATION$/,/^## Section:/p' .github/feature-checklist.md
 
 # Update timestamp after work session
-sed -i "s/<!-- UPDATED: .* -->/<!-- UPDATED: $(date +%Y-%m-%d) -->/" .github/optimization-checklist.md
+sed -i "s/<!-- UPDATED: .* -->/<!-- UPDATED: $(date +%Y-%m-%d) -->/" .github/feature-checklist.md
 
 # Count completed tasks
-grep -c "Status: COMPLETED" .github/optimization-checklist.md
+grep -c "Status: COMPLETED" .github/feature-checklist.md
 ```
 
 **When to Use Optimization Checklists**
