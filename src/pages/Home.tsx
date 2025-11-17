@@ -6,6 +6,7 @@ import {
   avgOrderValueSignal,
   activitiesSignal,
 } from '../application/signals';
+import './Home.scss';
 
 export function Home() {
   return (
@@ -104,7 +105,12 @@ export function Home() {
 
       {/* Recent Activity */}
       <section className="app-demo">
-        <Card variant="elevated" shadow="none" size="xl">
+        <Card
+          variant="elevated"
+          shadow="md"
+          size="xl"
+          className="activity-card"
+        >
           <Typography variant="h3" gutterBottom>
             Recent Activity
           </Typography>
@@ -112,23 +118,93 @@ export function Home() {
             Latest transactions and system events
           </Typography>
 
-          <div style={{ marginTop: '1rem' }}>
-            <Grid direction="column" gap="sm">
-              {activitiesSignal.value.map(activity => (
-                <Card
-                  key={activity.id}
-                  variant="outlined"
-                  shadow="none"
-                  size="sm"
-                >
-                  <Typography variant="body2" gutterBottom>
-                    <strong>{activity.title}</strong> {activity.description}
-                  </Typography>
-                  <Typography variant="caption" color="tertiary">
-                    {activity.time} · {activity.category}
-                  </Typography>
-                </Card>
-              ))}
+          <div style={{ marginTop: '1.5rem' }}>
+            <Grid direction="column" gap="md">
+              {activitiesSignal.value.map(activity => {
+                // Determine icon and color based on category
+                let icon = '📋';
+                let accentColor = 'var(--pta-color-primary)';
+
+                if (activity.category === 'Order Management') {
+                  icon = '📦';
+                  accentColor = 'var(--pta-color-info)';
+                } else if (activity.category === 'Finance') {
+                  icon = '💰';
+                  accentColor = 'var(--pta-color-success)';
+                } else if (activity.category === 'User Management') {
+                  icon = '👥';
+                  accentColor = 'var(--pta-color-primary)';
+                } else if (activity.category === 'System') {
+                  icon = '⚙️';
+                  accentColor = 'var(--pta-color-tertiary)';
+                }
+
+                return (
+                  <div
+                    key={activity.id}
+                    className="activity-item"
+                    style={{
+                      display: 'flex',
+                      gap: '1rem',
+                      padding: '1rem',
+                      borderLeft: `3px solid ${accentColor}`,
+                      backgroundColor: 'var(--pta-color-bg-secondary)',
+                      borderRadius: '8px',
+                      transition: 'all 0.2s ease',
+                    }}
+                  >
+                    <div
+                      className="activity-icon"
+                      style={{
+                        fontSize: '1.5rem',
+                        width: '40px',
+                        height: '40px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        backgroundColor: 'var(--pta-color-bg)',
+                        borderRadius: '8px',
+                        flexShrink: 0,
+                      }}
+                    >
+                      {icon}
+                    </div>
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <Typography variant="body1" gutterBottom>
+                        <strong>{activity.title}</strong>
+                      </Typography>
+                      <Typography
+                        variant="body2"
+                        color="secondary"
+                        gutterBottom
+                      >
+                        {activity.description}
+                      </Typography>
+                      <div
+                        style={{
+                          display: 'flex',
+                          gap: '0.5rem',
+                          alignItems: 'center',
+                          marginTop: '0.25rem',
+                        }}
+                      >
+                        <Typography variant="caption" color="tertiary">
+                          {activity.time}
+                        </Typography>
+                        <span style={{ color: 'var(--pta-color-border)' }}>
+                          ·
+                        </span>
+                        <Typography
+                          variant="caption"
+                          style={{ color: accentColor, fontWeight: 500 }}
+                        >
+                          {activity.category}
+                        </Typography>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
             </Grid>
           </div>
         </Card>

@@ -12,17 +12,6 @@ export const avgOrderValueSignal = signal(89.42);
 // Mobile menu signal
 export const isMobileMenuOpenSignal = signal(false);
 
-// Notification preferences signals
-export const emailNotificationsSignal = signal(
-  localStorage.getItem('pta-notification-email') === 'true'
-);
-export const desktopNotificationsSignal = signal(
-  localStorage.getItem('pta-notification-desktop') === 'true'
-);
-export const weeklySummarySignal = signal(
-  localStorage.getItem('pta-notification-weekly') !== 'false'
-); // default true
-
 // Activity feed signal
 export const activitiesSignal = signal([
   {

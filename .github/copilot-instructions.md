@@ -17,49 +17,90 @@ This repository is a Preact + Vite TypeScript single-page app with a comprehensi
 - `src/index.tsx` — app entry; provides `Theme` context; imports global SCSS
 - `src/App.tsx` — main app component with routing to different pages
 - `src/ThemeProvider.tsx` — Context provider for theme state with localStorage persistence and SSR safety
-- `src/ui/Button.tsx` — reusable Button with typed props (variant, size, shadow, semanticState, borderRadius, borderWidth)
-- `src/ui/Card.tsx` — Card component with variants, shadows, borders, title support
-- `src/ui/Grid.tsx` — Layout Grid component with responsive support
-- `src/ui/Typography.tsx` — Text Typography component with variants, colors, alignment
-- `src/ui/Switch.tsx` — accessible toggle switch component with ARIA support, variant colors
-- `src/ui/Modal.tsx` — modal dialog component for overlays
-- `src/ui/Hamburger.tsx` — hamburger menu icon with animation
-- `src/ui/ThemeIcon.tsx` — theme switcher icon (light/dark/auto)
-- `src/pages/Home.tsx` — dashboard page with metrics, quick actions, and recent activity
-- `src/pages/Settings.tsx` — user settings and preferences page with theme switching
-- `src/components/CardDemo.tsx` — Demo component for Button variants
-- `src/application/` — application-specific components and business logic
-- `src/types/index.ts` — **central export point** for all types, constants, and utilities
-- `src/types/types.ts` — **core type definitions** (ComponentSize, Theme, variants, etc.)
-- `src/types/constants.ts` — **design token constants** (SPACING_VALUES, SHADOW_VALUES, etc.)
-- `src/types/component-props.ts` — **ALL component prop interfaces** (ButtonProps, CardProps, SwitchProps, ModalProps, HamburgerProps, ThemeIconProps, etc.)
-- `src/types/utils.ts` — **buildClassName** utility for BEM class generation
-- `src/styles/index.scss` — global SCSS entry with `@use` imports
-- `src/styles/_variables.scss` — SCSS variables (must sync with `src/types/constants.ts`)
-- `src/styles/_themes.scss` — CSS custom properties applied via `data-theme` attributes
-- `src/styles/_base.scss` — global reset, CSS variables, base component styles
-- `src/styles/_mixins.scss` — reusable mixins with maps and loops (DRY code)
-- `src/styles/components/_buttons.scss` — Button styles with mixins
-- `src/styles/components/_cards.scss` — Card styles with mixins
-- `src/styles/components/_grids.scss` — Grid styles
-- `src/styles/components/_typography.scss` — Typography styles with maps
-- `src/styles/components/_switches.scss` — Switch component styles with variant colors
-- `src/styles/components/_modals.scss` — Modal component styles
-- `src/test/` — unit tests for components and utilities (Vitest)
+
+**UI Components (src/ui/)**
+
+- `Button.tsx` — reusable Button with typed props (variant, size, shadow, semanticState, borderRadius, borderWidth)
+- `Card.tsx` — Card component with variants, shadows, borders, title support
+- `Grid.tsx` — Layout Grid component with responsive support
+- `Typography.tsx` — Text Typography component with variants, colors, alignment
+- `Input.tsx` — text input with validation, clear button, character count, icons (205 lines, 39 tests)
+- `Select.tsx` — dropdown select with search, multi-select, keyboard nav (332 lines, 33 tests)
+- `Switch.tsx` — accessible toggle switch component with ARIA support, variant colors
+- `Modal.tsx` — modal dialog component for overlays
+- `Hamburger.tsx` — hamburger menu icon with animation
+- `ThemeIcon.tsx` — theme switcher icon (light/dark/auto)
+
+**Pages (src/pages/)**
+
+- `Home.tsx` — dashboard page with metrics, quick actions, and recent activity with visual icons
+- `Settings.tsx` — user settings and preferences page with theme switching, connected to SettingsService
+- `PrivacyPolicy.tsx` — legal page with 9 sections about data collection, usage, security
+- `TermsOfService.tsx` — legal page with 10 sections about service terms
+
+**Services (src/services/)**
+
+- `NavigationService.ts` — manages navigation state, active item tracking, parent/child relationships with signals
+- `SettingsService.ts` — manages ALL user preferences with localStorage persistence (notifications, privacy, advanced features)
+
+**State Management (src/application/)**
+
+- `signals.ts` — dashboard metrics, theme, mobile menu, activity feed using @preact/signals
+
+**Data Configuration (src/data/)**
+
+- `navigation.ts` — two-level navigation structure with parent/child relationships, anchors for Settings submenu
+
+**Type System (src/types/)**
+
+- `index.ts` — **central export point** for all types, constants, and utilities
+- `types.ts` — **core type definitions** (ComponentSize, Theme, variants, etc.)
+- `constants.ts` — **design token constants** (SPACING_VALUES, SHADOW_VALUES, etc.)
+- `component-props.ts` — **ALL component prop interfaces** (457 lines: ButtonProps, CardProps, InputProps, SelectProps, etc.)
+- `utils.ts` — **buildClassName** utility for BEM class generation
+- `navigation.ts` — NavigationConfig, NavigationItem, ActiveNavigationState types
+
+**Styling (src/styles/)**
+
+- `index.scss` — global SCSS entry with `@use` imports
+- `_variables.scss` — SCSS variables (must sync with `src/types/constants.ts`)
+- `_themes.scss` — CSS custom properties applied via `data-theme` attributes
+- `_base.scss` — global reset, CSS variables, base component styles
+- `_mixins.scss` — reusable mixins with maps and loops (DRY code)
+- `components/_buttons.scss` — Button styles with mixins
+- `components/_cards.scss` — Card styles with mixins
+- `components/_inputs.scss` — Input styles (360 lines) with BEM, responsive design
+- `components/_selects.scss` — Select styles (403 lines) with animations, option highlighting
+- `components/_switches.scss` — Switch component styles with variant colors
+- `components/_modals.scss` — Modal component styles
+
+**Testing (src/test/ and e2e/)**
+
+- `src/test/` — unit tests for components and utilities (Vitest, 322 tests passing)
 - `vitest.config.ts` — unit testing config (jsdom, excludes e2e)
 - `playwright.config.ts` — e2e testing config with Vite dev server integration
 - `e2e/` — Playwright tests for cross-browser validation
-- `storybook-static/` — built Storybook for component documentation
+
+**Documentation**
+
 - `.github/scss-architecture.md` — **SCSS architecture documentation** (structure, patterns, best practices)
+- `storybook-static/` — built Storybook for component documentation (45 stories)
 
 **Big-picture architecture & data flows**
 
-- **Single client SPA**; no backend; routing with multiple pages; Context and signals-based state management
-- **Theme flow**: UI → `Theme` context → localStorage + `document.documentElement.setAttribute('data-theme', ...)` → CSS `[data-theme]` selectors
-- **Component flow**: Typed props → `buildClassName()` → BEM classes → SCSS styles
-- **Design tokens**: Centralized in `src/types/index.ts`; SCSS variables derive from these
-- **Cross-component communication**: Context providers (Theme) and @preact/signals for reactive state
-- **Routing**: Client-side routing in `src/App.tsx` with page components in `src/pages/`
+- **Single client SPA**; no backend; client-side routing with preact-iso; multi-page navigation
+- **State Management Architecture**:
+  - `@preact/signals` for reactive state (preferred for all new state)
+  - Context providers ONLY for theme (ThemeProvider)
+  - Service layer pattern: NavigationService, SettingsService export signals
+  - Application-specific signals in `src/application/signals.ts` (dashboard metrics, activity feed)
+  - Settings signals in `src/services/SettingsService.ts` with localStorage persistence via `effect()`
+- **Theme flow**: UI → `themeSignal` → localStorage + `document.documentElement.setAttribute('data-theme', ...)` → CSS `[data-theme]` selectors
+- **Navigation flow**: Two-level hierarchy in `src/data/navigation.ts` → NavigationService manages active state → Navigation component renders with parent/child highlighting
+- **Component flow**: Typed props from `src/types/component-props.ts` → `buildClassName()` → BEM classes → SCSS styles
+- **Design tokens**: TypeScript constants in `src/types/constants.ts` → SCSS variables in `_variables.scss` → CSS custom properties in `_base.scss`
+- **Settings flow**: User interaction → signal update → `effect()` auto-saves to localStorage → UI reactively updates
+- **Form components**: Input/Select use controlled/uncontrolled patterns with internal state, support validation, icons, error states
 
 **Project-specific conventions & patterns**
 
@@ -67,7 +108,9 @@ This repository is a Preact + Vite TypeScript single-page app with a comprehensi
 - **Strict TypeScript**: All component props use literal unions; no generic `string` types. Use `ComponentChildren` from Preact for `children` props instead of `React.ReactNode`.
 - **Component API**: Spread `...props` with special `className` merging: `className ? `${baseClassName} ${className}` : baseClassName`
 - **Theme system**: `Theme` type = `'light'|'dark'|'auto'`; auto mode respects `prefers-color-scheme`
-- **Design tokens**: Update `src/types/index.ts` first, then sync SCSS variables
+- **Design tokens**: Update `src/types/constants.ts` first, then sync SCSS variables
+- **Service pattern**: Services export signals and utility functions; initialized in components via `useEffect(() => { initializeService(); }, [])`
+- **Typography variants**: Use 'body1' or 'body2', NOT 'body'. Valid colors: 'text'|'primary'|'secondary'|'tertiary'|'error'|'warning'|'info'|'success'
 
 **CSS class naming convention (strict BEM required)**
 
@@ -112,15 +155,15 @@ When changing design tokens:
 
 **Component Props Management (CRITICAL)**
 
-- **ALL component prop interfaces MUST be defined in `src/types/component-props.ts`**
+- **ALL component prop interfaces MUST be defined in `src/types/component-props.ts`** (457 lines)
 - **DO NOT define props inline in component files** (e.g., `export interface ComponentProps` in `.tsx` files)
-- Components import props from `src/types/component-props`: `import type { ComponentProps } from '../types/component-props'`
+- Components import props: `import type { ButtonProps, InputProps } from '../types'` (re-exported from `src/types/index.ts`)
 - Centralized props ensure consistency, type safety, and easier refactoring
-- Existing components: Button, Card, Grid, Typography (already centralized), Switch, Modal, Hamburger, ThemeIcon (newly centralized)
+- All 10 UI components follow this pattern: Button, Card, Grid, Typography, Input, Select, Switch, Modal, Hamburger, ThemeIcon
 
 **SCSS Best Practices (DRY Code)**
 
-- **Use maps and loops** instead of repetitive variant rules
+- **Use maps and loops** instead of repetitive variant rules (see `_mixins.scss` for examples)
 - **Centralize mixins** in `src/styles/_mixins.scss` for reusable patterns
 - **Follow mobile-first** responsive strategy with `respond-above()` mixin
 - **Avoid hardcoded values** - use SCSS variables from `_variables.scss`
@@ -129,9 +172,12 @@ When changing design tokens:
 
 **Testing patterns**
 
-- **Unit tests**: Focus on `src/types/index.ts` utilities, `src/test/` component tests, and type definitions (Vitest)
-- **E2E tests**: Validate real browser behavior, theme switching, component interactions (Playwright)
+- **Unit tests**: 322 tests across 10 test files (Vitest with jsdom)
+- **Test location**: `src/test/ComponentName.test.tsx` (NOT co-located with components)
 - **Test selectors**: Use `getByRole('button', { name: '...', exact: true })` to avoid text conflicts
+- **Coverage**: Input (39 tests), Select (33 tests), Button (34 tests), Typography (63 tests)
+- **E2E tests**: Playwright in `e2e/` directory for cross-browser validation
+- **Run commands**: `npm run test:run` (unit), `npm run test:e2e` (e2e), `npm run type-check` (TypeScript)
 
 **Storybook Development**
 
@@ -142,24 +188,37 @@ When changing design tokens:
 
 **Component Creation Process**
 
-1. Create TSX component in `src/ui/` with typed props, `buildClassName`, and dynamic JSX via `h()`.
-2. **Define Props interface in `src/types/component-props.ts`** - centralized location for ALL component prop types.
-3. Import Props type from `src/types/component-props` in component file.
-4. Add SCSS styles in `src/styles/components/_component.scss` using mixins/maps for DRY.
-5. Update `src/styles/components/index.scss` with `@forward`.
-6. Export component in `src/ui/index.ts`.
-7. Add Storybook stories in `src/ui/Component.stories.tsx` with decorators and argTypes.
-8. Create unit tests in `src/test/Component.test.tsx` with comprehensive coverage.
-9. Build (`npm run build`), lint (`npm run lint:css`), and test (`npm run test:run`, `npm run storybook`).
+1. **Define Props** in `src/types/component-props.ts` - centralized location for ALL component prop types
+2. **Create TSX component** in `src/ui/ComponentName.tsx`:
+   - Import props type: `import type { ComponentNameProps } from '../types'`
+   - Use `buildClassName()` for BEM class generation with modifiers object
+   - Support controlled/uncontrolled patterns for form components (see Input.tsx, Select.tsx)
+3. **Add SCSS styles** in `src/styles/components/_componentname.scss`:
+   - Use BEM naming: `.pta-component`, `.pta-component__element`, `.pta-component--modifier`
+   - Leverage mixins/maps for DRY code (see `_inputs.scss` for 360-line example)
+   - Follow mobile-first responsive design with `respond-above()` mixin
+4. **Forward styles** in `src/styles/components/index.scss` with `@forward './componentname'`
+5. **Export component** in `src/ui/index.ts` for centralized imports
+6. **Create Storybook stories** in `src/ui/ComponentName.stories.tsx`:
+   - Use `Meta<ComponentNameProps>` for type safety
+   - Include decorators for ThemeProvider and globalTypes for theme switching
+7. **Write unit tests** in `src/test/ComponentName.test.tsx`:
+   - Import `@testing-library/jest-dom` for matchers like `toBeInTheDocument()`
+   - Test all variants, states, and user interactions
+   - Aim for comprehensive coverage (39+ tests for complex components)
+8. **Verify**: Run `npm run build`, `npm run lint:css`, `npm run test:run`, `npm run type-check`
 
 **Page Creation Process**
 
-1. Create TSX page component in `src/pages/` with routing logic and component composition.
-2. Add route to `src/App.tsx` Router with appropriate path and component.
-3. Use signals or context for state management within the page.
-4. Add responsive layouts using Grid and other UI components.
-5. Test navigation and functionality with E2E tests in `e2e/`.
-6. Build (`npm run build`) and verify routing works correctly.
+1. **Create page component** in `src/pages/PageName.tsx`:
+   - Import UI components from `src/ui`
+   - Use signals for reactive state (from `src/application/signals.ts` or service layer)
+   - Add page-specific SCSS if needed (e.g., `Home.scss`, `LegalPages.scss`)
+2. **Add route** to `src/App.tsx` Router: `<Route path="/page" component={PageName} />`
+3. **Update navigation** in `src/data/navigation.ts` if page should appear in nav menu
+4. **Handle anchors** for same-page navigation (e.g., Settings submenu uses anchors like `#general`, `#appearance`)
+5. **Test navigation**: Create E2E test in `e2e/` directory to verify routing and page functionality
+6. **Build and verify**: Run `npm run build` and check `dist/` output
 
 **Optimization Workflow with SED-Based Checklists**
 

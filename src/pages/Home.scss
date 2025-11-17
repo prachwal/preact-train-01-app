@@ -1,0 +1,17 @@
+/* Home page specific styles */
+
+.activity-card {
+  .activity-item {
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--pta-color-bg-tertiary) !important;
+      transform: translateX(4px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+  }
+
+  .activity-icon {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  }
+}

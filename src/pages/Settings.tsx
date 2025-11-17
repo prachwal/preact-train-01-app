@@ -1,10 +1,13 @@
 import { Card, Typography, Grid, Button, Switch, Modal } from '../ui';
+import { themeSignal } from '../application/signals';
 import {
-  themeSignal,
   emailNotificationsSignal,
   desktopNotificationsSignal,
   weeklySummarySignal,
-} from '../application/signals';
+  developerModeSignal,
+  betaFeaturesSignal,
+  initializeSettings,
+} from '../services/SettingsService';
 import { useEffect, useState } from 'preact/hooks';
 import './Settings.scss';
 
@@ -13,23 +16,9 @@ export function Settings() {
   const [passwordModalOpen, setPasswordModalOpen] = useState(false);
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
 
-  // Persist notification preferences to localStorage
+  // Initialize settings from localStorage on mount
   useEffect(() => {
-    const unsubEmail = emailNotificationsSignal.subscribe(value => {
-      localStorage.setItem('pta-notification-email', String(value));
-    });
-    const unsubDesktop = desktopNotificationsSignal.subscribe(value => {
-      localStorage.setItem('pta-notification-desktop', String(value));
-    });
-    const unsubWeekly = weeklySummarySignal.subscribe(value => {
-      localStorage.setItem('pta-notification-weekly', String(value));
-    });
-
-    return () => {
-      unsubEmail();
-      unsubDesktop();
-      unsubWeekly();
-    };
+    initializeSettings();
   }, []);
 
   const handleThemeChange = (newTheme: 'light' | 'dark' | 'auto') => {
@@ -62,11 +51,42 @@ export function Settings() {
         </Card>
       </section>
 
-      {/* Theme Settings */}
-      <section className="app-demo">
+      {/* General Settings */}
+      <section id="general" className="app-demo settings-section">
         <Card variant="elevated" shadow="none" size="xl">
           <Typography variant="h3" gutterBottom>
-            Theme
+            General
+          </Typography>
+          <Typography variant="body2" color="secondary" gutterBottom>
+            Basic application settings and preferences
+          </Typography>
+
+          <div style={{ marginTop: '1.5rem' }}>
+            <Grid direction="column" gap="md">
+              <div>
+                <Typography variant="caption" color="tertiary" gutterBottom>
+                  Language
+                </Typography>
+                <Typography variant="body1">English (US)</Typography>
+              </div>
+
+              <div>
+                <Typography variant="caption" color="tertiary" gutterBottom>
+                  Time Zone
+                </Typography>
+                <Typography variant="body1">UTC+0 (London)</Typography>
+              </div>
+            </Grid>
+          </div>
+        </Card>
+      </section>
+
+      {/* Appearance / Theme Settings */}
+      <section id="appearance" className="app-demo settings-section">
+        {' '}
+        <Card variant="elevated" shadow="none" size="xl">
+          <Typography variant="h3" gutterBottom>
+            Appearance
           </Typography>
           <Typography variant="body2" color="secondary" gutterBottom>
             Choose your preferred color scheme
@@ -109,7 +129,7 @@ export function Settings() {
       </section>
 
       {/* Notification Settings */}
-      <section className="app-demo">
+      <section id="notifications" className="app-demo settings-section">
         <Card variant="elevated" shadow="none" size="xl">
           <Typography variant="h3" gutterBottom>
             Notifications
@@ -178,11 +198,11 @@ export function Settings() {
         </Card>
       </section>
 
-      {/* Account Settings */}
-      <section className="app-demo">
+      {/* Privacy & Account Settings */}
+      <section id="privacy" className="app-demo settings-section">
         <Card variant="elevated" shadow="none" size="xl">
           <Typography variant="h3" gutterBottom>
-            Account
+            Privacy & Account
           </Typography>
           <Typography variant="body2" color="secondary" gutterBottom>
             Manage your account details and preferences
@@ -474,6 +494,64 @@ export function Settings() {
           </div>
         </Grid>
       </Modal>
+
+      {/* Advanced Settings */}
+      <section id="advanced" className="app-demo settings-section">
+        <Card variant="elevated" shadow="none" size="xl">
+          <Typography variant="h3" gutterBottom>
+            Advanced
+          </Typography>
+          <Typography variant="body2" color="secondary" gutterBottom>
+            Developer and advanced user options
+          </Typography>
+
+          <div style={{ marginTop: '1.5rem' }}>
+            <Grid direction="column" gap="md">
+              <div className="settings-item">
+                <div>
+                  <Typography variant="body1" gutterBottom>
+                    Developer Mode
+                  </Typography>
+                  <Typography variant="caption" color="tertiary">
+                    Enable advanced debugging features
+                  </Typography>
+                </div>
+                <Switch
+                  checked={developerModeSignal.value}
+                  onChange={checked => {
+                    developerModeSignal.value = checked;
+                  }}
+                  ariaLabel="Developer mode"
+                />
+              </div>
+
+              <div className="settings-item">
+                <div>
+                  <Typography variant="body1" gutterBottom>
+                    Beta Features
+                  </Typography>
+                  <Typography variant="caption" color="tertiary">
+                    Try new features before they're released
+                  </Typography>
+                </div>
+                <Switch
+                  checked={betaFeaturesSignal.value}
+                  onChange={checked => {
+                    betaFeaturesSignal.value = checked;
+                  }}
+                  ariaLabel="Beta features"
+                />
+              </div>
+
+              <div style={{ marginTop: '1rem' }}>
+                <Button variant="danger" size="md">
+                  Clear Cache & Data
+                </Button>
+              </div>
+            </Grid>
+          </div>
+        </Card>
+      </section>
     </>
   );
 }

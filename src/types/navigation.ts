@@ -1,0 +1,29 @@
+// Navigation Types for Multi-level Navigation System
+
+export interface NavigationItem {
+  id: string;
+  label: string;
+  icon?: string;
+  path?: string;
+  anchor?: string; // For anchor links like #section
+  children?: NavigationItem[];
+  external?: boolean;
+  badge?: string; // Optional badge text (e.g., "New", "Beta")
+  disabled?: boolean;
+}
+
+export interface NavigationGroup {
+  id: string;
+  title: string;
+  items: NavigationItem[];
+}
+
+export interface NavigationConfig {
+  groups: NavigationGroup[];
+}
+
+export interface ActiveNavigationState {
+  activeItemId: string | null;
+  activeParentId: string | null;
+  expandedIds: string[];
+}

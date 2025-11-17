@@ -37,7 +37,6 @@
   z-index: 100;
   background: rgb(var(--pta-color-surface-rgb, 255, 255, 255), 0.8);
   backdrop-filter: blur(12px);
-  backdrop-filter: blur(12px);
   border-bottom: 1px solid rgb(var(--pta-color-border-rgb), 0.1);
   box-shadow:
     0 1px 3px rgb(0 0 0 / 0.05),
@@ -92,20 +91,17 @@
   &__theme-btn {
     white-space: nowrap;
     padding: $spacing-xs $spacing-sm;
-    width: $header-icon-size-mobile;
-    height: $header-icon-size-mobile;
-    min-width: auto;
+    min-width: 44px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     font-size: $font-size-sm;
 
     @include respond-above(md) {
       padding: $spacing-xs;
-      width: $header-icon-size-tablet;
-      height: $header-icon-size-tablet;
-    }
-
-    @include respond-above(lg) {
-      width: $header-icon-size-desktop;
-      height: $header-icon-size-desktop;
+      min-width: 40px;
+      min-height: 40px;
     }
   }
 

@@ -1,0 +1,460 @@
+@use "../variables.scss" as *;
+@use "../mixins.scss" as *;
+
+// ============================================
+// SELECT COMPONENT - Fully Responsive
+// ============================================
+
+.pta-select-container {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+  width: 100%;
+  position: relative;
+}
+
+.pta-select-label {
+  font-size: $font-size-sm;
+  font-weight: 500;
+  color: var(--pta-color-text, #{$pta-color-light-text});
+  margin-bottom: $spacing-xs;
+  display: block;
+}
+
+.pta-select-required {
+  color: var(--pta-color-error, #{$pta-color-light-error});
+  margin-left: $spacing-xs;
+}
+
+.pta-select-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+// ============================================
+// SELECT TRIGGER (Button)
+// ============================================
+
+.pta-select-trigger {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: $input-padding-md;
+  background-color: var(--pta-color-bg, #{$pta-color-light-bg});
+  border: 1px solid var(--pta-color-border, #{$pta-color-light-border-light});
+  border-radius: $border-radius-sm;
+  font-family: inherit;
+  font-size: $font-size-base;
+  color: var(--pta-color-text, #{$pta-color-light-text});
+  text-align: left;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+
+  &:hover:not(:disabled) {
+    border-color: var(--pta-color-border-hover, #{$pta-color-light-border-hover});
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--pta-color-accent, #{$pta-color-light-accent});
+    box-shadow: 0 0 0 3px var(--pta-color-focus-ring);
+  }
+
+  &:disabled {
+    background-color: var(--pta-color-button-disabled-bg, #{$pta-color-light-button-disabled-bg});
+    border-color: var(--pta-color-border-light, #{$pta-color-light-border-light});
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
+
+.pta-select-value {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: $spacing-md;
+}
+
+.pta-select-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: $font-size-sm;
+  color: var(--pta-color-text-secondary, #{$pta-color-light-text-secondary});
+  transition: transform 0.2s ease;
+
+  .pta-select-wrapper--open & {
+    transform: rotate(180deg);
+  }
+}
+
+// ============================================
+// VARIANT STYLES
+// ============================================
+
+.pta-select-wrapper--outlined {
+  .pta-select-trigger {
+    background-color: transparent;
+    border: 1px solid var(--pta-color-border, #{$pta-color-light-border-light});
+  }
+}
+
+.pta-select-wrapper--filled {
+  .pta-select-trigger {
+    background-color: var(--pta-color-surface, #{$pta-color-light-surface});
+    border: none;
+    border-bottom: 2px solid var(--pta-color-border, #{$pta-color-light-border-light});
+    border-radius: $border-radius-sm $border-radius-sm 0 0;
+  }
+}
+
+.pta-select-wrapper--standard {
+  .pta-select-trigger {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid var(--pta-color-border, #{$pta-color-light-border-light});
+    border-radius: 0;
+    padding-left: 0;
+  }
+}
+
+// ============================================
+// SIZE VARIANTS
+// ============================================
+
+.pta-select-wrapper--sm {
+  .pta-select-trigger {
+    height: $input-height-sm;
+    padding: $input-padding-sm;
+    font-size: $font-size-sm;
+  }
+}
+
+.pta-select-wrapper--md {
+  .pta-select-trigger {
+    height: $input-height-md;
+    padding: $input-padding-md;
+    font-size: $font-size-base;
+  }
+}
+
+.pta-select-wrapper--lg {
+  .pta-select-trigger {
+    height: $input-height-lg;
+    padding: $input-padding-lg;
+    font-size: $font-size-lg;
+  }
+}
+
+.pta-select-wrapper--xl {
+  .pta-select-trigger {
+    height: $input-height-xl;
+    padding: $input-padding-xl;
+    font-size: $font-size-xl;
+  }
+}
+
+// ============================================
+// STATE STYLES
+// ============================================
+
+.pta-select-wrapper--error {
+  .pta-select-trigger {
+    border-color: var(--pta-color-error, #{$pta-color-light-error});
+
+    &:focus {
+      box-shadow: 0 0 0 3px rgb(220 53 69 / 0.25);
+    }
+  }
+}
+
+.pta-select-wrapper--disabled {
+  .pta-select-trigger {
+    background-color: var(--pta-color-button-disabled-bg, #{$pta-color-light-button-disabled-bg});
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
+
+// ============================================
+// SEMANTIC STATES
+// ============================================
+
+.pta-select-wrapper--state-success .pta-select-trigger {
+  border-color: var(--pta-color-success, #{$pta-color-light-success});
+}
+
+.pta-select-wrapper--state-error .pta-select-trigger {
+  border-color: var(--pta-color-error, #{$pta-color-light-error});
+}
+
+.pta-select-wrapper--state-warning .pta-select-trigger {
+  border-color: var(--pta-color-warning, #{$pta-color-light-warning});
+}
+
+.pta-select-wrapper--state-info .pta-select-trigger {
+  border-color: var(--pta-color-info, #{$pta-color-light-info});
+}
+
+// ============================================
+// BORDER VARIANTS
+// ============================================
+
+.pta-select-wrapper--border-radius-none .pta-select-trigger {
+  border-radius: 0;
+}
+
+.pta-select-wrapper--border-radius-sm .pta-select-trigger {
+  border-radius: $border-radius-sm;
+}
+
+.pta-select-wrapper--border-radius-md .pta-select-trigger {
+  border-radius: $border-radius-md;
+}
+
+.pta-select-wrapper--border-radius-lg .pta-select-trigger {
+  border-radius: $border-radius-lg;
+}
+
+.pta-select-wrapper--border-radius-xl .pta-select-trigger {
+  border-radius: $border-radius-xl;
+}
+
+.pta-select-wrapper--border-width-thin .pta-select-trigger {
+  border-width: $border-width-thin;
+}
+
+.pta-select-wrapper--border-width-medium .pta-select-trigger {
+  border-width: $border-width-medium;
+}
+
+.pta-select-wrapper--border-width-thick .pta-select-trigger {
+  border-width: $border-width-thick;
+}
+
+// ============================================
+// CLEAR BUTTON
+// ============================================
+
+.pta-select-clear {
+  position: absolute;
+  right: 2.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  padding: 0;
+  border: none;
+  background: var(--pta-color-text-tertiary, #{$pta-color-light-text-tertiary});
+  color: var(--pta-color-bg, #{$pta-color-light-bg});
+  border-radius: 50%;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
+  z-index: 1;
+
+  &:hover {
+    background: var(--pta-color-text-secondary, #{$pta-color-light-text-secondary});
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  &:active {
+    transform: translateY(-50%) scale(0.95);
+  }
+
+  &:focus {
+    outline: 2px solid var(--pta-color-focus, #{$pta-color-light-focus});
+    outline-offset: 2px;
+  }
+}
+
+// ============================================
+// DROPDOWN
+// ============================================
+
+.pta-select-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: $spacing-xs;
+  background: var(--pta-color-bg, #{$pta-color-light-bg});
+  border: 1px solid var(--pta-color-border, #{$pta-color-light-border-light});
+  border-radius: $border-radius-sm;
+  box-shadow: $shadow-medium;
+  overflow: hidden;
+  z-index: 1000;
+  animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-0.5rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// ============================================
+// SEARCH INPUT
+// ============================================
+
+.pta-select-search {
+  padding: $spacing-sm;
+  border-bottom: 1px solid var(--pta-color-border-light, #{$pta-color-light-border-light});
+}
+
+.pta-select-search-input {
+  width: 100%;
+  padding: $spacing-sm;
+  border: 1px solid var(--pta-color-border-light, #{$pta-color-light-border-light});
+  border-radius: $border-radius-sm;
+  background: var(--pta-color-bg, #{$pta-color-light-bg});
+  color: var(--pta-color-text, #{$pta-color-light-text});
+  font-family: inherit;
+  font-size: $font-size-sm;
+
+  &:focus {
+    outline: none;
+    border-color: var(--pta-color-accent, #{$pta-color-light-accent});
+    box-shadow: 0 0 0 2px var(--pta-color-focus-ring, #{$pta-color-light-focus-ring});
+  }
+
+  &::placeholder {
+    color: var(--pta-color-text-tertiary, #{$pta-color-light-text-tertiary});
+  }
+}
+
+// ============================================
+// OPTIONS
+// ============================================
+
+.pta-select-options {
+  max-height: inherit;
+  overflow-y: auto;
+  padding: $spacing-xs;
+}
+
+.pta-select-option {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  padding: $select-option-padding;
+  min-height: $select-option-height;
+  cursor: pointer;
+  border-radius: $border-radius-sm;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+
+  &:hover:not(.pta-select-option--disabled) {
+    background-color: var(--pta-color-surface-hover, #{$pta-color-light-surface-hover});
+  }
+
+  &.pta-select-option--highlighted {
+    background-color: var(--pta-color-accent-light, #{$pta-color-light-accent-light});
+  }
+
+  &.pta-select-option--selected {
+    background-color: var(--pta-color-accent, #{$pta-color-light-accent});
+    color: var(--pta-color-text-inverted, #{$pta-color-light-text-inverted});
+    font-weight: 500;
+  }
+
+  &.pta-select-option--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+.pta-select-checkbox {
+  font-size: 1.125rem;
+  line-height: 1;
+}
+
+.pta-select-option-label {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// ============================================
+// LOADING & NO OPTIONS
+// ============================================
+
+.pta-select-loading,
+.pta-select-no-options {
+  padding: $spacing-lg;
+  text-align: center;
+  color: var(--pta-color-text-secondary, #{$pta-color-light-text-secondary});
+  font-size: $font-size-sm;
+}
+
+// ============================================
+// HELPER TEXT AND ERROR
+// ============================================
+
+.pta-select-helper,
+.pta-select-error {
+  font-size: $font-size-xs;
+  line-height: 1.4;
+  margin-top: $spacing-xs;
+}
+
+.pta-select-helper {
+  color: var(--pta-color-text-secondary, #{$pta-color-light-text-secondary});
+}
+
+.pta-select-error {
+  color: var(--pta-color-error, #{$pta-color-light-error});
+}
+
+// ============================================
+// RESPONSIVE ADJUSTMENTS
+// ============================================
+
+// Touch devices
+@media (hover: none) and (pointer: coarse) {
+  .pta-select-option {
+    min-height: 44px;
+    padding: $spacing-md $spacing-lg;
+  }
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+  .pta-select-dropdown {
+    animation: none;
+  }
+
+  .pta-select-arrow,
+  .pta-select-option,
+  .pta-select-clear {
+    transition: none;
+  }
+}
+
+// High contrast mode
+@media (prefers-contrast: high) {
+  .pta-select-trigger,
+  .pta-select-dropdown {
+    border-width: 2px;
+  }
+}

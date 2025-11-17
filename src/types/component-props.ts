@@ -123,106 +123,169 @@ export interface ThemeIconProps extends BaseComponentProps {
   theme: Theme;
 }
 
+export interface InputProps extends BaseComponentProps {
+  type?:
+    | 'text'
+    | 'email'
+    | 'password'
+    | 'number'
+    | 'tel'
+    | 'url'
+    | 'search'
+    | 'date'
+    | 'time'
+    | 'datetime-local';
+  name?: string;
+  value?: string | number;
+  defaultValue?: string | number;
+  placeholder?: string;
+  label?: string;
+  helperText?: string;
+  error?: string | boolean;
+  disabled?: boolean;
+  required?: boolean;
+  readOnly?: boolean;
+  autoComplete?: string;
+  autoFocus?: boolean;
+  size?: ComponentSize;
+  variant?: 'outlined' | 'filled' | 'standard';
+  theme?: Theme;
+  semanticState?: SemanticState;
+  borderRadius?: BorderRadiusSize;
+  borderWidth?: BorderWidthSize;
+  maxLength?: number;
+  minLength?: number;
+  min?: number | string;
+  max?: number | string;
+  step?: number | string;
+  pattern?: string;
+  showCharacterCount?: boolean;
+  showClearButton?: boolean;
+  leftIcon?: ComponentChildren;
+  rightIcon?: ComponentChildren;
+  onChange?: (e: JSX.TargetedEvent<HTMLInputElement, Event>) => void;
+  onInput?: (e: JSX.TargetedEvent<HTMLInputElement, Event>) => void;
+  onFocus?: (e: JSX.TargetedEvent<HTMLInputElement, Event>) => void;
+  onBlur?: (e: JSX.TargetedEvent<HTMLInputElement, Event>) => void;
+  onKeyDown?: (e: JSX.TargetedKeyboardEvent<HTMLInputElement>) => void;
+  onKeyUp?: (e: JSX.TargetedKeyboardEvent<HTMLInputElement>) => void;
+  onClear?: () => void;
+}
+
+export interface SelectOption {
+  value: string | number;
+  label: string;
+  disabled?: boolean;
+  group?: string;
+}
+
+export interface SelectOptionGroup {
+  label: string;
+  options: SelectOption[];
+}
+
+export interface SelectProps extends BaseComponentProps {
+  name?: string;
+  value?: string | number | Array<string | number>;
+  defaultValue?: string | number | Array<string | number>;
+  options: SelectOption[] | SelectOptionGroup[];
+  placeholder?: string;
+  label?: string;
+  helperText?: string;
+  error?: string | boolean;
+  disabled?: boolean;
+  required?: boolean;
+  multiple?: boolean;
+  searchable?: boolean;
+  clearable?: boolean;
+  size?: ComponentSize;
+  variant?: 'outlined' | 'filled' | 'standard';
+  theme?: Theme;
+  semanticState?: SemanticState;
+  borderRadius?: BorderRadiusSize;
+  borderWidth?: BorderWidthSize;
+  maxHeight?: number;
+  noOptionsMessage?: string;
+  loadingMessage?: string;
+  isLoading?: boolean;
+  onChange?: (value: string | number | Array<string | number> | null) => void;
+  onFocus?: (e: JSX.TargetedEvent<HTMLSelectElement, Event>) => void;
+  onBlur?: (e: JSX.TargetedEvent<HTMLSelectElement, Event>) => void;
+  onSearch?: (searchTerm: string) => void;
+}
+
+// Helper functions for validation
+const isString = (value: unknown): boolean =>
+  value === undefined || typeof value === 'string';
+
+const isBoolean = (value: unknown): boolean =>
+  value === undefined || typeof value === 'boolean';
+
+const isFunction = (value: unknown): boolean =>
+  value === undefined || typeof value === 'function';
+
+const isOneOf = (value: unknown, allowed: string[]): boolean =>
+  value === undefined || (typeof value === 'string' && allowed.includes(value));
+
+const isComponentChildren = (value: unknown): boolean =>
+  value === undefined ||
+  typeof value === 'string' ||
+  (Array.isArray(value) &&
+    value.every(item => typeof item === 'string' || typeof item === 'object'));
+
 // Validation functions for component props
 export const isValidBaseComponentProps = (
   props: unknown
 ): props is BaseComponentProps => {
   if (typeof props !== 'object' || props === null) return false;
   const p = props as Record<string, unknown>;
-  if (p.className !== undefined && typeof p.className !== 'string')
-    return false;
-  if (p.id !== undefined && typeof p.id !== 'string') return false;
-  if (p['data-testid'] !== undefined && typeof p['data-testid'] !== 'string')
-    return false;
-  if (
-    p['data-theme'] !== undefined &&
-    !['light', 'dark', 'auto'].includes(p['data-theme'] as string)
-  )
-    return false;
-  return true;
+  return (
+    isString(p.className) &&
+    isString(p.id) &&
+    isString(p['data-testid']) &&
+    isOneOf(p['data-theme'], ['light', 'dark', 'auto'])
+  );
 };
 
 export const isValidButtonProps = (props: unknown): props is ButtonProps => {
   if (!isValidBaseComponentProps(props)) return false;
   const p = props as Record<string, unknown>;
-  if (
-    p.size !== undefined &&
-    !['sm', 'md', 'lg', 'xl'].includes(p.size as string)
-  )
-    return false;
-  if (
-    p.theme !== undefined &&
-    !['light', 'dark', 'auto'].includes(p.theme as string)
-  )
-    return false;
-  if (
-    p.variant !== undefined &&
-    !['primary', 'secondary', 'success', 'danger', 'disabled'].includes(
-      p.variant as string
-    )
-  )
-    return false;
-  if (
-    p.semanticState !== undefined &&
-    !['success', 'error', 'warning', 'info'].includes(p.semanticState as string)
-  )
-    return false;
-  if (
-    p.shadow !== undefined &&
-    !['none', 'light', 'medium', 'heavy'].includes(p.shadow as string)
-  )
-    return false;
-  if (
-    p.borderRadius !== undefined &&
-    !['none', 'sm', 'md', 'lg', 'xl'].includes(p.borderRadius as string)
-  )
-    return false;
-  if (
-    p.borderWidth !== undefined &&
-    !['none', 'thin', 'medium', 'thick'].includes(p.borderWidth as string)
-  )
-    return false;
-  if (p.disabled !== undefined && typeof p.disabled !== 'boolean') return false;
-  if (p.onClick !== undefined && typeof p.onClick !== 'function') return false;
-  if (
-    p.children !== undefined &&
-    typeof p.children !== 'string' &&
-    !Array.isArray(p.children)
-  )
-    return false;
-  return true;
+  return (
+    isOneOf(p.size, ['sm', 'md', 'lg', 'xl']) &&
+    isOneOf(p.theme, ['light', 'dark', 'auto']) &&
+    isOneOf(p.variant, [
+      'primary',
+      'secondary',
+      'success',
+      'danger',
+      'disabled',
+    ]) &&
+    isOneOf(p.semanticState, ['success', 'error', 'warning', 'info']) &&
+    isOneOf(p.shadow, ['none', 'light', 'medium', 'heavy']) &&
+    isOneOf(p.borderRadius, ['none', 'sm', 'md', 'lg', 'xl']) &&
+    isOneOf(p.borderWidth, ['none', 'thin', 'medium', 'thick']) &&
+    isBoolean(p.disabled) &&
+    isFunction(p.onClick) &&
+    isComponentChildren(p.children)
+  );
 };
 
 export const isValidSizedComponentProps = (
   props: unknown
 ): props is SizedComponentProps => {
-  if (!isValidBaseComponentProps(props)) return false;
-  const p = props as Record<string, unknown>;
-  let isValid = true;
-
-  if (
-    p.size !== undefined &&
-    !['sm', 'md', 'lg', 'xl'].includes(p.size as string)
-  )
-    isValid = false;
-
-  return isValid;
+  return (
+    isValidBaseComponentProps(props) &&
+    isOneOf((props as Record<string, unknown>).size, ['sm', 'md', 'lg', 'xl'])
+  );
 };
 
 export const isValidThemedComponentProps = (
   props: unknown
 ): props is ThemedComponentProps => {
-  if (!isValidBaseComponentProps(props)) return false;
-  const p = props as Record<string, unknown>;
-  let isValid = true;
-
-  if (
-    p.theme !== undefined &&
-    !['light', 'dark', 'auto'].includes(p.theme as string)
-  )
-    isValid = false;
-
-  return isValid;
+  return (
+    isValidBaseComponentProps(props) &&
+    isOneOf((props as Record<string, unknown>).theme, ['light', 'dark', 'auto'])
+  );
 };
 
 export const isValidGridComponentProps = (
@@ -230,57 +293,30 @@ export const isValidGridComponentProps = (
 ): props is GridComponentProps => {
   if (!isValidBaseComponentProps(props)) return false;
   const p = props as Record<string, unknown>;
-  let isValid = true;
-
-  if (p.mode !== undefined && !['flex', 'grid'].includes(p.mode as string))
-    isValid = false;
-  if (
-    p.direction !== undefined &&
-    !['row', 'column', 'row-reverse', 'column-reverse'].includes(
-      p.direction as string
-    )
-  )
-    isValid = false;
-  if (
-    p.justify !== undefined &&
-    !['start', 'center', 'end', 'between', 'around', 'evenly'].includes(
-      p.justify as string
-    )
-  )
-    isValid = false;
-  if (
-    p.align !== undefined &&
-    !['start', 'center', 'end', 'stretch', 'baseline'].includes(
-      p.align as string
-    )
-  )
-    isValid = false;
-  if (
-    p.gap !== undefined &&
-    !['xs', 'sm', 'md', 'lg', 'xl', '2xl'].includes(p.gap as string)
-  )
-    isValid = false;
-  if (p.wrap !== undefined && typeof p.wrap !== 'boolean') isValid = false;
-  if (
-    p.gridTemplateColumns !== undefined &&
-    typeof p.gridTemplateColumns !== 'string'
-  )
-    isValid = false;
-  if (
-    p.gridTemplateRows !== undefined &&
-    typeof p.gridTemplateRows !== 'string'
-  )
-    isValid = false;
-  if (
-    p.gridAutoFlow !== undefined &&
-    !['row', 'column', 'dense', 'row dense', 'column dense'].includes(
-      p.gridAutoFlow as string
-    )
-  )
-    isValid = false;
-  if (
-    p.as !== undefined &&
-    ![
+  return (
+    isOneOf(p.mode, ['flex', 'grid']) &&
+    isOneOf(p.direction, ['row', 'column', 'row-reverse', 'column-reverse']) &&
+    isOneOf(p.justify, [
+      'start',
+      'center',
+      'end',
+      'between',
+      'around',
+      'evenly',
+    ]) &&
+    isOneOf(p.align, ['start', 'center', 'end', 'stretch', 'baseline']) &&
+    isOneOf(p.gap, ['xs', 'sm', 'md', 'lg', 'xl', '2xl']) &&
+    isBoolean(p.wrap) &&
+    isString(p.gridTemplateColumns) &&
+    isString(p.gridTemplateRows) &&
+    isOneOf(p.gridAutoFlow, [
+      'row',
+      'column',
+      'dense',
+      'row dense',
+      'column dense',
+    ]) &&
+    isOneOf(p.as, [
       'div',
       'section',
       'article',
@@ -288,16 +324,9 @@ export const isValidGridComponentProps = (
       'aside',
       'header',
       'footer',
-    ].includes(p.as as string)
-  )
-    isValid = false;
-  if (p.children !== undefined) {
-    if (typeof p.children !== 'string' && !Array.isArray(p.children)) {
-      isValid = false;
-    }
-  }
-
-  return isValid;
+    ]) &&
+    isComponentChildren(p.children)
+  );
 };
 
 export const isValidCardProps = (props: unknown): props is CardProps => {
@@ -425,3 +454,39 @@ export const isValidTypographyProps = (
 
   return isValid;
 };
+
+/**
+ * Props for ToggleButton component
+ * Universal toggle component supporting multiple display variants
+ */
+export interface ToggleItem {
+  /** Unique value for the item */
+  value: string;
+  /** Optional display label */
+  label?: string;
+  /** Optional icon (ComponentChild - can be JSX, string, or null) */
+  icon?: ComponentChildren;
+  /** Optional ARIA label for accessibility */
+  ariaLabel?: string;
+  /** Whether the item is disabled */
+  disabled?: boolean;
+}
+
+export interface ToggleButtonProps extends BaseComponentProps {
+  /** List of items to toggle between */
+  items: ToggleItem[];
+  /** Currently selected value */
+  value: string;
+  /** Callback when value changes */
+  onChange: (value: string) => void;
+  /** Display variant - determines how the toggle is rendered */
+  variant?: 'icon' | 'text' | 'icon-text' | 'dropdown' | 'carousel';
+  /** Size of the toggle button */
+  size?: ComponentSize;
+  /** ARIA label for the entire toggle button */
+  ariaLabel?: string;
+  /** Whether the toggle is disabled */
+  disabled?: boolean;
+  /** Theme override */
+  theme?: Theme;
+}

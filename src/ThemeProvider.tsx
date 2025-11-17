@@ -41,18 +41,6 @@ function ThemeProvider({
     }
   });
 
-  const applyTheme = useCallback(() => {
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    if (theme === 'auto') {
-      document.documentElement.setAttribute(
-        'data-theme',
-        mediaQuery.matches ? 'dark' : 'light'
-      );
-    } else {
-      document.documentElement.setAttribute('data-theme', theme);
-    }
-  }, [theme]);
-
   useEffect(() => {
     try {
       localStorage.setItem('theme', theme);
@@ -62,11 +50,22 @@ function ThemeProvider({
 
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
-    applyTheme();
-    mediaQuery.addEventListener('change', applyTheme);
+    const handleChange = () => {
+      if (theme === 'auto') {
+        document.documentElement.setAttribute(
+          'data-theme',
+          mediaQuery.matches ? 'dark' : 'light'
+        );
+      } else {
+        document.documentElement.setAttribute('data-theme', theme);
+      }
+    };
 
-    return () => mediaQuery.removeEventListener('change', applyTheme);
-  }, [theme, applyTheme]);
+    handleChange();
+    mediaQuery.addEventListener('change', handleChange);
+
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, [theme]);
 
   const nextTheme = (currentTheme: Themes): Themes => {
     switch (currentTheme) {

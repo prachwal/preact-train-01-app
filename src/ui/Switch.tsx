@@ -16,8 +16,6 @@ export function Switch({
   borderRadius,
   borderWidth,
 }: SwitchProps) {
-  console.log('🔄 Switch render:', { checked, disabled, label, ariaLabel });
-
   const modifiers: Record<string, boolean | string | undefined> = {
     [size]: true,
     checked,
@@ -32,22 +30,18 @@ export function Switch({
   const baseClassName = buildClassName('pta-switch', modifiers);
 
   const handleClick = (e: MouseEvent) => {
-    console.log('🖱️ Switch handleClick called, disabled:', disabled);
     e.preventDefault(); // Prevent label from triggering input
     if (!disabled) {
       const newChecked = !checked;
-      console.log('🔄 Switch onChange called with:', newChecked);
       onChange(newChecked);
     }
   };
 
   const handleKeyDown = (e: KeyboardEvent) => {
-    console.log('⌨️ Switch handleKeyDown:', e.key, 'disabled:', disabled);
     if (disabled) return;
     if (e.key === ' ' || e.key === 'Enter') {
       e.preventDefault();
       const newChecked = !checked;
-      console.log('🔄 Switch onChange called from keydown with:', newChecked);
       onChange(newChecked);
     }
   };

@@ -514,3 +514,22 @@ $border-width-map: (
     background-color: var(--pta-color-#{$state}, $color);
   }
 }
+
+// ============================================
+// BUTTON VARIANT MIXIN
+// ============================================
+
+@mixin button-variant($bg-var, $text-var, $hover-var, $active-var: null) {
+  background-color: var(#{$bg-var});
+  color: var(#{$text-var});
+
+  &:hover:not(:disabled) {
+    background-color: var(#{$hover-var});
+  }
+
+  @if $active-var {
+    &:active:not(:disabled) {
+      background-color: var(#{$active-var});
+    }
+  }
+}

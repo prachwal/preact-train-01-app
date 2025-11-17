@@ -1,0 +1,22 @@
+/* Privacy Policy and Terms of Service page styles */
+
+.privacy-policy,
+.terms-of-service {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--pta-spacing-lg);
+}
+
+@media (min-width: 768px) {
+  .privacy-policy,
+  .terms-of-service {
+    padding: var(--pta-spacing-xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  .privacy-policy,
+  .terms-of-service {
+    padding: var(--pta-spacing-xxl) var(--pta-spacing-xl);
+  }
+}

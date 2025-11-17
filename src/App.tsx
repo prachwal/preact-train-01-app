@@ -1,9 +1,17 @@
 import { useContext } from 'preact/compat';
 import { LocationProvider, Router, Route } from 'preact-iso';
 import { Theme } from './ThemeProvider';
-import { Button, Typography, Hamburger, ThemeIcon } from './ui';
-import { ErrorBoundary } from './components/ErrorBoundary';
-import { Home, Settings, About, NotFound } from './pages';
+import { Typography, Hamburger, ThemeIcon, ToggleButton } from './ui';
+import type { ToggleItem } from './types';
+import { ErrorBoundary, Navigation, Footer } from './components';
+import {
+  Home,
+  Settings,
+  About,
+  NotFound,
+  PrivacyPolicy,
+  TermsOfService,
+} from './pages';
 import { themeSignal, isMobileMenuOpenSignal } from './application/signals';
 // @ts-ignore
 import packageJson from '../package.json';
@@ -15,13 +23,34 @@ function App() {
   if (!context) {
     throw new Error('App must be used within ThemeProvider');
   }
-  const { setTheme, nextTheme } = context;
+  const { setTheme } = context;
 
-  const handleThemeToggle = () => {
-    const currentTheme = themeSignal.value;
-    const newTheme = nextTheme(currentTheme);
-    themeSignal.value = newTheme;
-    setTheme(newTheme);
+  // Theme toggle items for ToggleButton
+  const themeItems: ToggleItem[] = [
+    {
+      value: 'light',
+      label: 'Light',
+      icon: <ThemeIcon theme="light" />,
+      ariaLabel: 'Switch to light theme',
+    },
+    {
+      value: 'dark',
+      label: 'Dark',
+      icon: <ThemeIcon theme="dark" />,
+      ariaLabel: 'Switch to dark theme',
+    },
+    {
+      value: 'auto',
+      label: 'Auto',
+      icon: <ThemeIcon theme="auto" />,
+      ariaLabel: 'Switch to auto theme',
+    },
+  ];
+
+  const handleThemeChange = (newTheme: string) => {
+    const theme = newTheme as 'light' | 'dark' | 'auto';
+    themeSignal.value = theme;
+    setTheme(theme);
   };
 
   const toggleMobileMenu = () => {
@@ -50,15 +79,14 @@ function App() {
                 </Typography>
               </div>
               <nav className="app-header__nav">
-                <Button
-                  variant="secondary"
+                <ToggleButton
+                  variant="icon"
+                  items={themeItems}
+                  value={themeSignal.value}
+                  onChange={handleThemeChange}
+                  ariaLabel="Toggle theme"
                   size="md"
-                  onClick={handleThemeToggle}
-                  className="app-header__theme-btn"
-                  aria-label={`Switch to ${nextTheme(themeSignal.value)} theme`}
-                >
-                  <ThemeIcon theme={themeSignal.value} />
-                </Button>
+                />
               </nav>
             </div>
           </header>
@@ -76,53 +104,7 @@ function App() {
                 isMobileMenuOpenSignal.value ? 'app-aside--open' : ''
               }`}
             >
-              <nav
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '1rem',
-                }}
-              >
-                <a
-                  href="/"
-                  style={{
-                    padding: '0.75rem 1rem',
-                    textDecoration: 'none',
-                    color: 'var(--pta-color-text-primary)',
-                    borderRadius: '8px',
-                    transition: 'background-color 0.2s',
-                  }}
-                  onClick={closeMobileMenu}
-                >
-                  <Typography variant="body1">🏠 Home</Typography>
-                </a>
-                <a
-                  href="/settings"
-                  style={{
-                    padding: '0.75rem 1rem',
-                    textDecoration: 'none',
-                    color: 'var(--pta-color-text-primary)',
-                    borderRadius: '8px',
-                    transition: 'background-color 0.2s',
-                  }}
-                  onClick={closeMobileMenu}
-                >
-                  <Typography variant="body1">⚙️ Settings</Typography>
-                </a>
-                <a
-                  href="/about"
-                  style={{
-                    padding: '0.75rem 1rem',
-                    textDecoration: 'none',
-                    color: 'var(--pta-color-text-primary)',
-                    borderRadius: '8px',
-                    transition: 'background-color 0.2s',
-                  }}
-                  onClick={closeMobileMenu}
-                >
-                  <Typography variant="body1">ℹ️ About</Typography>
-                </a>
-              </nav>
+              <Navigation onNavigate={closeMobileMenu} />
             </aside>
 
             {/* Main Content with Routing */}
@@ -131,23 +113,15 @@ function App() {
                 <Route path="/" component={Home} />
                 <Route path="/settings" component={Settings} />
                 <Route path="/about" component={About} />
+                <Route path="/privacy" component={PrivacyPolicy} />
+                <Route path="/terms" component={TermsOfService} />
                 <Route default component={NotFound} />
               </Router>
             </main>
           </div>
 
           {/* Footer */}
-          <footer className="app-footer">
-            <Typography
-              variant="caption"
-              color="tertiary"
-              align="center"
-              gutterBottom={false}
-            >
-              © 2025 Preact Training v{packageJson.version} · Built with Preact
-              + TypeScript + Vite
-            </Typography>
-          </footer>
+          <Footer />
         </div>
       </LocationProvider>
     </ErrorBoundary>

@@ -134,12 +134,8 @@ export function ThemeIcon({ theme, className }: ThemeIconProps) {
         strokeWidth="2"
         fill="none"
       />
-      <path
-        d="M10 2 C10 2, 10 18, 10 18"
-        stroke="currentColor"
-        strokeWidth="2"
-      />
-      <path d="M2 10 L10 10 L10 2 C10 2, 2 2, 2 10 Z" fill="currentColor" />
+      <path d="M10 2 V18" stroke="currentColor" strokeWidth="2" />
+      <path d="M2 10 L10 10 L10 2 L2 2 L2 10 Z" fill="currentColor" />
     </svg>
   );
 }

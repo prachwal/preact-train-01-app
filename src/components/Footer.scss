@@ -1,0 +1,139 @@
+// Footer Component Styles
+// Rich footer with grid layout and responsive behavior
+
+@use "../styles/variables.scss" as *;
+@use "../styles/mixins.scss" as *;
+
+.pta-footer {
+  background-color: var(--pta-color-surface);
+  border-top: 1px solid var(--pta-color-border);
+  padding: $spacing-3xl $spacing-lg $spacing-xl;
+  margin-top: auto;
+
+  @include respond-above(md) {
+    padding: $spacing-3xl $spacing-2xl $spacing-xl;
+  }
+
+  &__container {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  &__grid {
+    margin-bottom: $spacing-2xl;
+
+    @include respond-below(md) {
+      flex-direction: column;
+      gap: $spacing-xl;
+    }
+  }
+
+  &__section {
+    flex: 1;
+    min-width: 200px;
+
+    @include respond-below(md) {
+      min-width: 100%;
+    }
+  }
+
+  &__title {
+    color: var(--pta-color-text-primary);
+    font-weight: 600;
+    margin-bottom: $spacing-md;
+  }
+
+  &__version {
+    margin-top: $spacing-sm;
+    padding-top: $spacing-sm;
+    border-top: 1px solid var(--pta-color-border-light);
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+  }
+
+  &__link {
+    color: var(--pta-color-text-secondary);
+    text-decoration: none;
+    font-size: $font-size-sm;
+    transition: color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+
+    &:hover {
+      color: var(--pta-color-accent);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--pta-color-focus);
+      outline-offset: 2px;
+      border-radius: $border-radius-sm;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-md;
+    padding-top: $spacing-xl;
+    border-top: 1px solid var(--pta-color-border);
+
+    @include respond-above(md) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__social {
+    display: flex;
+    gap: $spacing-md;
+  }
+
+  &__social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--pta-color-bg-secondary);
+    color: var(--pta-color-text-secondary);
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: var(--pta-color-accent);
+      color: var(--pta-color-bg);
+      transform: translateY(-2px);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--pta-color-focus);
+      outline-offset: 2px;
+    }
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+// Responsive adjustments
+@include respond-below(sm) {
+  .pta-footer {
+    padding: $spacing-2xl $spacing-md $spacing-lg;
+
+    &__grid {
+      gap: $spacing-lg;
+    }
+
+    &__bottom {
+      text-align: center;
+    }
+  }
+}

@@ -1,0 +1,363 @@
+@use "../variables.scss" as *;
+@use "../mixins.scss" as *;
+
+// ============================================
+// INPUT COMPONENT - Fully Responsive
+// ============================================
+
+.pta-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+  width: 100%;
+}
+
+.pta-input-label {
+  font-size: $font-size-sm;
+  font-weight: 500;
+  color: var(--pta-color-text, #{$pta-color-light-text});
+  margin-bottom: $spacing-xs;
+  display: block;
+}
+
+.pta-input-required {
+  color: var(--pta-color-error, #{$pta-color-light-error});
+  margin-left: $spacing-xs;
+}
+
+.pta-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: var(--pta-color-bg, #{$pta-color-light-bg});
+
+  // Base styles
+  border-radius: $border-radius-sm;
+  border: 1px solid var(--pta-color-border, #{$pta-color-light-border-light});
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+
+  // ============================================
+  // VARIANT STYLES
+  // ============================================
+
+  &.pta-input-wrapper--outlined {
+    background-color: transparent;
+    border: 1px solid var(--pta-color-border, #{$pta-color-light-border-light});
+  }
+
+  &.pta-input-wrapper--filled {
+    background-color: var(--pta-color-surface, #{$pta-color-light-surface});
+    border: none;
+    border-bottom: 2px solid var(--pta-color-border, #{$pta-color-light-border-light});
+    border-radius: $border-radius-sm $border-radius-sm 0 0;
+  }
+
+  &.pta-input-wrapper--standard {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid var(--pta-color-border, #{$pta-color-light-border-light});
+    border-radius: 0;
+  }
+
+  // ============================================
+  // SIZE VARIANTS
+  // ============================================
+
+  &.pta-input-wrapper--sm {
+    height: $input-height-sm;
+
+    .pta-input {
+      padding: $input-padding-sm;
+      font-size: $font-size-sm;
+    }
+
+    .pta-input-icon {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+  }
+
+  &.pta-input-wrapper--md {
+    height: $input-height-md;
+
+    .pta-input {
+      padding: $input-padding-md;
+      font-size: $font-size-base;
+    }
+
+    .pta-input-icon {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
+
+  &.pta-input-wrapper--lg {
+    height: $input-height-lg;
+
+    .pta-input {
+      padding: $input-padding-lg;
+      font-size: $font-size-lg;
+    }
+
+    .pta-input-icon {
+      width: 1.75rem;
+      height: 1.75rem;
+    }
+  }
+
+  &.pta-input-wrapper--xl {
+    height: $input-height-xl;
+
+    .pta-input {
+      padding: $input-padding-xl;
+      font-size: $font-size-xl;
+    }
+
+    .pta-input-icon {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+
+  // ============================================
+  // STATE STYLES
+  // ============================================
+
+  // Focus state
+  &.pta-input-wrapper--focused {
+    border-color: var(--pta-color-accent, #{$pta-color-light-accent});
+    box-shadow: 0 0 0 3px var(--pta-color-focus-ring, #{$pta-color-light-focus-ring});
+  }
+
+  // Error state
+  &.pta-input-wrapper--error {
+    border-color: var(--pta-color-error, #{$pta-color-light-error});
+
+    &.pta-input-wrapper--focused {
+      box-shadow: 0 0 0 3px rgb(220 53 69 / 0.25);
+    }
+  }
+
+  // Disabled state
+  &.pta-input-wrapper--disabled {
+    background-color: var(--pta-color-button-disabled-bg, #{$pta-color-light-button-disabled-bg});
+    border-color: var(--pta-color-border-light, #{$pta-color-light-border-light});
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  // ============================================
+  // SEMANTIC STATES
+  // ============================================
+
+  @include semantic-border-variant(success);
+  @include semantic-border-variant(error);
+  @include semantic-border-variant(warning);
+  @include semantic-border-variant(info);
+
+  // ============================================
+  // BORDER RADIUS VARIANTS
+  // ============================================
+
+  @include border-radius-variant(none);
+  @include border-radius-variant(sm);
+  @include border-radius-variant(md);
+  @include border-radius-variant(lg);
+  @include border-radius-variant(xl);
+
+  // ============================================
+  // BORDER WIDTH VARIANTS
+  // ============================================
+
+  @include border-width-variant(none);
+  @include border-width-variant(thin);
+  @include border-width-variant(medium);
+  @include border-width-variant(thick);
+
+  // ============================================
+  // ICON SUPPORT
+  // ============================================
+
+  &.pta-input-wrapper--with-left-icon {
+    .pta-input {
+      padding-left: 2.5rem;
+    }
+  }
+
+  &.pta-input-wrapper--with-right-icon {
+    .pta-input {
+      padding-right: 2.5rem;
+    }
+  }
+}
+
+// ============================================
+// INPUT ELEMENT
+// ============================================
+
+.pta-input {
+  flex: 1;
+  width: 100%;
+  border: none;
+  background: transparent;
+  color: var(--pta-color-text, #{$pta-color-light-text});
+  font-family: inherit;
+  font-size: $font-size-base;
+  line-height: 1.5;
+  outline: none;
+
+  &::placeholder {
+    color: var(--pta-color-text-tertiary, #{$pta-color-light-text-tertiary});
+    opacity: 1;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    color: var(--pta-color-text-disabled, #{$pta-color-light-text-disabled});
+  }
+
+  &:read-only {
+    cursor: default;
+  }
+
+  // Remove default browser styles
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &[type="number"] {
+    -moz-appearance: textfield;
+  }
+
+  // Remove default search styles
+  &[type="search"]::-webkit-search-cancel-button,
+  &[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+}
+
+// ============================================
+// ICONS
+// ============================================
+
+.pta-input-icon {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--pta-color-text-secondary, #{$pta-color-light-text-secondary});
+  pointer-events: none;
+
+  &--left {
+    left: $spacing-md;
+  }
+
+  &--right {
+    right: $spacing-md;
+  }
+}
+
+// ============================================
+// CLEAR BUTTON
+// ============================================
+
+.pta-input-clear {
+  position: absolute;
+  right: $spacing-md;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  padding: 0;
+  border: none;
+  background: var(--pta-color-text-tertiary, #{$pta-color-light-text-tertiary});
+  color: var(--pta-color-bg, #{$pta-color-light-bg});
+  border-radius: 50%;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
+
+  &:hover {
+    background: var(--pta-color-text-secondary, #{$pta-color-light-text-secondary});
+    transform: scale(1.1);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &:focus {
+    outline: 2px solid var(--pta-color-focus, #{$pta-color-light-focus});
+    outline-offset: 2px;
+  }
+}
+
+// ============================================
+// HELPER TEXT AND ERROR
+// ============================================
+
+.pta-input-helper,
+.pta-input-error {
+  font-size: $font-size-xs;
+  line-height: 1.4;
+  margin-top: $spacing-xs;
+}
+
+.pta-input-helper {
+  color: var(--pta-color-text-secondary, #{$pta-color-light-text-secondary});
+}
+
+.pta-input-error {
+  color: var(--pta-color-error, #{$pta-color-light-error});
+}
+
+// ============================================
+// CHARACTER COUNT
+// ============================================
+
+.pta-input-character-count {
+  font-size: $font-size-xs;
+  color: var(--pta-color-text-tertiary, #{$pta-color-light-text-tertiary});
+  text-align: right;
+  margin-top: $spacing-xs;
+}
+
+// ============================================
+// RESPONSIVE ADJUSTMENTS
+// ============================================
+
+// Touch devices - larger tap targets
+@media (hover: none) and (pointer: coarse) {
+  .pta-input-wrapper--sm {
+    height: 44px;
+  }
+
+  .pta-input-clear {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+  .pta-input-wrapper,
+  .pta-input-clear {
+    transition: none;
+  }
+}
+
+// High contrast mode
+@media (prefers-contrast: high) {
+  .pta-input-wrapper {
+    border-width: 2px;
+  }
+}

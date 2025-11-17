@@ -1,0 +1,325 @@
+// ToggleButton Component Styles
+// BEM naming: .pta-toggle-button
+
+@use "../variables.scss" as *;
+@use "../mixins.scss" as *;
+
+.pta-toggle-button {
+  position: relative;
+  display: inline-block;
+
+  // Button base styles
+  &__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: $spacing-sm;
+    padding: $spacing-md $spacing-lg;
+    border: 1px solid var(--pta-color-border);
+    border-radius: $border-radius-md;
+    background: var(--pta-color-bg);
+    color: var(--pta-color-text-primary);
+    font-family: inherit;
+    font-size: $font-size-base;
+    font-weight: 500;
+    line-height: 1.5;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    outline: none;
+
+    &:hover:not(:disabled) {
+      background: var(--pta-color-bg-secondary);
+      border-color: var(--pta-color-primary);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--pta-color-primary);
+      outline-offset: 2px;
+    }
+
+    &:active:not(:disabled) {
+      transform: scale(0.98);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  // Icon styles
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+    animation: icon-fade-in 0.3s ease;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  // Label styles
+  &__label {
+    white-space: nowrap;
+    user-select: none;
+  }
+
+  // Arrow for dropdown
+  &__arrow {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.75rem;
+    margin-left: $spacing-xs;
+    transition: transform 0.2s ease;
+  }
+
+  // Dropdown menu
+  &__dropdown {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    min-width: 100%;
+    max-height: 300px;
+    overflow-y: auto;
+    background: var(--pta-color-bg);
+    border: 1px solid var(--pta-color-border);
+    border-radius: $border-radius-md;
+    box-shadow: 0 4px 12px rgb(0 0 0 / 0.15);
+    z-index: 1000;
+    animation: dropdown-slide-in 0.2s ease;
+
+    @keyframes dropdown-slide-in {
+      from {
+        opacity: 0;
+        transform: translateY(-8px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+
+  // Dropdown item
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    padding: $spacing-md $spacing-lg;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+
+    &:hover:not(&--disabled) {
+      background: var(--pta-color-bg-secondary);
+    }
+
+    &:focus {
+      outline: none;
+      background: var(--pta-color-bg-tertiary);
+    }
+
+    &--selected {
+      background: var(--pta-color-bg-secondary);
+      font-weight: 600;
+    }
+
+    &--disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  &__item-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+  }
+
+  &__item-label {
+    flex: 1;
+    white-space: nowrap;
+  }
+
+  &__item-check {
+    color: var(--pta-color-success);
+    font-weight: bold;
+  }
+
+  // ============================================
+  // VARIANTS
+  // ============================================
+
+  // Icon only variant (mobile/tablet)
+  &--icon {
+    .pta-toggle-button__button {
+      padding: $spacing-md;
+      width: 44px; // Minimum touch target
+      height: 44px;
+
+      @include respond-above(tablet) {
+        width: 48px;
+        height: 48px;
+      }
+    }
+
+    .pta-toggle-button__icon {
+      margin: 0;
+    }
+  }
+
+  // Text only variant
+  &--text {
+    .pta-toggle-button__button {
+      padding: $spacing-md $spacing-xl;
+    }
+  }
+
+  // Icon + Text variant (desktop)
+  &--icon-text {
+    .pta-toggle-button__button {
+      padding: $spacing-md $spacing-lg;
+      gap: $spacing-sm;
+    }
+  }
+
+  // Dropdown variant
+  &--dropdown {
+    .pta-toggle-button__button {
+      padding-right: $spacing-xl;
+    }
+
+    &.pta-toggle-button--open {
+      .pta-toggle-button__arrow {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  // Carousel variant (optional - Priority 4)
+  &--carousel {
+    // TODO: Implement carousel styles
+  }
+
+  // ============================================
+  // SIZES
+  // ============================================
+
+  &--sm {
+    .pta-toggle-button__button {
+      padding: $spacing-sm $spacing-md;
+      font-size: $font-size-sm;
+      border-radius: $border-radius-sm;
+    }
+
+    &.pta-toggle-button--icon .pta-toggle-button__button {
+      width: 36px;
+      height: 36px;
+      padding: $spacing-sm;
+    }
+
+    .pta-toggle-button__icon {
+      width: 16px;
+      height: 16px;
+    }
+
+    .pta-toggle-button__dropdown {
+      font-size: $font-size-sm;
+    }
+
+    .pta-toggle-button__item {
+      padding: $spacing-sm $spacing-md;
+    }
+  }
+
+  &--md {
+    // Default styles already applied
+  }
+
+  &--lg {
+    .pta-toggle-button__button {
+      padding: $spacing-lg $spacing-xl;
+      font-size: $font-size-lg;
+      border-radius: $border-radius-lg;
+    }
+
+    &.pta-toggle-button--icon .pta-toggle-button__button {
+      width: 56px;
+      height: 56px;
+      padding: $spacing-lg;
+    }
+
+    .pta-toggle-button__icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    .pta-toggle-button__dropdown {
+      font-size: $font-size-lg;
+    }
+
+    .pta-toggle-button__item {
+      padding: $spacing-lg $spacing-xl;
+    }
+  }
+
+  // ============================================
+  // STATES
+  // ============================================
+
+  &--disabled {
+    .pta-toggle-button__button {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  // ============================================
+  // RESPONSIVE
+  // ============================================
+
+  @include respond-above(tablet) {
+    &--icon .pta-toggle-button__button {
+      width: 48px;
+      height: 48px;
+    }
+  }
+
+  @include respond-above(desktop) {
+    &__button {
+      padding: $spacing-md $spacing-xl;
+    }
+
+    &--icon .pta-toggle-button__button {
+      width: 48px;
+      height: 48px;
+    }
+  }
+
+  // ============================================
+  // ANIMATIONS
+  // ============================================
+
+  @keyframes icon-fade-in {
+    from {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  // Focus styles already defined in base button styles
+}

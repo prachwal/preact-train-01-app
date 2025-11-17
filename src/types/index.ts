@@ -5,6 +5,7 @@ export * from './constants';
 export * from './colors';
 export * from './helpers';
 export * from './component-props';
+export * from './navigation';
 
 // ============================================
 // BACKWARDS COMPATIBILITY

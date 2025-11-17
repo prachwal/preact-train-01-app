@@ -19,3 +19,39 @@
     flex: 1;
   }
 }
+
+// Smooth scroll for anchor navigation
+.settings-section {
+  scroll-margin-top: 80px; // Account for fixed header
+
+  &:target {
+    animation: highlight 1s ease-in-out;
+  }
+
+  @keyframes highlight {
+    0% {
+      background-color: transparent;
+    }
+    50% {
+      background-color: var(--pta-color-accent-light);
+    }
+    100% {
+      background-color: transparent;
+    }
+  }
+}
+
+// Ensure smooth scrolling
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .settings-section:target {
+    animation: none;
+  }
+}

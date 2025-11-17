@@ -99,43 +99,36 @@
   // ============================================
 
   &--primary {
-    background-color: var(--pta-color-button-primary-bg, #{$pta-color-light-button-primary-bg});
-    color: var(--pta-color-button-primary-text, #{$pta-color-light-button-primary-text});
-
-    &:hover:not(:disabled) {
-      background-color: var(--pta-color-button-primary-hover, #{$pta-color-light-button-primary-hover});
-    }
-
-    &:active:not(:disabled) {
-      background-color: var(--pta-color-accent-active, #{$pta-color-light-accent-active});
-    }
+    @include button-variant(
+      --pta-color-button-primary-bg,
+      --pta-color-button-primary-text,
+      --pta-color-button-primary-hover,
+      --pta-color-accent-active
+    );
   }
 
   &--secondary {
-    background-color: var(--pta-color-button-secondary-bg, #{$pta-color-light-button-secondary-bg});
-    color: var(--pta-color-button-secondary-text, #{$pta-color-light-button-secondary-text});
-
-    &:hover:not(:disabled) {
-      background-color: var(--pta-color-button-secondary-hover, #{$pta-color-light-button-secondary-hover});
-    }
+    @include button-variant(
+      --pta-color-button-secondary-bg,
+      --pta-color-button-secondary-text,
+      --pta-color-button-secondary-hover
+    );
   }
 
   &--success {
-    background-color: var(--pta-color-button-success-bg, #{$pta-color-light-button-success-bg});
-    color: var(--pta-color-button-success-text, #{$pta-color-light-button-success-text});
-
-    &:hover:not(:disabled) {
-      background-color: var(--pta-color-button-success-hover, #{$pta-color-light-button-success-hover});
-    }
+    @include button-variant(
+      --pta-color-button-success-bg,
+      --pta-color-button-success-text,
+      --pta-color-button-success-hover
+    );
   }
 
   &--danger {
-    background-color: var(--pta-color-button-danger-bg, #{$pta-color-light-button-danger-bg});
-    color: var(--pta-color-button-danger-text, #{$pta-color-light-button-danger-text});
-
-    &:hover:not(:disabled) {
-      background-color: var(--pta-color-button-danger-hover, #{$pta-color-light-button-danger-hover});
-    }
+    @include button-variant(
+      --pta-color-button-danger-bg,
+      --pta-color-button-danger-text,
+      --pta-color-button-danger-hover
+    );
   }
 
   &--disabled {
