@@ -16,7 +16,7 @@ export const Grid = ({
   children,
   className: additionalClassName,
   ...props
-}: GridComponentProps & { className?: string }) => {
+}: GridComponentProps) => {
   const modifiers: Record<string, boolean | string | undefined> = {
     [`mode-${mode}`]: true,
   };

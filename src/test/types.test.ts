@@ -204,12 +204,12 @@ describe('Types', () => {
     describe('SPACING_VALUES', () => {
       it('should have all spacing sizes', () => {
         expect(SPACING_VALUES).toEqual({
-          xs: '0.5rem',
-          sm: '0.75rem',
-          md: '1rem',
-          lg: '1.5rem',
-          xl: '2rem',
-          '2xl': '3rem',
+          xs: '0.25rem',
+          sm: '0.375rem',
+          md: '0.5rem',
+          lg: '0.75rem',
+          xl: '1rem',
+          '2xl': '1.5rem',
         });
       });
     });
@@ -232,10 +232,10 @@ describe('Types', () => {
       it('should have all border radius sizes', () => {
         expect(BORDER_RADIUS_VALUES).toEqual({
           none: '0',
-          sm: '0.3125rem',
-          md: '0.5rem',
-          lg: '0.75rem',
-          xl: '1rem',
+          sm: '0.25rem',
+          md: '0.375rem',
+          lg: '0.5rem',
+          xl: '0.75rem',
         });
       });
     });

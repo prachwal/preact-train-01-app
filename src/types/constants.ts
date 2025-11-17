@@ -11,12 +11,12 @@ import type {
 
 // Konfiguracja spacing (w rem)
 export const SPACING_VALUES: Record<SpacingSize, string> = {
-  xs: '0.5rem',
-  sm: '0.75rem',
-  md: '1rem',
-  lg: '1.5rem',
-  xl: '2rem',
-  '2xl': '3rem',
+  xs: '0.25rem',
+  sm: '0.375rem',
+  md: '0.5rem',
+  lg: '0.75rem',
+  xl: '1rem',
+  '2xl': '1.5rem',
 } as const;
 
 // Konfiguracja font sizes (w rem)
@@ -33,10 +33,10 @@ export const FONT_SIZE_VALUES: Record<FontSize, string> = {
 // Konfiguracja border-radius (w rem)
 export const BORDER_RADIUS_VALUES: Record<BorderRadiusSize, string> = {
   none: '0',
-  sm: '0.3125rem',
-  md: '0.5rem',
-  lg: '0.75rem',
-  xl: '1rem',
+  sm: '0.25rem',
+  md: '0.375rem',
+  lg: '0.5rem',
+  xl: '0.75rem',
 } as const;
 
 // Konfiguracja breakpointów (w px)

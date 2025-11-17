@@ -73,7 +73,6 @@ export const getThemeColor = (
 export const isBreakpoint = (breakpoint: Breakpoint): boolean => {
   if (typeof window === 'undefined') return false;
   const width = window.innerWidth;
-  const breakpointValue = BREAKPOINT_NUMBERS[breakpoint];
 
   switch (breakpoint) {
     case 'mobile':

@@ -1,10 +1,14 @@
-import { memo, useContext } from 'preact/compat';
+import { useContext } from 'preact/compat';
 import { Theme } from './ThemeProvider';
 import { Button, Card, Typography } from './ui';
 import { CardDemo } from './components/CardDemo';
 
 function App() {
-  const { theme, setTheme, nextTheme } = useContext(Theme);
+  const context = useContext(Theme);
+  if (!context) {
+    throw new Error('App must be used within ThemeProvider');
+  }
+  const { theme, setTheme, nextTheme } = context;
 
   const handleThemeToggle = () => setTheme(nextTheme(theme));
 
@@ -36,4 +40,4 @@ function App() {
   );
 }
 
-export default memo(App);
+export default App;

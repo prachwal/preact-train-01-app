@@ -22,10 +22,6 @@
     min-width: 10rem;
   }
 
-  &:hover {
-    background-color: var(--pta-color-accent-hover, #{$pta-color-light-accent-hover});
-  }
-
   &:focus {
     outline: 3px solid var(--pta-color-focus, #{$pta-color-light-focus});
     outline-offset: 2px;

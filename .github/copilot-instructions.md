@@ -15,15 +15,22 @@ This repository is a Preact + Vite TypeScript single-page app with a comprehensi
 - `vite.config.ts` — enables `@preact/preset-vite` plugin
 - `index.html` — Vite entry; **must** contain `<div id="app"></div>` (app throws if missing)
 - `src/index.tsx` — app entry; provides `Theme` context; imports global SCSS
-- `src/App.tsx` — demo page showcasing Button component variants and theme switching
-- `src/ThemeProvider.tsx` — Context provider for theme state with localStorage persistence
-- `src/components/Button.tsx` — reusable Button with typed props (variant, size, shadow, semanticState)
+- `src/App.tsx` — demo page showcasing components and theme switching
+- `src/ThemeProvider.tsx` — Context provider for theme state with localStorage persistence and SSR safety
+- `src/ui/Button.tsx` — reusable Button with typed props (variant, size, shadow, semanticState, borderRadius, borderWidth)
+- `src/ui/Card.tsx` — Card component with variants, shadows, borders, title support
+- `src/ui/Grid.tsx` — Layout Grid component with responsive support
+- `src/ui/Typography.tsx` — Text Typography component with variants, colors, alignment
+- `src/components/CardDemo.tsx` — Demo component for Button variants
 - `src/types/index.ts` — **canonical source** for design tokens, types, and `buildClassName` utility
 - `src/styles/index.scss` — global SCSS entry with `@use` imports
 - `src/styles/_variables.scss` — SCSS variables (must sync with `src/types/index.ts`)
 - `src/styles/_themes.scss` — CSS custom properties applied via `data-theme` attributes
 - `src/styles/_base.scss` — global reset, CSS variables, base component styles
-- `src/styles/_components.scss` — component-specific styles (Button)
+- `src/styles/components/_buttons.scss` — Button styles with mixins
+- `src/styles/components/_cards.scss` — Card styles with mixins
+- `src/styles/components/_grids.scss` — Grid styles
+- `src/styles/components/_typography.scss` — Typography styles with maps
 - `vitest.config.ts` — unit testing config (jsdom, excludes e2e)
 - `playwright.config.ts` — e2e testing config with Vite dev server integration
 - `e2e/` — Playwright tests for cross-browser validation
@@ -39,7 +46,7 @@ This repository is a Preact + Vite TypeScript single-page app with a comprehensi
 **Project-specific conventions & patterns**
 
 - **Preact/compat**: Use React-like hooks (`useState`, `useEffect`, `useContext`, `memo`)
-- **Strict TypeScript**: All component props use literal unions; no generic `string` types
+- **Strict TypeScript**: All component props use literal unions; no generic `string` types. Use `ComponentChildren` from Preact for `children` props instead of `React.ReactNode`.
 - **Component API**: Spread `...props` with special `className` merging: `className ? `${baseClassName} ${className}` : baseClassName`
 - **Theme system**: `Theme` type = `'light'|'dark'|'auto'`; auto mode respects `prefers-color-scheme`
 - **Design tokens**: Update `src/types/index.ts` first, then sync SCSS variables
@@ -78,10 +85,11 @@ buildClassName('pta-button', {
 **Critical sync requirements (do not break)**
 When changing design tokens:
 
-1. Update TypeScript constants in `src/types/index.ts` first
+1. Update TypeScript constants in `src/types/index.ts` first (include 'none' for BorderRadiusSize, BorderWidthSize, ShadowVariant)
 2. Sync SCSS variables in `src/styles/_variables.scss`
-3. Update CSS custom properties in `src/styles/_themes.scss` if needed
-4. Run `npm run dev` and verify no regressions
+3. Add CSS custom properties in `src/styles/_base.scss`
+4. Update mixins in `src/styles/_mixins.scss` if needed
+5. Run `npm run dev` and verify no regressions
 
 **Testing patterns**
 
@@ -98,10 +106,10 @@ When changing design tokens:
 
 **Component Creation Process**
 
-1. Create TSX component in `src/components/` with typed props, `buildClassName`, and dynamic JSX via `h()`.
+1. Create TSX component in `src/ui/` with typed props, `buildClassName`, and dynamic JSX via `h()`.
 2. Add types/interfaces in `src/types/` (update `types.ts`, `component-props.ts`).
 3. Add SCSS styles in `src/styles/components/_component.scss` using mixins/maps for DRY.
 4. Update `src/styles/components/index.scss` with `@forward`.
-5. Export in `src/components/index.ts`.
-6. Add Storybook stories in `src/components/Component.stories.tsx` with decorators and argTypes.
+5. Export in `src/ui/index.ts`.
+6. Add Storybook stories in `src/ui/Component.stories.tsx` with decorators and argTypes.
 7. Build (`npm run build`), lint (`npm run lint:css`), and test in Storybook (`npm run storybook`).

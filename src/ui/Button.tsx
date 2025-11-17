@@ -14,7 +14,7 @@ export const Button = ({
   children,
   className: additionalClassName,
   ...props
-}: ButtonProps & { className?: string }) => {
+}: ButtonProps) => {
   const modifiers: Record<string, boolean | string | undefined> = {
     [size]: true,
   };

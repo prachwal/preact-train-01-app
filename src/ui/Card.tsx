@@ -17,7 +17,7 @@ export const Card = ({
   children,
   className: additionalClassName,
   ...props
-}: CardProps & { className?: string }) => {
+}: CardProps) => {
   const modifiers: Record<string, boolean | string | undefined> = {
     [size]: true,
   };

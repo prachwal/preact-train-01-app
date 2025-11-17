@@ -2,6 +2,8 @@
 // COMPONENT PROPS INTERFACES
 // ============================================
 
+import type { ComponentChildren } from 'preact';
+import type { CSSProperties } from 'preact/compat';
 import type {
   ComponentSize,
   Theme,
@@ -33,31 +35,6 @@ export interface ThemedComponentProps extends BaseComponentProps {
   theme?: Theme;
 }
 
-export interface ButtonComponentProps
-  extends SizedComponentProps,
-    ThemedComponentProps {
-  variant?: ButtonVariant;
-  disabled?: boolean;
-  type?: 'button' | 'submit' | 'reset';
-  shadow?: ShadowVariant;
-  borderRadius?: BorderRadiusSize;
-  borderWidth?: BorderWidthSize;
-  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  children?: React.ReactNode;
-}
-
-export interface CardComponentProps
-  extends SizedComponentProps,
-    ThemedComponentProps {
-  variant?: CardVariant;
-  semanticState?: SemanticState;
-  shadow?: ShadowVariant;
-  borderRadius?: BorderRadiusSize;
-  borderWidth?: BorderWidthSize;
-  title?: string;
-  children?: React.ReactNode;
-}
-
 export interface GridComponentProps extends BaseComponentProps {
   mode?: 'flex' | 'grid';
   direction?: 'row' | 'column' | 'row-reverse' | 'column-reverse';
@@ -69,21 +46,8 @@ export interface GridComponentProps extends BaseComponentProps {
   gridTemplateRows?: string;
   gridAutoFlow?: 'row' | 'column' | 'dense' | 'row dense' | 'column dense';
   as?: 'div' | 'section' | 'article' | 'main' | 'aside' | 'header' | 'footer';
-  children?: React.ReactNode;
-}
-
-export interface AlertComponentProps extends BaseComponentProps {
-  variant?: SemanticState;
-  dismissible?: boolean;
-  onDismiss?: () => void;
-  children?: React.ReactNode;
-}
-
-export interface LinkComponentProps extends BaseComponentProps {
-  href: string;
-  external?: boolean;
-  visited?: boolean;
-  children?: React.ReactNode;
+  className?: string;
+  children?: ComponentChildren;
 }
 
 export interface ButtonProps {
@@ -96,7 +60,8 @@ export interface ButtonProps {
   borderWidth?: BorderWidthSize;
   disabled?: boolean;
   onClick?: () => void;
-  children: React.ReactNode;
+  children: ComponentChildren;
+  className?: string;
 }
 
 export interface CardProps {
@@ -110,8 +75,9 @@ export interface CardProps {
   title?: string;
   headerLevel?: 1 | 2 | 3 | 4 | 5 | 6;
   as?: 'div' | 'section' | 'article' | 'main' | 'aside' | 'header' | 'footer';
-  style?: React.CSSProperties;
-  children?: React.ReactNode;
+  style?: CSSProperties;
+  children?: ComponentChildren;
+  className?: string;
 }
 
 export interface TypographyProps extends BaseComponentProps {
@@ -120,6 +86,6 @@ export interface TypographyProps extends BaseComponentProps {
   align?: TypographyAlign;
   gutterBottom?: boolean;
   noWrap?: boolean;
-  style?: React.CSSProperties;
-  children?: React.ReactNode;
+  style?: CSSProperties;
+  children?: ComponentChildren;
 }
