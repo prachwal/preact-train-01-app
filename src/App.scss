@@ -1,0 +1,272 @@
+// =============================================================================
+// App.scss - Professional Layout Styles
+// =============================================================================
+
+@use "styles/variables" as *;
+@use "styles/mixins" as *;
+
+// =============================================================================
+// App Wrapper - Root Container
+// =============================================================================
+
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--pta-color-bg);
+  color: var(--pta-color-text-primary);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+
+  // Mobile: add padding for fixed header
+  @media (max-width: #{$breakpoint-md - 1px}) {
+    padding-top: 60px; // header height on mobile
+  }
+}
+
+// =============================================================================
+// Header - Fixed Top Bar with Hamburger and Theme Toggle
+// =============================================================================
+
+.app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(var(--pta-color-surface-rgb, 255, 255, 255), 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(var(--pta-color-border-rgb), 0.1);
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.05),
+    0 1px 2px rgba(0, 0, 0, 0.03);
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    backdrop-filter 0.3s ease;
+
+  @include respond-above(md) {
+    position: sticky;
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: $breakpoint-2xl;
+    margin: 0 auto;
+    padding: $spacing-md $spacing-lg;
+    gap: $spacing-md;
+
+    @include respond-above(md) {
+      padding: $spacing-lg $spacing-xl;
+    }
+  }
+
+  &__left {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: $font-size-lg;
+
+    @include respond-above(md) {
+      font-size: $font-size-xl;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    flex-shrink: 0;
+  }
+
+  &__theme-btn {
+    white-space: nowrap;
+    width: auto;
+    min-width: auto;
+    padding: $spacing-sm $spacing-md;
+
+    @include respond-above(md) {
+      padding: $spacing-sm;
+      width: $theme-button-tablet;
+      height: $theme-button-tablet;
+    }
+
+    @include respond-above(lg) {
+      width: $theme-button-desktop;
+      height: $theme-button-desktop;
+      padding: $spacing-sm;
+    }
+  }
+}
+
+// =============================================================================
+// Mobile Overlay - Backdrop for Sidebar
+// =============================================================================
+
+.app-mobile-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 90;
+  background: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  animation: fadeIn 0.3s ease;
+
+  @include respond-above(lg) {
+    display: none;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+// =============================================================================
+// Container - Main Layout Grid
+// =============================================================================
+
+.app-container {
+  display: flex;
+  flex: 1;
+  max-width: $breakpoint-2xl;
+  margin: 0 auto;
+  width: 100%;
+  padding: $spacing-lg $spacing-md;
+
+  @include respond-above(md) {
+    padding: $spacing-lg $spacing-lg;
+  }
+
+  @include respond-above(lg) {
+    gap: $spacing-xl;
+    padding: $spacing-xl $spacing-xl;
+  }
+}
+
+// =============================================================================
+// Aside - Sidebar Navigation
+// =============================================================================
+
+.app-aside {
+  flex-shrink: 0;
+  width: 280px;
+  background: var(--pta-color-surface);
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease;
+
+  // Mobile: slide-in sidebar (full height)
+  @media (max-width: #{$breakpoint-lg - 1px}) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 95;
+    transform: translateX(-100%);
+    overflow-y: auto;
+    box-shadow: 2px 0 12px rgba(0, 0, 0, 0.15);
+    padding: 80px $spacing-lg $spacing-xl $spacing-lg;
+
+    &--open {
+      transform: translateX(0);
+    }
+  }
+
+  // Desktop: sidebar extends to bottom of viewport
+  @include respond-above(lg) {
+    position: sticky;
+    top: calc(64px + #{$spacing-lg});
+    align-self: flex-start;
+    min-height: calc(100vh - 64px - #{$spacing-lg} - 64px); // header + spacing + footer
+    max-height: calc(100vh - 64px - #{$spacing-lg} * 2);
+    overflow-y: auto;
+  }
+
+  &__card {
+    margin-bottom: $spacing-lg;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// =============================================================================
+// Main Content Area
+// =============================================================================
+
+.app-main {
+  flex: 1;
+  padding: 0;
+  min-width: 0; // Allow flex shrink
+}
+
+.app-content,
+.app-demo,
+.app-metrics,
+.app-team,
+.app-actions {
+  margin-bottom: $spacing-lg;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Metrics section responsive grid
+.app-metrics {
+  .pta-grid {
+    display: grid;
+    gap: $spacing-lg;
+
+    // Mobile: 1 column
+    grid-template-columns: 1fr;
+
+    @include respond-above(md) {
+      // Tablet: 2 columns
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond-above(lg) {
+      // Desktop: 3 columns
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+// =============================================================================
+// Footer
+// =============================================================================
+
+.app-footer {
+  margin-top: auto;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 $spacing-lg;
+  background: transparent;
+  border-top: 1px solid rgba(var(--color-border-rgb), 0.1);
+  transition: border-color 0.3s ease;
+
+  @include respond-above(md) {
+    padding: 0 $spacing-xl;
+  }
+}

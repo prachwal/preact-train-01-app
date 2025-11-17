@@ -7,6 +7,7 @@ import type {
   FontSize,
   BorderRadiusSize,
   Breakpoint,
+  ThemeButtonSize,
 } from './types';
 
 // Konfiguracja spacing (w rem)
@@ -53,4 +54,10 @@ export const BREAKPOINT_NUMBERS: Record<Breakpoint, number> = {
   tablet: 768,
   desktop: 1024,
   large: 1440,
+} as const;
+
+// Konfiguracja rozmiarów przycisku motywu (w px)
+export const THEME_BUTTON_SIZE_VALUES: Record<ThemeButtonSize, string> = {
+  tablet: '36px',
+  desktop: '44px',
 } as const;

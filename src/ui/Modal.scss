@@ -1,0 +1,99 @@
+// Modal Component Styles
+// Overlay modal with backdrop, focus trap, and animations
+
+.pta-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 1rem;
+  animation: fadeIn 0.2s ease-out;
+
+  &__content {
+    background-color: var(--pta-color-surface);
+    border-radius: 12px;
+    box-shadow:
+      0 20px 25px -5px rgba(0, 0, 0, 0.1),
+      0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    max-height: 90vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    animation: slideUp 0.3s ease-out;
+
+    &--sm {
+      width: 100%;
+      max-width: 400px;
+    }
+
+    &--md {
+      width: 100%;
+      max-width: 600px;
+    }
+
+    &--lg {
+      width: 100%;
+      max-width: 900px;
+    }
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(var(--pta-color-border-rgb), 0.1);
+  }
+
+  &__title {
+    margin: 0;
+    color: var(--pta-color-text-primary);
+  }
+
+  &__close {
+    min-width: auto;
+    padding: 0.5rem;
+    font-size: 1.25rem;
+    line-height: 1;
+    border-radius: 6px;
+    width: auto;
+
+    &:hover {
+      background-color: rgba(var(--pta-color-danger-rgb), 0.1);
+      color: var(--pta-color-danger);
+    }
+  }
+
+  &__body {
+    padding: 1.5rem;
+    overflow-y: auto;
+    flex: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,111 @@
+// Switch Component Styles
+// iOS-style toggle switch with smooth animations
+
+.pta-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  user-select: none;
+
+  &__input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+  }
+
+  &__slider {
+    position: relative;
+    width: 60px;
+    height: 32px;
+    background-color: var(--pta-color-text-tertiary);
+    border-radius: 32px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 0 4px;
+    outline: none;
+
+    &:focus-visible {
+      box-shadow: 0 0 0 3px rgba(var(--pta-color-primary-rgb), 0.3);
+    }
+  }
+
+  &__thumb {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 24px;
+    height: 24px;
+    background-color: var(--pta-color-bg);
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  &__label {
+    position: absolute;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+
+    &--on {
+      left: 8px;
+      color: var(--pta-color-bg);
+      opacity: 0;
+    }
+
+    &--off {
+      right: 6px;
+      color: var(--pta-color-bg);
+      opacity: 1;
+    }
+  }
+
+  &__text {
+    color: var(--pta-color-text-primary);
+    font-size: 0.875rem;
+  }
+
+  // Checked state
+  &--checked {
+    .pta-switch__slider {
+      background-color: var(--pta-color-success);
+    }
+
+    .pta-switch__thumb {
+      transform: translateX(28px);
+    }
+
+    .pta-switch__label--on {
+      opacity: 1;
+    }
+
+    .pta-switch__label--off {
+      opacity: 0;
+    }
+  }
+
+  // Disabled state
+  &--disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+
+    .pta-switch__slider {
+      cursor: not-allowed;
+    }
+  }
+
+  // Hover effect (only when not disabled)
+  &:not(&--disabled):hover {
+    .pta-switch__slider {
+      opacity: 0.9;
+    }
+  }
+}

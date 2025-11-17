@@ -1,0 +1,21 @@
+// Settings Page Styles
+// Hover effects for settings items
+
+.settings-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  margin: -1rem;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: rgba(var(--pta-color-primary-rgb), 0.04);
+  }
+
+  // Ensure text doesn't shift
+  > div:first-child {
+    flex: 1;
+  }
+}

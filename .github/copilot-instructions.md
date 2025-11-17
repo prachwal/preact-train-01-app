@@ -113,3 +113,63 @@ When changing design tokens:
 5. Export in `src/ui/index.ts`.
 6. Add Storybook stories in `src/ui/Component.stories.tsx` with decorators and argTypes.
 7. Build (`npm run build`), lint (`npm run lint:css`), and test in Storybook (`npm run storybook`).
+
+**Optimization Workflow with SED-Based Checklists**
+
+When performing large-scale optimizations, refactorings, or multi-step improvements:
+
+1. **Create or use optimization checklist**: `.github/optimization-checklist.md` contains structured tasks with SED-parseable format
+2. **Task structure**: Each task has ID, status, type, target, description, priority, estimated time, dependencies, notes
+3. **Status tracking**: Use `sed` commands to query/update task status without opening files
+4. **Section-based organization**: Tasks grouped into logical sections (ANALYSIS_PHASE, SCSS_OPTIMIZATION, etc.)
+5. **Dependency management**: Check task dependencies before starting work
+
+**SED Command Examples for Checklist Management**
+
+```bash
+# Get task status
+sed -n '/^### Task: 1.1_code_scan$/,/^$/p' .github/optimization-checklist.md | grep "Status:"
+
+# Update task to in-progress
+sed -i '/^### Task: 1.1_code_scan$/,/^$/{s/Status: PENDING/Status: IN_PROGRESS/}' .github/optimization-checklist.md
+
+# Mark task as completed
+sed -i '/^### Task: 1.1_code_scan$/,/^$/{s/Status: IN_PROGRESS/Status: COMPLETED/}' .github/optimization-checklist.md
+
+# List all pending tasks
+sed -n '/Status: PENDING/p' .github/optimization-checklist.md
+
+# Get section summary
+sed -n '/^## Section: SCSS_OPTIMIZATION$/,/^## Section:/p' .github/optimization-checklist.md
+
+# Update timestamp after work session
+sed -i "s/<!-- UPDATED: .* -->/<!-- UPDATED: $(date +%Y-%m-%d) -->/" .github/optimization-checklist.md
+
+# Count completed tasks
+grep -c "Status: COMPLETED" .github/optimization-checklist.md
+```
+
+**When to Use Optimization Checklists**
+
+- **Large refactorings**: SCSS consolidation, component restructuring
+- **Multi-file changes**: Coordinated updates across types, styles, components
+- **Performance optimizations**: Bundle size reduction, CSS optimization
+- **Architecture improvements**: Pattern extraction, DRY principle application
+- **Visual redesigns**: Layout changes, spacing updates, typography hierarchy
+
+**Checklist Best Practices**
+
+1. **Start with analysis**: Always run analysis tasks before making changes
+2. **Follow dependencies**: Check `Dependencies:` field before starting tasks
+3. **Update status immediately**: Mark IN_PROGRESS when starting, COMPLETED when done
+4. **Document blockers**: If blocked, update status and add notes
+5. **Track time**: Compare estimated vs actual time for future planning
+6. **Validate after sections**: Run tests after completing each major section
+7. **Update timestamp**: Run timestamp update command after each work session
+
+**Priority System**
+
+- **P0 (Critical)**: Must be done, blocks other work
+- **P1 (High)**: Should be done, important for quality
+- **P2 (Medium)**: Nice to have, improves maintainability
+- **P3 (Low)**: Optional, future enhancement

@@ -1,5 +1,5 @@
-@use 'sass:map';
-@use 'variables.scss' as *;
+@use "sass:map";
+@use "variables.scss" as *;
 
 // ============================================
 // MIXINS FOR THEME APPLICATION
@@ -11,6 +11,10 @@
   --pta-color-bg-secondary: #{$pta-color-light-bg-secondary};
   --pta-color-surface: #{$pta-color-light-surface};
   --pta-color-surface-hover: #{$pta-color-light-surface-hover};
+
+  // App-level color variables
+  --color-surface: #{$pta-color-light-surface};
+  --color-border: #{$pta-color-light-border};
 
   // Text
   --pta-color-text: #{$pta-color-light-text};
@@ -78,6 +82,11 @@
   // Focus
   --pta-color-focus: #{$pta-color-light-focus};
   --pta-color-focus-ring: #{$pta-color-light-focus-ring};
+
+  // RGB values for glassmorphism
+  --pta-color-surface-rgb: 255, 255, 255;
+  --color-surface-rgb: 255, 255, 255;
+  --color-border-rgb: 0, 0, 0;
 }
 
 @mixin dark-theme {
@@ -86,6 +95,10 @@
   --pta-color-bg-secondary: #{$pta-color-dark-bg-secondary};
   --pta-color-surface: #{$pta-color-dark-surface};
   --pta-color-surface-hover: #{$pta-color-dark-surface-hover};
+
+  // App-level color variables
+  --color-surface: #{$pta-color-dark-surface};
+  --color-border: rgba(255, 255, 255, 0.1);
 
   // Text
   --pta-color-text: #{$pta-color-dark-text};
@@ -96,11 +109,11 @@
   --pta-color-text-inverted: #{$pta-color-dark-text-inverted};
 
   // Border
-  --pta-color-border: #{$pta-color-dark-border};
-  --pta-color-border-light: #{$pta-color-dark-border-light};
-  --pta-color-border-medium: #{$pta-color-dark-border-medium};
-  --pta-color-border-hover: #{$pta-color-dark-border-hover};
-  --pta-color-border-focus: #{$pta-color-dark-border-focus};
+  --pta-color-border: rgba(255, 255, 255, 0.1);
+  --pta-color-border-light: rgba(255, 255, 255, 0.06);
+  --pta-color-border-medium: rgba(255, 255, 255, 0.14);
+  --pta-color-border-hover: rgba(255, 255, 255, 0.18);
+  --pta-color-border-focus: rgba(255, 255, 255, 0.24);
 
   // Accent
   --pta-color-accent: #{$pta-color-dark-accent};
@@ -153,6 +166,11 @@
   // Focus
   --pta-color-focus: #{$pta-color-dark-focus};
   --pta-color-focus-ring: #{$pta-color-dark-focus-ring};
+
+  // RGB values for glassmorphism
+  --pta-color-surface-rgb: 30, 30, 30;
+  --color-surface-rgb: 26, 26, 26;
+  --color-border-rgb: 255, 255, 255;
 }
 
 // Apply default (light) theme variables
@@ -160,18 +178,7 @@
   @include light-theme;
 }
 
-// Respect prefers-color-scheme unless user forces light
-:root:not([data-theme="light"]) {
-  @media (prefers-color-scheme: dark) {
-    @include dark-theme;
-  }
-}
-
 // Forced themes
 :root[data-theme="dark"] {
   @include dark-theme;
-}
-
-:root[data-theme="light"] {
-  @include light-theme;
 }

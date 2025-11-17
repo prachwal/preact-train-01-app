@@ -40,6 +40,9 @@ export type SemanticState = 'success' | 'error' | 'warning' | 'info';
 // Warianty cieni
 export type ShadowVariant = 'none' | 'light' | 'medium' | 'heavy';
 
+// Rozmiary przycisku motywu
+export type ThemeButtonSize = 'tablet' | 'desktop';
+
 // Warianty typografii
 export type TypographyVariant =
   | 'h1'
@@ -60,6 +63,7 @@ export type TypographyColor =
   | 'text'
   | 'primary'
   | 'secondary'
+  | 'tertiary'
   | 'error'
   | 'warning'
   | 'info'

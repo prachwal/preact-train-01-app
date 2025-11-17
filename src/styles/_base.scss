@@ -1,21 +1,29 @@
 @use "variables.scss" as *;
+@use "mixins.scss" as *;
 @use "themes.scss" as *;
 
-// Reset box-sizing
+// ============================================
+// RESET & BASE STYLES - Mobile First
+// ============================================
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-// Expose spacing / fonts / radii as CSS variables
+// Expose variables as CSS custom properties with fluid values
 :root {
+  // Spacing
   --spacing-xs: #{$spacing-xs};
   --spacing-sm: #{$spacing-sm};
   --spacing-md: #{$spacing-md};
   --spacing-lg: #{$spacing-lg};
   --spacing-xl: #{$spacing-xl};
   --spacing-2xl: #{$spacing-2xl};
+  --spacing-3xl: #{$spacing-3xl};
+
+  // Font sizes
   --font-size-xs: #{$font-size-xs};
   --font-size-sm: #{$font-size-sm};
   --font-size-base: #{$font-size-base};
@@ -23,30 +31,268 @@
   --font-size-xl: #{$font-size-xl};
   --font-size-2xl: #{$font-size-2xl};
   --font-size-3xl: #{$font-size-3xl};
-  --border-radius-none: 0;
+
+  // Border radius
   --border-radius-sm: #{$border-radius-sm};
   --border-radius-md: #{$border-radius-md};
   --border-radius-lg: #{$border-radius-lg};
   --border-radius-xl: #{$border-radius-xl};
+  --border-radius-2xl: #{$border-radius-2xl};
+
+  // RGB values for rgba() in glassmorphism
+  --color-surface-rgb: 255, 255, 255;
+  --color-border-rgb: 0, 0, 0;
+}
+
+body {
+  // Border width
   --border-width-none: 0;
   --border-width-thin: #{$border-width-thin};
   --border-width-medium: #{$border-width-medium};
   --border-width-thick: #{$border-width-thick};
+
+  // Container widths
+  --container-sm: #{$container-sm};
+  --container-md: #{$container-md};
+  --container-lg: #{$container-lg};
+  --container-xl: #{$container-xl};
+  --container-2xl: #{$container-2xl};
+
+  // Color variables (will be overridden by theme)
+  --color-surface: #{$pta-color-light-surface};
+  --color-border: #{$pta-color-light-border};
 }
 
+// ============================================
+// HTML & BODY - Responsive
+// ============================================
 html {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 100%; // Base: 16px
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+
+  @include respond-above(lg) {
+    font-size: 106.25%; // 17px
+  }
+
+  @include respond-above(xl) {
+    font-size: 112.5%; // 18px
+  }
 }
 
 body {
   margin: 0;
-  padding: var(--spacing-md, #{$spacing-md});
+  padding: 0;
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  min-height: 100dvh; // Dynamic viewport height
   background-color: var(--pta-color-bg, #{$pta-color-light-bg});
   color: var(--pta-color-text, #{$pta-color-light-text});
+  overflow-x: hidden; // Prevent horizontal scroll
+
+  // Better touch support
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+// ============================================
+// APP ROOT - Responsive Container
+// ============================================
+#app {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+// ============================================
+// FOCUS STYLES - Accessibility
+// ============================================
+:focus-visible {
+  outline: 2px solid var(--pta-color-focus, #{$pta-color-light-focus});
+  outline-offset: 2px;
+}
+
+// ============================================
+// IMAGE OPTIMIZATION
+// ============================================
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+// ============================================
+// TYPOGRAPHY BASE
+// ============================================
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+a {
+  color: var(--pta-color-link, #{$pta-color-light-link});
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--pta-color-link-hover, #{$pta-color-light-link-hover});
+  }
+
+  &:visited {
+    color: var(--pta-color-link-visited, #{$pta-color-light-link-visited});
+  }
+
+  &:active {
+    color: var(--pta-color-link-active, #{$pta-color-light-link-active});
+  }
+}
+
+// ============================================
+// FORM ELEMENTS BASE
+// ============================================
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+
+button {
+  cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+// ============================================
+// UTILITY CLASSES
+// ============================================
+
+// Container utilities
+.container {
+  @include container();
+}
+
+.container-sm {
+  @include container(sm);
+}
+
+.container-md {
+  @include container(md);
+}
+
+.container-lg {
+  @include container(lg);
+}
+
+.container-xl {
+  @include container(xl);
+}
+
+.container-2xl {
+  @include container(2xl);
+}
+
+// Responsive utilities
+.mobile-only {
+  @include respond-above(md) {
+    display: none !important;
+  }
+}
+
+.tablet-up {
+  @include respond-below(md) {
+    display: none !important;
+  }
+}
+
+.desktop-up {
+  @include respond-below(lg) {
+    display: none !important;
+  }
+}
+
+.desktop-only {
+  @include respond-below(lg) {
+    display: none !important;
+  }
+
+  @include respond-above(xl) {
+    display: none !important;
+  }
+}
+
+// Visually hidden but accessible
+.sr-only {
+  @include visually-hidden;
+}
+
+// Prevent layout shift
+.no-scroll {
+  overflow: hidden;
+  height: 100vh;
+  height: 100dvh;
+}
+
+// ============================================
+// PRINT STYLES
+// ============================================
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  img {
+    page-break-inside: avoid;
+  }
+
+  h2,
+  h3,
+  p {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
 }

@@ -1,8 +1,29 @@
 {
   "name": "preact-train-01-app",
   "version": "0.0.1",
-  "description": "A Preact training application",
+  "description": "A Preact training application with professional dashboard, routing, and signals state management",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/prachwal/preact-train-01-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/prachwal/preact-train-01-app/issues"
+  },
+  "homepage": "https://github.com/prachwal/preact-train-01-app#readme",
+  "keywords": [
+    "preact",
+    "typescript",
+    "vite",
+    "dashboard",
+    "signals",
+    "routing",
+    "scss",
+    "design-system"
+  ],
+  "author": "prachwal",
+  "license": "MIT",
+  "type": "module",
   "scripts": {
     "build": "vite build",
     "dev": "vite",
@@ -21,12 +42,9 @@
     "build-storybook": "storybook build",
     "merge-src": "./scripts/merge.sh src"
   },
-  "keywords": [],
-  "author": "",
-  "license": "MIT",
-  "type": "module",
   "devDependencies": {
     "@playwright/test": "^1.56.1",
+    "@storybook/addon-docs": "^10.0.7",
     "@storybook/preact-vite": "^10.0.7",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/preact": "^3.2.4",
@@ -43,11 +61,12 @@
     "stylelint-scss": "^6.12.1",
     "typescript": "^5.9.3",
     "vite": "^7.2.2",
-    "vitest": "^4.0.9",
-    "@storybook/addon-docs": "^10.0.7"
+    "vitest": "^4.0.9"
   },
   "dependencies": {
     "@preact/preset-vite": "^2.10.2",
-    "preact": "^10.27.2"
+    "@preact/signals": "^2.5.0",
+    "preact": "^10.27.2",
+    "preact-iso": "^2.11.0"
   }
 }

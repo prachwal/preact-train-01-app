@@ -7,7 +7,7 @@ import type { GridComponentProps } from '../types';
 const buttonVariants = ['primary', 'secondary', 'success', 'danger'] as const;
 const semanticStates = ['success', 'error', 'warning', 'info'] as const;
 const shadowVariants = ['light', 'medium', 'heavy'] as const;
-const sizes = ['sm', 'md', 'lg'] as const;
+const sizes = ['sm', 'md', 'lg', 'xl'] as const;
 
 export const CardDemo = () => {
   const buttonElements = useMemo(

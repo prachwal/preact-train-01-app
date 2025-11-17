@@ -1,27 +1,51 @@
 @use "../variables.scss" as *;
 @use "../mixins.scss" as *;
 
+// ============================================
+// BUTTON COMPONENT - Fully Responsive
+// ============================================
+
 .pta-button {
+  // Reset & Base
   border: none;
-  border-radius: var(--border-radius-sm, #{$border-radius-sm});
+  border-radius: $border-radius-sm;
   background-color: var(--pta-color-button-bg, #{$pta-color-light-button-primary-bg});
   color: var(--pta-color-button-text, #{$pta-color-light-button-primary-text});
   cursor: pointer;
   font-family: inherit;
   font-weight: 500;
-  transition:
-    background-color 0.3s ease,
-    transform 0.1s ease;
-  width: 100%;
+  line-height: 1.2;
+  text-align: center;
+  white-space: nowrap;
+  user-select: none;
   touch-action: manipulation;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
+  // Transitions
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+
+  // Mobile First - Full width on mobile
+  width: 100%;
   @include responsive-button-size(md);
 
-  @media (min-width: $breakpoint-tablet) {
+  // Tablet up - Auto width
+  @include respond-above(md) {
     width: auto;
+    min-width: 8rem;
+  }
+
+  // Desktop - Wider minimum
+  @include respond-above(lg) {
     min-width: 10rem;
   }
 
+  // Focus styles
   &:focus {
     outline: 3px solid var(--pta-color-focus, #{$pta-color-light-focus});
     outline-offset: 2px;
@@ -31,13 +55,34 @@
     outline: none;
   }
 
-  &:active {
+  // Hover state
+  &:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px var(--pta-color-shadow, #{$pta-color-light-shadow});
+  }
+
+  // Active state
+  &:active:not(:disabled) {
     transform: scale(0.98);
   }
 
-  // Size variants
+  // Disabled state
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+    transform: none;
+  }
+
+  // ============================================
+  // SIZE VARIANTS - Responsive
+  // ============================================
+
   &--sm {
     @include responsive-button-size(sm);
+  }
+
+  &--md {
+    @include responsive-button-size(md);
   }
 
   &--lg {
@@ -48,13 +93,20 @@
     @include responsive-button-size(xl);
   }
 
-  // Button variants
+  // ============================================
+  // BUTTON VARIANTS
+  // ============================================
+
   &--primary {
     background-color: var(--pta-color-button-primary-bg, #{$pta-color-light-button-primary-bg});
     color: var(--pta-color-button-primary-text, #{$pta-color-light-button-primary-text});
 
     &:hover:not(:disabled) {
       background-color: var(--pta-color-button-primary-hover, #{$pta-color-light-button-primary-hover});
+    }
+
+    &:active:not(:disabled) {
+      background-color: var(--pta-color-accent-active, #{$pta-color-light-accent-active});
     }
   }
 
@@ -91,30 +143,113 @@
     cursor: not-allowed;
     box-shadow: none;
     border: none;
+
+    &:hover {
+      transform: none;
+      box-shadow: none;
+    }
   }
 
-  // Semantic states
+  // ============================================
+  // SEMANTIC STATES
+  // ============================================
+
   @include semantic-border-variant(success);
   @include semantic-border-variant(error);
   @include semantic-border-variant(warning);
   @include semantic-border-variant(info);
 
-  // Shadow variants
+  // ============================================
+  // SHADOW VARIANTS
+  // ============================================
+
   @include shadow-variant(light);
   @include shadow-variant(medium);
   @include shadow-variant(heavy);
   @include shadow-variant(none);
 
-  // Border radius variants
+  // ============================================
+  // BORDER RADIUS VARIANTS
+  // ============================================
+
   @include border-radius-variant(none);
   @include border-radius-variant(sm);
   @include border-radius-variant(md);
   @include border-radius-variant(lg);
   @include border-radius-variant(xl);
 
-  // Border width variants
+  // ============================================
+  // BORDER WIDTH VARIANTS
+  // ============================================
+
   @include border-width-variant(none);
   @include border-width-variant(thin);
   @include border-width-variant(medium);
   @include border-width-variant(thick);
+
+  // ============================================
+  // RESPONSIVE ADJUSTMENTS
+  // ============================================
+
+  // Mobile landscape
+  @media (max-height: 600px) and (orientation: landscape) {
+    padding: $spacing-xs $spacing-sm;
+    font-size: $font-size-xs;
+  }
+
+  // Touch devices - larger tap targets
+  @media (hover: none) and (pointer: coarse) {
+    min-height: 44px;
+    padding: $spacing-sm $spacing-lg;
+  }
+
+  // Reduced motion
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+
+    &:hover:not(:disabled) {
+      transform: none;
+    }
+
+    &:active:not(:disabled) {
+      transform: none;
+    }
+  }
+
+  // High contrast mode
+  @media (prefers-contrast: high) {
+    border: 2px solid currentColor;
+  }
+
+  // ============================================
+  // ICON SUPPORT
+  // ============================================
+
+  &--icon-left {
+    svg,
+    img {
+      margin-right: $spacing-sm;
+    }
+  }
+
+  &--icon-right {
+    svg,
+    img {
+      margin-left: $spacing-sm;
+    }
+  }
+
+  &--icon-only {
+    padding: $spacing-sm;
+    aspect-ratio: 1;
+
+    svg,
+    img {
+      margin: 0;
+    }
+  }
+
+  &--flex-1 {
+    flex: 1;
+  }
 }

@@ -98,6 +98,7 @@ $typography-variants: (
 $typography-colors: (
   primary: var(--pta-color-accent, #{$pta-color-light-accent}),
   secondary: var(--pta-color-text-secondary, #{$pta-color-light-text-secondary}),
+  tertiary: var(--pta-color-text-tertiary, #{$pta-color-light-text-tertiary}),
   error: var(--pta-color-error, #{$pta-color-light-error}),
   warning: var(--pta-color-warning, #{$pta-color-light-warning}),
   info: var(--pta-color-info, #{$pta-color-light-info}),

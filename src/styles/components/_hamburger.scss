@@ -1,0 +1,83 @@
+// ============================================
+// HAMBURGER MENU COMPONENT - Animated
+// ============================================
+
+@use "../variables.scss" as *;
+@use "../mixins.scss" as *;
+
+.pta-hamburger {
+  // Reset
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: $spacing-sm;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 2.5rem;
+  height: 2rem;
+  position: relative;
+  z-index: 1000;
+
+  // Hide on desktop
+  @include respond-above(lg) {
+    display: none;
+  }
+
+  // Focus styles
+  &:focus {
+    outline: 2px solid var(--pta-color-focus, #{$pta-color-light-focus});
+    outline-offset: 4px;
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  // Line styling
+  &__line {
+    width: 100%;
+    height: 3px;
+    background-color: var(--pta-color-text, #{$pta-color-light-text});
+    border-radius: 2px;
+    transition:
+      transform 0.3s ease,
+      opacity 0.3s ease;
+    transform-origin: center;
+  }
+
+  // Open state animation
+  &--open {
+    .pta-hamburger__line {
+      &:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+
+      &:nth-child(2) {
+        opacity: 0;
+        transform: scaleX(0);
+      }
+
+      &:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+    }
+  }
+
+  // Hover effect
+  &:hover:not(:disabled) {
+    .pta-hamburger__line {
+      background-color: var(--pta-color-accent, #{$pta-color-light-accent});
+    }
+  }
+
+  // Disabled state
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+
+    .pta-hamburger__line {
+      background-color: var(--pta-color-text-disabled, #{$pta-color-light-text-disabled});
+    }
+  }
+}
