@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/preact';
 import { useState } from 'preact/hooks';
 import { ToggleButton } from './ToggleButton';
 import { ThemeIcon } from './ThemeIcon';
+import { ICONS } from './Icons';
 import type { ToggleButtonProps, ToggleItem } from '../types';
 
 const meta: Meta<ToggleButtonProps> = {
@@ -26,6 +27,12 @@ const meta: Meta<ToggleButtonProps> = {
     value: {
       control: 'text',
       description: 'Currently selected value',
+    },
+    // items is not controllable since it contains Preact components
+    items: {
+      table: {
+        disable: true,
+      },
     },
   },
 };
@@ -57,19 +64,19 @@ const themeItems: ToggleItem[] = [
 
 // Language items for examples
 const languageItems: ToggleItem[] = [
-  { value: 'en', label: 'English', icon: '🇬🇧' },
-  { value: 'pl', label: 'Polski', icon: '🇵🇱' },
-  { value: 'de', label: 'Deutsch', icon: '🇩🇪' },
-  { value: 'fr', label: 'Français', icon: '🇫🇷' },
-  { value: 'es', label: 'Español', icon: '🇪🇸' },
+  { value: 'en', label: 'English', icon: ICONS.UK },
+  { value: 'pl', label: 'Polski', icon: ICONS.POLAND },
+  { value: 'de', label: 'Deutsch', icon: ICONS.GERMANY },
+  { value: 'fr', label: 'Français', icon: ICONS.FRANCE },
+  { value: 'es', label: 'Español', icon: ICONS.SPAIN },
 ];
 
 // User menu items
 const userMenuItems: ToggleItem[] = [
-  { value: 'profile', label: 'Profile', icon: '👤' },
-  { value: 'settings', label: 'Settings', icon: '⚙️' },
-  { value: 'help', label: 'Help', icon: '❓' },
-  { value: 'logout', label: 'Logout', icon: '🚪' },
+  { value: 'profile', label: 'Profile', icon: ICONS.PROFILE },
+  { value: 'settings', label: 'Settings', icon: ICONS.GEAR },
+  { value: 'help', label: 'Help', icon: ICONS.HELP },
+  { value: 'logout', label: 'Logout', icon: ICONS.LOGOUT },
 ];
 
 /**

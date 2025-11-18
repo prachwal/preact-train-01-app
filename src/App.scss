@@ -126,6 +126,14 @@
       height: $header-icon-size-desktop;
     }
   }
+
+  &__card {
+    margin-bottom: clamp(0.5rem, 1vw, 1rem);
+
+    &:last-child {
+      margin-bottom: clamp(0.5rem, 1vw, 1rem);
+    }
+  }
 }
 
 // =============================================================================
@@ -183,8 +191,9 @@
 
 .app-aside {
   flex-shrink: 0;
-  width: 280px;
+  width: 300px;
   background: var(--pta-color-surface);
+  overflow-x: hidden;
   transition:
     transform 0.3s ease,
     background-color 0.3s ease;
@@ -212,16 +221,35 @@
     top: calc(64px + #{$spacing-lg});
     align-self: flex-start;
     min-height: calc(100vh - 64px - #{$spacing-lg} - 64px); // header + spacing + footer
-    max-height: calc(100vh - 64px - #{$spacing-lg} * 2);
-    overflow-y: auto;
+    overflow-x: hidden;
   }
 
-  &__card {
-    margin-bottom: $spacing-lg;
+  // Custom scrollbar styling
+  scrollbar-width: thin; // Firefox
+  scrollbar-color: var(--pta-color-border-light) transparent;
 
-    &:last-child {
-      margin-bottom: 0;
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--pta-color-border-light);
+    border-radius: 3px;
+
+    &:hover {
+      background: var(--pta-color-border-medium);
     }
+  }
+
+  // Smooth scrolling
+  scroll-behavior: smooth;
+
+  @media (prefers-reduced-motion: reduce) {
+    scroll-behavior: auto;
   }
 }
 

@@ -39,6 +39,56 @@ export function Navigation({ onNavigate }: NavigationProps) {
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, [location.path]);
 
+  // Check for scrollable content in sidebar
+  useEffect(() => {
+    const aside = document.querySelector('.app-aside');
+    if (!aside) return;
+
+    const checkScroll = () => {
+      if (aside.scrollHeight > aside.clientHeight) {
+        aside.classList.add('has-scroll');
+      } else {
+        aside.classList.remove('has-scroll');
+      }
+    };
+
+    checkScroll();
+    window.addEventListener('resize', checkScroll);
+
+    return () => window.removeEventListener('resize', checkScroll);
+  }, []);
+
+  // Debug: Check child background colors after expand/collapse
+  useEffect(() => {
+    const checkChildStyles = () => {
+      const childLinks = document.querySelectorAll(
+        '.pta-nav-item--level-1 .pta-nav-item__link'
+      );
+      console.log('🔍 Child elements background colors:');
+      childLinks.forEach((link, index) => {
+        const computedStyle = window.getComputedStyle(link);
+        const backgroundColor = computedStyle.backgroundColor;
+        const color = computedStyle.color;
+        const hasActiveClass = link
+          .closest('.pta-nav-item')
+          ?.classList.contains('pta-nav-item--active');
+
+        console.log(`  Child ${index + 1}:`, {
+          backgroundColor,
+          color,
+          hasActiveClass,
+          classes: link.closest('.pta-nav-item')?.className,
+        });
+      });
+    };
+
+    // Check immediately and after a short delay to catch dynamic changes
+    checkChildStyles();
+    const timeoutId = setTimeout(checkChildStyles, 100);
+
+    return () => clearTimeout(timeoutId);
+  }, [activeState]); // Re-run when active state changes
+
   const handleItemClick = (item: NavigationItem, e: Event) => {
     if (item.disabled) {
       e.preventDefault();
@@ -72,6 +122,10 @@ export function Navigation({ onNavigate }: NavigationProps) {
         targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
         // Update URL hash without jumping
         window.history.pushState(null, '', `${item.path}${item.anchor}`);
+        // Update navigation state
+        if (item.path) {
+          navigationService.setActiveByPath(item.path, item.anchor);
+        }
       }
     }
 
@@ -84,8 +138,16 @@ export function Navigation({ onNavigate }: NavigationProps) {
   const renderNavItem = (item: NavigationItem, level: number = 0) => {
     const hasChildren = item.children && item.children.length > 0;
     const isExpanded = navigationService.isExpanded(item.id);
-    const isActive = navigationService.isActive(item.id);
-    // Only mark parent item as parent-active if it HAS children and one of them is active
+    const currentHash = window.location.hash;
+
+    // Logika isActive:
+    // - Dla itemów z anchor: aktywny tylko gdy hash się zgadza
+    // - Dla itemów bez anchor (parent): nigdy nie jest "active", tylko "parent-active"
+    const isActive = item.anchor
+      ? currentHash === item.anchor && navigationService.isActive(item.id)
+      : false; // Parent z dziećmi nigdy nie jest "active", tylko "parent-active"
+
+    // Parent jest parent-active gdy ma dzieci i jedno z nich jest aktywne
     const isParentActive =
       hasChildren && navigationService.isParentActive(item.id);
 

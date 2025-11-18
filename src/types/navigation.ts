@@ -1,9 +1,11 @@
 // Navigation Types for Multi-level Navigation System
 
+import type { ComponentChildren } from 'preact';
+
 export interface NavigationItem {
   id: string;
   label: string;
-  icon?: string;
+  icon?: ComponentChildren;
   path?: string;
   anchor?: string; // For anchor links like #section
   children?: NavigationItem[];

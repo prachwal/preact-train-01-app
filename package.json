@@ -44,28 +44,29 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.56.1",
-    "@storybook/addon-docs": "^10.0.7",
-    "@storybook/preact-vite": "^10.0.7",
+    "@storybook/addon-docs": "^10.0.8",
+    "@storybook/preact-vite": "^10.0.8",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/preact": "^3.2.4",
     "@types/node": "^24.10.1",
-    "@vitest/coverage-v8": "^4.0.9",
-    "@vitest/ui": "^4.0.9",
+    "@vitest/coverage-v8": "^4.0.10",
+    "@vitest/ui": "^4.0.10",
     "jsdom": "^27.2.0",
     "rimraf": "^6.1.0",
     "sass": "^1.94.0",
-    "storybook": "^10.0.7",
+    "storybook": "^10.0.8",
     "stylelint": "^16.25.0",
     "stylelint-config-standard": "^39.0.1",
     "stylelint-config-standard-scss": "^16.0.0",
     "stylelint-scss": "^6.12.1",
     "typescript": "^5.9.3",
     "vite": "^7.2.2",
-    "vitest": "^4.0.9"
+    "vitest": "^4.0.10"
   },
   "dependencies": {
     "@preact/preset-vite": "^2.10.2",
     "@preact/signals": "^2.5.0",
+    "lucide-react": "^0.554.0",
     "preact": "^10.27.2",
     "preact-iso": "^2.11.0"
   }

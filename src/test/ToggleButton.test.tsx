@@ -241,7 +241,7 @@ describe('ToggleButton', () => {
       const button = screen.getByRole('button');
       fireEvent.click(button);
 
-      const option2 = screen.getAllByRole('option')[1];
+      const option2 = screen.getByText('Option 2').closest('[role="option"]')!;
       fireEvent.click(option2);
 
       expect(handleChange).toHaveBeenCalledWith('option2');
@@ -261,7 +261,7 @@ describe('ToggleButton', () => {
       const button = screen.getByRole('button');
       fireEvent.click(button);
 
-      const option2 = screen.getAllByRole('option')[1];
+      const option2 = screen.getByText('Option 2').closest('[role="option"]')!;
       fireEvent.click(option2);
 
       await waitFor(() => {

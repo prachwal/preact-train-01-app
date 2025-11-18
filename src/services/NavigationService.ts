@@ -105,13 +105,31 @@ export class NavigationService {
    * Set active item by path and optional anchor
    */
   setActiveByPath(path: string, anchor?: string) {
-    const item = this.findItemByPath(path, anchor);
-    if (item) {
-      this.setActiveItem(item.id);
-    } else {
-      // If exact match not found, try to match by path only
-      const pathItem = this.findItemByPath(path);
-      if (pathItem) {
+    // If anchor provided, find exact match with both path and anchor
+    if (anchor) {
+      const item = this.findItemByPath(path, anchor);
+      if (item) {
+        this.setActiveItem(item.id);
+        return;
+      }
+    }
+
+    // Otherwise find by path only
+    const pathItem = this.findItemByPath(path);
+    if (pathItem) {
+      // Check if this item has children
+      const hasChildren = pathItem.children && pathItem.children.length > 0;
+
+      if (hasChildren) {
+        // For parent items with children, only set as parent-active (expanded)
+        // without setting activeItemId
+        activeNavigationSignal.value = {
+          activeItemId: null, // No specific child is active yet
+          activeParentId: pathItem.id,
+          expandedIds: [pathItem.id], // Auto-expand parent
+        };
+      } else {
+        // For items without children, set as active normally
         this.setActiveItem(pathItem.id);
       }
     }

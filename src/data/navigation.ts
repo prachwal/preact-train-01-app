@@ -2,6 +2,7 @@
 // Two-level navigation structure with parent/child relationships
 
 import type { NavigationConfig } from '../types/navigation';
+import { ICONS } from '../ui/Icons';
 
 export const navigationConfig: NavigationConfig = {
   groups: [
@@ -12,47 +13,47 @@ export const navigationConfig: NavigationConfig = {
         {
           id: 'home',
           label: 'Home',
-          icon: '🏠',
+          icon: ICONS.HOME,
           path: '/',
         },
         {
           id: 'settings',
           label: 'Settings',
-          icon: '⚙️',
+          icon: ICONS.GEAR,
           path: '/settings',
           children: [
             {
               id: 'settings-general',
               label: 'General',
-              icon: '📋',
+              icon: ICONS.CLIPBOARD,
               path: '/settings',
               anchor: '#general',
             },
             {
               id: 'settings-appearance',
               label: 'Appearance',
-              icon: '🎨',
+              icon: ICONS.PALETTE,
               path: '/settings',
               anchor: '#appearance',
             },
             {
               id: 'settings-notifications',
               label: 'Notifications',
-              icon: '🔔',
+              icon: ICONS.BELL,
               path: '/settings',
               anchor: '#notifications',
             },
             {
               id: 'settings-privacy',
               label: 'Privacy',
-              icon: '🔒',
+              icon: ICONS.LOCK,
               path: '/settings',
               anchor: '#privacy',
             },
             {
               id: 'settings-advanced',
               label: 'Advanced',
-              icon: '🔧',
+              icon: ICONS.WRENCH,
               path: '/settings',
               anchor: '#advanced',
             },
@@ -61,7 +62,7 @@ export const navigationConfig: NavigationConfig = {
         {
           id: 'about',
           label: 'About',
-          icon: 'ℹ️',
+          icon: ICONS.INFO,
           path: '/about',
         },
       ],
@@ -73,14 +74,14 @@ export const navigationConfig: NavigationConfig = {
         {
           id: 'documentation',
           label: 'Documentation',
-          icon: '📚',
+          icon: ICONS.BOOKS,
           path: 'https://preactjs.com/guide/v10/getting-started',
           external: true,
         },
         {
           id: 'github',
           label: 'GitHub',
-          icon: '💻',
+          icon: ICONS.COMPUTER,
           path: 'https://github.com/preactjs/preact',
           external: true,
         },
@@ -93,13 +94,13 @@ export const navigationConfig: NavigationConfig = {
         {
           id: 'privacy',
           label: 'Privacy Policy',
-          icon: '🔒',
+          icon: ICONS.LOCK,
           path: '/privacy',
         },
         {
           id: 'terms',
           label: 'Terms of Service',
-          icon: '📜',
+          icon: ICONS.SCROLL,
           path: '/terms',
         },
       ],

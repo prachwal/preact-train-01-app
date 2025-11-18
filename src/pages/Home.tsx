@@ -1,4 +1,5 @@
 import { Card, Typography, Grid, Button } from '../ui';
+import { ICONS } from '../ui/Icons';
 import {
   revenueSignal,
   activeUsersSignal,
@@ -122,20 +123,20 @@ export function Home() {
             <Grid direction="column" gap="md">
               {activitiesSignal.value.map(activity => {
                 // Determine icon and color based on category
-                let icon = '📋';
+                let icon = ICONS.CLIPBOARD;
                 let accentColor = 'var(--pta-color-primary)';
 
                 if (activity.category === 'Order Management') {
-                  icon = '📦';
+                  icon = ICONS.PACKAGE;
                   accentColor = 'var(--pta-color-info)';
                 } else if (activity.category === 'Finance') {
-                  icon = '💰';
+                  icon = ICONS.MONEY;
                   accentColor = 'var(--pta-color-success)';
                 } else if (activity.category === 'User Management') {
-                  icon = '👥';
+                  icon = ICONS.PEOPLE;
                   accentColor = 'var(--pta-color-primary)';
                 } else if (activity.category === 'System') {
-                  icon = '⚙️';
+                  icon = ICONS.GEAR;
                   accentColor = 'var(--pta-color-tertiary)';
                 }
 
