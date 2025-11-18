@@ -3,6 +3,7 @@
 
 import type { NavigationConfig } from '../types/navigation';
 import { ICONS } from '../ui/Icons';
+import { createUrl, isExternalUrl } from '../config/app';
 
 export const navigationConfig: NavigationConfig = {
   groups: [
@@ -14,47 +15,47 @@ export const navigationConfig: NavigationConfig = {
           id: 'home',
           label: 'Home',
           icon: ICONS.HOME,
-          path: '/',
+          path: createUrl('/'),
         },
         {
           id: 'settings',
           label: 'Settings',
           icon: ICONS.GEAR,
-          path: '/settings',
+          path: createUrl('/settings'),
           children: [
             {
               id: 'settings-general',
               label: 'General',
               icon: ICONS.CLIPBOARD,
-              path: '/settings',
+              path: createUrl('/settings'),
               anchor: '#general',
             },
             {
               id: 'settings-appearance',
               label: 'Appearance',
               icon: ICONS.PALETTE,
-              path: '/settings',
+              path: createUrl('/settings'),
               anchor: '#appearance',
             },
             {
               id: 'settings-notifications',
               label: 'Notifications',
               icon: ICONS.BELL,
-              path: '/settings',
+              path: createUrl('/settings'),
               anchor: '#notifications',
             },
             {
               id: 'settings-privacy',
               label: 'Privacy',
               icon: ICONS.LOCK,
-              path: '/settings',
+              path: createUrl('/settings'),
               anchor: '#privacy',
             },
             {
               id: 'settings-advanced',
               label: 'Advanced',
               icon: ICONS.WRENCH,
-              path: '/settings',
+              path: createUrl('/settings'),
               anchor: '#advanced',
             },
           ],
@@ -63,7 +64,7 @@ export const navigationConfig: NavigationConfig = {
           id: 'about',
           label: 'About',
           icon: ICONS.INFO,
-          path: '/about',
+          path: createUrl('/about'),
         },
       ],
     },
@@ -95,19 +96,19 @@ export const navigationConfig: NavigationConfig = {
           id: 'privacy',
           label: 'Privacy Policy',
           icon: ICONS.LOCK,
-          path: '/privacy',
+          path: createUrl('/privacy'),
         },
         {
           id: 'terms',
           label: 'Terms of Service',
           icon: ICONS.SCROLL,
-          path: '/terms',
+          path: createUrl('/terms'),
         },
         {
           id: 'contact',
           label: 'Contact',
           icon: ICONS.ENVELOPE,
-          path: '/contact',
+          path: createUrl('/contact'),
           hidden: true, // Hidden from sidebar, accessible via footer
         },
       ],
