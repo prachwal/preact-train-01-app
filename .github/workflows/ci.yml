@@ -231,11 +231,16 @@ jobs:
       - name: Generate documentation
         run: npm run docs:generate
 
+      - name: Prepare documentation for upload
+        run: |
+          mkdir -p docs-clean
+          find docs -type f \( -name "*.md" -o -name "*.json" \) ! -path "*/vite/*.css/*" ! -path "*/vite/*.scss/*" ! -path "*/vite/*.svg/*" -exec cp --parents {} docs-clean/ \;
+
       - name: Upload documentation artifacts
         uses: actions/upload-artifact@v4
         with:
           name: api-documentation
-          path: docs/
+          path: docs-clean/
           retention-days: 30
 
   # Job 9: Deploy to GitHub Pages
