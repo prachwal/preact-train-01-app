@@ -3,18 +3,13 @@ import preact from '@preact/preset-vite';
 
 // Use VITE_BASE_URL from environment, fallback to '/'
 const baseUrl = process.env.VITE_BASE_URL || '/';
+const isDev = process.env.NODE_ENV !== 'production';
 
 export default defineConfig({
   plugins: [preact()],
   base: baseUrl, // Dynamic base URL for routing
-  define: {
-    __BASE__: JSON.stringify(baseUrl),
-    __DEFINES__: JSON.stringify({}),
-    __HMR_CONFIG_NAME__: JSON.stringify('vite-hmr'),
-    __HMR_PROTOCOL__: JSON.stringify('ws'),
-    __HMR_HOSTNAME__: JSON.stringify('localhost'),
-    __HMR_PORT__: JSON.stringify('24678'),
-    __HMR_TIMEOUT__: JSON.stringify('30000'),
+  server: {
+    hmr: isDev ? undefined : false, // Disable HMR in production
   },
   css: {
     devSourcemap: true,
@@ -25,6 +20,7 @@ export default defineConfig({
     cssCodeSplit: true, // Enable CSS code splitting
     reportCompressedSize: true, // Show gzipped sizes in build output
     rollupOptions: {
+      external: isDev ? [] : ['/@vite/client'], // Remove HMR client in production
       output: {
         manualChunks: {
           vendor: ['preact', 'preact/hooks', 'preact/compat'],
