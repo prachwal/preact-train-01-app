@@ -167,25 +167,8 @@ jobs:
 
       - name: Check bundle size limits
         run: |
-          echo "Checking bundle sizes..."
-          CSS_SIZE=$(stat -c%s dist/assets/*.css | awk '{sum+=$1} END {print sum}')
-          JS_SIZE=$(stat -c%s dist/assets/*.js | awk '{sum+=$1} END {print sum}')
-
-          echo "CSS Size: $((CSS_SIZE / 1024)) KB"
-          echo "JS Size: $((JS_SIZE / 1024)) KB"
-
-          # Fail if CSS > 50KB or JS > 100KB (gzipped sizes are smaller)
-          if [ $CSS_SIZE -gt 51200 ]; then
-            echo "❌ CSS bundle too large!"
-            exit 1
-          fi
-
-          if [ $JS_SIZE -gt 102400 ]; then
-            echo "❌ JS bundle too large!"
-            exit 1
-          fi
-
-          echo "✅ Bundle sizes are within limits"
+          chmod +x scripts/check-bundle-size.sh
+          ./scripts/check-bundle-size.sh
 
   # Job 6: Security Audit
   security:
