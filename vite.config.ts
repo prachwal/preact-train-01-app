@@ -8,6 +8,7 @@ export default defineConfig({
   plugins: [preact()],
   base: baseUrl, // Dynamic base URL for routing
   define: {
+    __BASE__: JSON.stringify(baseUrl),
     __DEFINES__: JSON.stringify({}),
     __HMR_CONFIG_NAME__: JSON.stringify('vite-hmr'),
     __HMR_PROTOCOL__: JSON.stringify('ws'),
