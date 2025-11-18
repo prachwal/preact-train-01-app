@@ -2,10 +2,11 @@ import type { Meta, StoryObj } from '@storybook/preact';
 import { h } from 'preact';
 import { useState } from 'preact/hooks';
 import { Modal } from './Modal';
-import type { ModalProps } from './Modal';
+
 import { Button } from './Button';
 import { Typography } from './Typography';
 import ThemeProvider from '../ThemeProvider';
+import type { ModalProps } from '../types';
 
 const meta: Meta<ModalProps> = {
   title: 'Components/Modal',

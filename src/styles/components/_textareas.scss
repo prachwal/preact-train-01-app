@@ -1,0 +1,210 @@
+@use "../variables.scss" as *;
+@use "../mixins.scss" as *;
+@use "sass:map";
+
+// ============================================
+// TEXTAREA COMPONENT - Fully Responsive
+// ============================================
+
+.pta-textarea-container {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+  width: 100%;
+}
+
+.pta-textarea-label {
+  font-size: $font-size-sm;
+  font-weight: 500;
+  color: var(--pta-color-text);
+  margin-bottom: $spacing-xs;
+  display: block;
+}
+
+.pta-textarea-required {
+  color: var(--pta-color-error);
+  margin-left: $spacing-xs;
+}
+
+.pta-textarea-wrapper {
+  position: relative;
+  display: flex;
+  width: 100%;
+  background-color: var(--pta-color-bg);
+
+  // Base styles
+  border-radius: $border-radius-sm;
+  border: 1px solid var(--pta-color-border);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+
+  // ============================================
+  // VARIANT STYLES
+  // ============================================
+
+  &.pta-textarea-wrapper--outlined {
+    background-color: transparent;
+    border: 1px solid var(--pta-color-border);
+  }
+
+  &.pta-textarea-wrapper--filled {
+    background-color: var(--pta-color-surface);
+    border: 1px solid transparent;
+    border-bottom: 2px solid var(--pta-color-border);
+  }
+
+  &.pta-textarea-wrapper--standard {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid var(--pta-color-border);
+    border-radius: 0;
+  }
+
+  // ============================================
+  // SIZE VARIANTS
+  // ============================================
+
+  $textarea-sizes: (
+    sm: (
+      padding: $spacing-sm,
+      font-size: $font-size-sm
+    ),
+    md: (
+      padding: $spacing-md,
+      font-size: $font-size-base
+    ),
+    lg: (
+      padding: $spacing-lg,
+      font-size: $font-size-lg
+    )
+  );
+
+  @each $size, $props in $textarea-sizes {
+    &.pta-textarea-wrapper--#{$size} {
+      .pta-textarea {
+        padding: map.get($props, padding);
+        font-size: map.get($props, font-size);
+      }
+    }
+  }
+
+  // ============================================
+  // STATE STYLES
+  // ============================================
+
+  &.pta-textarea-wrapper--focused {
+    border-color: var(--pta-color-primary);
+    outline: none;
+    box-shadow: 0 0 0 3px var(--pta-color-primary-alpha-10, rgba(59, 130, 246, 0.1));
+  }
+
+  &.pta-textarea-wrapper--error {
+    border-color: var(--pta-color-error);
+
+    &.pta-textarea-wrapper--focused {
+      box-shadow: 0 0 0 3px var(--pta-color-error-alpha-10, rgba(239, 68, 68, 0.1));
+    }
+  }
+
+  &.pta-textarea-wrapper--disabled {
+    background-color: var(--pta-color-surface-disabled);
+    border-color: var(--pta-color-border-disabled);
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  // ============================================
+  // RESIZE VARIANTS
+  // ============================================
+
+  &.pta-textarea-wrapper--resize-none .pta-textarea {
+    resize: none;
+  }
+
+  &.pta-textarea-wrapper--resize-both .pta-textarea {
+    resize: both;
+  }
+
+  &.pta-textarea-wrapper--resize-horizontal .pta-textarea {
+    resize: horizontal;
+  }
+
+  &.pta-textarea-wrapper--resize-vertical .pta-textarea {
+    resize: vertical;
+  }
+
+  // ============================================
+  // SEMANTIC STATE VARIANTS
+  // ============================================
+
+  $semantic-states: (
+    success: var(--pta-color-success),
+    warning: var(--pta-color-warning),
+    info: var(--pta-color-info),
+    error: var(--pta-color-error)
+  );
+
+  @each $state, $color in $semantic-states {
+    &.pta-textarea-wrapper--state-#{$state} {
+      border-color: $color;
+
+      &.pta-textarea-wrapper--focused {
+        box-shadow: 0 0 0 3px #{$color}1a; // 10% opacity
+      }
+    }
+  }
+}
+
+.pta-textarea {
+  width: 100%;
+  padding: $spacing-md;
+  font-family: inherit;
+  font-size: $font-size-base;
+  line-height: 1.5;
+  color: var(--pta-color-text);
+  background: transparent;
+  border: none;
+  outline: none;
+  resize: vertical;
+  transition: color 0.2s ease;
+
+  &::placeholder {
+    color: var(--pta-color-text-tertiary);
+    opacity: 1;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    color: var(--pta-color-text-disabled);
+  }
+}
+
+.pta-textarea-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: $spacing-sm;
+  margin-top: $spacing-xs;
+  min-height: 20px;
+}
+
+.pta-textarea-error {
+  font-size: $font-size-sm;
+  color: var(--pta-color-error);
+  flex: 1;
+}
+
+.pta-textarea-helper {
+  font-size: $font-size-sm;
+  color: var(--pta-color-text-secondary);
+  flex: 1;
+}
+
+.pta-textarea-char-count {
+  font-size: $font-size-xs;
+  color: var(--pta-color-text-tertiary);
+  white-space: nowrap;
+  margin-left: auto;
+}

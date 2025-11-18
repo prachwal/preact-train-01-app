@@ -25,6 +25,10 @@ import {
   DollarSign,
   Users,
   Package,
+  Mail,
+  Tag,
+  Clock,
+  Shield,
 } from 'lucide-react';
 
 /**
@@ -102,6 +106,13 @@ export const ICONS = {
   MONEY: h(DollarSign as any, { size: 16 }),
   PEOPLE: h(Users as any, { size: 16 }),
   PACKAGE: h(Package as any, { size: 16 }),
+  ENVELOPE: h(Mail as any, { size: 16 }),
+  TAG: h(Tag as any, { size: 16 }),
+  CLOCK: h(Clock as any, { size: 16 }),
+  SHIELD: h(Shield as any, { size: 16 }),
+  USER: h(User as any, { size: 16 }),
+  DOLLAR: h(DollarSign as any, { size: 16 }),
+  SETTINGS: h(Settings as any, { size: 16 }),
 } as const;
 
 export type IconName = keyof typeof ICONS;

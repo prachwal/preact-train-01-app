@@ -7,7 +7,7 @@ const config: StorybookConfig = {
   framework: {
     name: '@storybook/preact-vite',
     options: {},
-  }
+  },
 };
 
 export default config;

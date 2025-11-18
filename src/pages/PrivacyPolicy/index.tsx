@@ -1,4 +1,6 @@
-import { Typography, Grid, Card } from '../ui';
+// Privacy Policy Page
+
+import { Typography, Grid, Card } from '../../ui';
 import './LegalPages.scss';
 
 export const PrivacyPolicy = () => {

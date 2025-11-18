@@ -11,6 +11,7 @@ import {
   NotFound,
   PrivacyPolicy,
   TermsOfService,
+  Contact,
 } from './pages';
 import { themeSignal, isMobileMenuOpenSignal } from './application/signals';
 // @ts-ignore
@@ -115,6 +116,7 @@ function App() {
                 <Route path="/about" component={About} />
                 <Route path="/privacy" component={PrivacyPolicy} />
                 <Route path="/terms" component={TermsOfService} />
+                <Route path="/contact" component={Contact} />
                 <Route default component={NotFound} />
               </Router>
             </main>

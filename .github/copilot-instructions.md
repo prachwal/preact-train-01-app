@@ -164,6 +164,7 @@ When changing design tokens:
 **SCSS Best Practices (DRY Code)**
 
 - **Use maps and loops** instead of repetitive variant rules (see `_mixins.scss` for examples)
+- **Use `map.get()` instead of deprecated `map-get()`** for accessing map values (Dart Sass 3.0.0+ compatibility) - requires `@use "sass:map"` import
 - **Centralize mixins** in `src/styles/_mixins.scss` for reusable patterns
 - **Follow mobile-first** responsive strategy with `respond-above()` mixin
 - **Avoid hardcoded values** - use SCSS variables from `_variables.scss`
@@ -210,15 +211,50 @@ When changing design tokens:
 
 **Page Creation Process**
 
-1. **Create page component** in `src/pages/PageName.tsx`:
-   - Import UI components from `src/ui`
-   - Use signals for reactive state (from `src/application/signals.ts` or service layer)
-   - Add page-specific SCSS if needed (e.g., `Home.scss`, `LegalPages.scss`)
-2. **Add route** to `src/App.tsx` Router: `<Route path="/page" component={PageName} />`
-3. **Update navigation** in `src/data/navigation.ts` if page should appear in nav menu
-4. **Handle anchors** for same-page navigation (e.g., Settings submenu uses anchors like `#general`, `#appearance`)
-5. **Test navigation**: Create E2E test in `e2e/` directory to verify routing and page functionality
-6. **Build and verify**: Run `npm run build` and check `dist/` output
+**CRITICAL: Pages MUST be organized in dedicated subfolders with section components**
+
+1. **Create page folder structure** in `src/pages/PageName/`:
+   - Create dedicated folder: `src/pages/PageName/`
+   - Main page component: `src/pages/PageName/index.tsx` (exports PageName component)
+   - Section components: Split page into logical sections (e.g., `ContactForm.tsx`, `ContactInfo.tsx`, `SuccessMessage.tsx`)
+   - Page styles: `src/pages/PageName/PageName.scss` with corrected import paths (`../../styles/...`)
+2. **Structure guidelines**:
+   - **index.tsx**: Main page component that orchestrates sections, handles state, initializes services
+   - **Section components**: Reusable, focused components (forms, info cards, headers, footers)
+   - **Keep sections simple**: Each section should have single responsibility
+   - **Export from index.tsx**: `export function PageName() { ... }` (matches folder name)
+3. **Example structure** (Contact page):
+
+   ```
+   src/pages/Contact/
+   ├── index.tsx              # Main Contact component
+   ├── ContactForm.tsx        # Form section with validation
+   ├── ContactInfo.tsx        # Info cards section
+   ├── SuccessMessage.tsx     # Success state section
+   └── Contact.scss           # Page styles
+   ```
+
+4. **Import path updates**:
+
+   - UI components: `import { Button, Input } from '../../ui'`
+   - Types: `import type { RadioOption } from '../../types'`
+   - Services: `import { submitForm } from '../../services/ContactService'`
+   - SCSS imports: `@use "../../styles/variables.scss" as *;`
+
+5. **Re-export in pages/index.ts**:
+
+   - Import resolves to folder: `export { Contact } from './Contact';` → loads `./Contact/index.tsx`
+   - No changes needed to existing exports
+
+6. **Add route** to `src/App.tsx` Router: `<Route path="/page" component={PageName} />` (no import changes needed)
+
+7. **Update navigation** in `src/data/navigation.ts` if page should appear in nav menu
+
+8. **Handle anchors** for same-page navigation (e.g., Settings submenu uses anchors like `#general`, `#appearance`)
+
+9. **Test navigation**: Create E2E test in `e2e/` directory to verify routing and page functionality
+
+10. **Build and verify**: Run `npm run build` and check `dist/` output, verify all imports resolve correctly
 
 **Optimization Workflow with SED-Based Checklists**
 

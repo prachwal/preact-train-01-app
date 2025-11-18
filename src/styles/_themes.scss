@@ -87,6 +87,9 @@
   --pta-color-surface-rgb: 255, 255, 255;
   --color-surface-rgb: 255, 255, 255;
   --color-border-rgb: 0, 0, 0;
+
+  --pta-color-primary: #{$pta-color-light-accent}; // Temporary fix as
+  --pta-color-text-primary: #{$pta-color-light-text}; // Temporary fix
 }
 
 @mixin dark-theme {
@@ -171,6 +174,9 @@
   --pta-color-surface-rgb: 30, 30, 30;
   --color-surface-rgb: 26, 26, 26;
   --color-border-rgb: 255, 255, 255;
+
+  --pta-color-primary: #{$pta-color-dark-accent}; // Temporary fix as
+  --pta-color-text-primary: #{$pta-color-dark-text}; // Temporary fix
 }
 
 // Apply default (light) theme variables

@@ -3,5 +3,18 @@ import preact from '@preact/preset-vite';
 
 export default defineConfig({
   plugins: [preact()],
-  // Vite configuration options go here
+  css: {
+    devSourcemap: true,
+  },
+  build: {
+    cssMinify: 'esbuild',
+    minify: 'esbuild',
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['preact', 'preact/hooks', 'preact/compat'],
+        },
+      },
+    },
+  },
 });

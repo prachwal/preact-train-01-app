@@ -1,15 +1,40 @@
 import type { Meta, StoryObj } from '@storybook/preact';
-import { h } from 'preact';
 import { useState } from 'preact/hooks';
 import { Hamburger } from './Hamburger';
-import type { HamburgerProps } from './Hamburger';
 import ThemeProvider from '../ThemeProvider';
+import type { HamburgerProps } from '../types';
 
 const meta: Meta<HamburgerProps> = {
   title: 'Components/Hamburger',
   component: Hamburger,
   parameters: {
     layout: 'centered',
+    viewport: {
+      viewports: {
+        mobile: {
+          name: 'Mobile',
+          styles: {
+            width: '375px',
+            height: '667px',
+          },
+        },
+        tablet: {
+          name: 'Tablet',
+          styles: {
+            width: '768px',
+            height: '1024px',
+          },
+        },
+        desktop: {
+          name: 'Desktop',
+          styles: {
+            width: '1024px',
+            height: '768px',
+          },
+        },
+      },
+      defaultViewport: 'mobile',
+    },
   },
   tags: ['autodocs'],
   argTypes: {
@@ -27,6 +52,10 @@ const meta: Meta<HamburgerProps> = {
       <ThemeProvider>
         <div style={{ padding: '20px' }}>
           <Story />
+          <p style={{ fontSize: '0.75rem', color: '#666', marginTop: '1rem' }}>
+            💡 Hamburger is hidden on desktop (≥1024px). Use viewport controls
+            to see it.
+          </p>
         </div>
       </ThemeProvider>
     ),

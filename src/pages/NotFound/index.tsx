@@ -1,4 +1,6 @@
-import { Card, Typography, Button, Grid } from '../ui';
+// NotFound Page - 404 Error
+
+import { Card, Typography, Button, Grid } from '../../ui';
 
 export function NotFound() {
   return (

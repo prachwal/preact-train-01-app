@@ -103,6 +103,13 @@ export const navigationConfig: NavigationConfig = {
           icon: ICONS.SCROLL,
           path: '/terms',
         },
+        {
+          id: 'contact',
+          label: 'Contact',
+          icon: ICONS.ENVELOPE,
+          path: '/contact',
+          hidden: true, // Hidden from sidebar, accessible via footer
+        },
       ],
     },
   ],

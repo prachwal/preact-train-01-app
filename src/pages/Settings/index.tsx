@@ -1,5 +1,5 @@
-import { Card, Typography, Grid, Button, Switch, Modal } from '../ui';
-import { themeSignal } from '../application/signals';
+import { Card, Typography, Grid, Button, Switch, Modal } from '../../ui';
+import { themeSignal } from '../../application/signals';
 import {
   emailNotificationsSignal,
   desktopNotificationsSignal,
@@ -7,7 +7,7 @@ import {
   developerModeSignal,
   betaFeaturesSignal,
   initializeSettings,
-} from '../services/SettingsService';
+} from '../../services/SettingsService';
 import { useEffect, useState } from 'preact/hooks';
 import './Settings.scss';
 

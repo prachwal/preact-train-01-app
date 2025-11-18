@@ -99,7 +99,7 @@ export function Footer() {
               <a href="/terms" className="pta-footer__link">
                 Terms of Service
               </a>
-              <a href="mailto:contact@example.com" className="pta-footer__link">
+              <a href="/contact" className="pta-footer__link">
                 Contact Us
               </a>
               <a

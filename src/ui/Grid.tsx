@@ -15,13 +15,14 @@ export const Grid = ({
   as = 'div',
   children,
   className: additionalClassName,
+  style: userStyle,
   ...props
 }: GridComponentProps) => {
   const modifiers: Record<string, boolean | string | undefined> = {
     [`mode-${mode}`]: true,
   };
 
-  const style: Record<string, string> = {};
+  const internalStyle: Record<string, string> = {};
 
   if (mode === 'flex') {
     modifiers[`direction-${direction}`] = true;
@@ -32,8 +33,9 @@ export const Grid = ({
   } else if (mode === 'grid') {
     if (gap) modifiers[`gap-${gap}`] = true;
     if (gridTemplateColumns)
-      style['--grid-template-columns'] = gridTemplateColumns;
-    if (gridTemplateRows) style['--grid-template-rows'] = gridTemplateRows;
+      internalStyle['--grid-template-columns'] = gridTemplateColumns;
+    if (gridTemplateRows)
+      internalStyle['--grid-template-rows'] = gridTemplateRows;
     if (gridAutoFlow)
       modifiers[`grid-auto-flow-${gridAutoFlow.replace(' ', '-')}`] = true;
   }
@@ -43,5 +45,12 @@ export const Grid = ({
     ? `${baseClassName} ${additionalClassName}`
     : baseClassName;
 
-  return h(as, { className: finalClassName, style, ...props }, children);
+  // Merge internal style with user-provided style
+  const finalStyle = { ...internalStyle, ...userStyle };
+
+  return h(
+    as,
+    { className: finalClassName, style: finalStyle, ...props },
+    children
+  );
 };

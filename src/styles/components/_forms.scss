@@ -1,0 +1,18 @@
+@use "../variables.scss" as *;
+@use "../mixins.scss" as *;
+
+// ============================================
+// FORM COMPONENT
+// ============================================
+
+.pta-form {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+  width: 100%;
+
+  &.pta-form--submitting {
+    pointer-events: none;
+    opacity: 0.7;
+  }
+}

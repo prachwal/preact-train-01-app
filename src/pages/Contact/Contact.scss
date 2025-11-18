@@ -1,0 +1,215 @@
+// Contact Page Styles
+
+@use "../../styles/variables.scss" as *;
+@use "../../styles/mixins.scss" as *;
+
+.pta-contact {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: $spacing-lg;
+
+  @include respond-above(md) {
+    padding: $spacing-xl;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-xl;
+
+    @include respond-above(md) {
+      grid-template-columns: 2fr 1fr;
+    }
+  }
+
+  &__form-card {
+    height: fit-content;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+  }
+
+  &__form-row {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__textarea-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+  }
+
+  &__label {
+    font-size: $font-size-sm;
+    font-weight: 600;
+    color: var(--pta-color-text-primary);
+    margin-bottom: $spacing-xs;
+  }
+
+  &__required {
+    color: var(--pta-color-error);
+  }
+
+  &__textarea {
+    width: 100%;
+    padding: $spacing-sm $spacing-md;
+    font-family: inherit;
+    font-size: $font-size-base;
+    line-height: 1.5;
+    color: var(--pta-color-text-primary);
+    background-color: var(--pta-color-surface);
+    border: 2px solid var(--pta-color-border);
+    border-radius: $border-radius-md;
+    resize: vertical;
+    min-height: 120px;
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
+
+    &:focus {
+      outline: none;
+      border-color: var(--pta-color-accent);
+      box-shadow: 0 0 0 3px var(--pta-color-accent-light);
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      background-color: var(--pta-color-surface-hover);
+    }
+
+    &--error {
+      border-color: var(--pta-color-error);
+
+      &:focus {
+        border-color: var(--pta-color-error);
+        box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+      }
+    }
+
+    &::placeholder {
+      color: var(--pta-color-text-tertiary);
+    }
+  }
+
+  &__textarea-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: $spacing-sm;
+    min-height: 20px;
+  }
+
+  &__error {
+    font-size: $font-size-xs;
+    color: var(--pta-color-error);
+    font-weight: 500;
+  }
+
+  &__char-count {
+    font-size: $font-size-xs;
+    color: var(--pta-color-text-tertiary);
+    margin-left: auto;
+  }
+
+  &__form-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: $spacing-md;
+  }
+
+  &__submit-button {
+    width: 100%;
+  }
+
+  &__success {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: $spacing-lg;
+    padding: $spacing-2xl;
+    text-align: center;
+  }
+
+  &__success-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: var(--pta-color-success-light);
+    color: var(--pta-color-success);
+    font-size: 3rem;
+    font-weight: bold;
+    animation: scaleIn 0.5s ease-out;
+  }
+
+  @keyframes scaleIn {
+    from {
+      transform: scale(0);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+  }
+
+  &__info-card {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+  }
+
+  &__link {
+    color: var(--pta-color-accent);
+    text-decoration: none;
+    font-weight: 600;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// Responsive adjustments
+@include respond-below(md) {
+  .pta-contact {
+    padding: $spacing-md;
+
+    &__content {
+      grid-template-columns: 1fr;
+    }
+
+    &__success {
+      padding: $spacing-xl;
+    }
+
+    &__success-icon {
+      width: 60px;
+      height: 60px;
+      font-size: 2rem;
+    }
+  }
+}

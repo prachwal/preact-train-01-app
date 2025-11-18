@@ -2,8 +2,9 @@ import type { Meta, StoryObj } from '@storybook/preact';
 import { h } from 'preact';
 import { useState } from 'preact/hooks';
 import { Switch } from './Switch';
-import type { SwitchProps } from './Switch';
+
 import ThemeProvider from '../ThemeProvider';
+import type { SwitchProps } from '../types';
 
 const meta: Meta<SwitchProps> = {
   title: 'Components/Switch',
@@ -169,10 +170,30 @@ export const AllStates: Story = {
 export const Variants: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-      <Switch checked={true} onChange={() => {}} label="Primary" variant="primary" />
-      <Switch checked={true} onChange={() => {}} label="Secondary" variant="secondary" />
-      <Switch checked={true} onChange={() => {}} label="Success" variant="success" />
-      <Switch checked={true} onChange={() => {}} label="Danger" variant="danger" />
+      <Switch
+        checked={true}
+        onChange={() => {}}
+        label="Primary"
+        variant="primary"
+      />
+      <Switch
+        checked={true}
+        onChange={() => {}}
+        label="Secondary"
+        variant="secondary"
+      />
+      <Switch
+        checked={true}
+        onChange={() => {}}
+        label="Success"
+        variant="success"
+      />
+      <Switch
+        checked={true}
+        onChange={() => {}}
+        label="Danger"
+        variant="danger"
+      />
     </div>
   ),
 };
@@ -183,7 +204,12 @@ export const Sizes: Story = {
       <Switch checked={true} onChange={() => {}} label="Small" size="sm" />
       <Switch checked={true} onChange={() => {}} label="Medium" size="md" />
       <Switch checked={true} onChange={() => {}} label="Large" size="lg" />
-      <Switch checked={true} onChange={() => {}} label="Extra Large" size="xl" />
+      <Switch
+        checked={true}
+        onChange={() => {}}
+        label="Extra Large"
+        size="xl"
+      />
     </div>
   ),
 };
@@ -191,10 +217,30 @@ export const Sizes: Story = {
 export const SemanticStates: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-      <Switch checked={true} onChange={() => {}} label="Success" semanticState="success" />
-      <Switch checked={true} onChange={() => {}} label="Error" semanticState="error" />
-      <Switch checked={true} onChange={() => {}} label="Warning" semanticState="warning" />
-      <Switch checked={true} onChange={() => {}} label="Info" semanticState="info" />
+      <Switch
+        checked={true}
+        onChange={() => {}}
+        label="Success"
+        semanticState="success"
+      />
+      <Switch
+        checked={true}
+        onChange={() => {}}
+        label="Error"
+        semanticState="error"
+      />
+      <Switch
+        checked={true}
+        onChange={() => {}}
+        label="Warning"
+        semanticState="warning"
+      />
+      <Switch
+        checked={true}
+        onChange={() => {}}
+        label="Info"
+        semanticState="info"
+      />
     </div>
   ),
 };
@@ -202,10 +248,30 @@ export const SemanticStates: Story = {
 export const Shadows: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-      <Switch checked={true} onChange={() => {}} label="No Shadow" shadow="none" />
-      <Switch checked={true} onChange={() => {}} label="Light Shadow" shadow="light" />
-      <Switch checked={true} onChange={() => {}} label="Medium Shadow" shadow="medium" />
-      <Switch checked={true} onChange={() => {}} label="Heavy Shadow" shadow="heavy" />
+      <Switch
+        checked={true}
+        onChange={() => {}}
+        label="No Shadow"
+        shadow="none"
+      />
+      <Switch
+        checked={true}
+        onChange={() => {}}
+        label="Light Shadow"
+        shadow="light"
+      />
+      <Switch
+        checked={true}
+        onChange={() => {}}
+        label="Medium Shadow"
+        shadow="medium"
+      />
+      <Switch
+        checked={true}
+        onChange={() => {}}
+        label="Heavy Shadow"
+        shadow="heavy"
+      />
     </div>
   ),
 };
@@ -213,10 +279,30 @@ export const Shadows: Story = {
 export const BorderRadius: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-      <Switch checked={true} onChange={() => {}} label="No Radius" borderRadius="none" />
-      <Switch checked={true} onChange={() => {}} label="Small Radius" borderRadius="sm" />
-      <Switch checked={true} onChange={() => {}} label="Medium Radius" borderRadius="md" />
-      <Switch checked={true} onChange={() => {}} label="Large Radius" borderRadius="lg" />
+      <Switch
+        checked={true}
+        onChange={() => {}}
+        label="No Radius"
+        borderRadius="none"
+      />
+      <Switch
+        checked={true}
+        onChange={() => {}}
+        label="Small Radius"
+        borderRadius="sm"
+      />
+      <Switch
+        checked={true}
+        onChange={() => {}}
+        label="Medium Radius"
+        borderRadius="md"
+      />
+      <Switch
+        checked={true}
+        onChange={() => {}}
+        label="Large Radius"
+        borderRadius="lg"
+      />
     </div>
   ),
 };
@@ -224,10 +310,30 @@ export const BorderRadius: Story = {
 export const BorderWidth: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-      <Switch checked={true} onChange={() => {}} label="No Border" borderWidth="none" />
-      <Switch checked={true} onChange={() => {}} label="Thin Border" borderWidth="thin" />
-      <Switch checked={true} onChange={() => {}} label="Medium Border" borderWidth="medium" />
-      <Switch checked={true} onChange={() => {}} label="Thick Border" borderWidth="thick" />
+      <Switch
+        checked={true}
+        onChange={() => {}}
+        label="No Border"
+        borderWidth="none"
+      />
+      <Switch
+        checked={true}
+        onChange={() => {}}
+        label="Thin Border"
+        borderWidth="thin"
+      />
+      <Switch
+        checked={true}
+        onChange={() => {}}
+        label="Medium Border"
+        borderWidth="medium"
+      />
+      <Switch
+        checked={true}
+        onChange={() => {}}
+        label="Thick Border"
+        borderWidth="thick"
+      />
     </div>
   ),
 };

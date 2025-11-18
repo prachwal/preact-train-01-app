@@ -1,8 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/preact';
 import { h } from 'preact';
 import { ThemeIcon } from './ThemeIcon';
-import type { ThemeIconProps } from './ThemeIcon';
+
 import ThemeProvider from '../ThemeProvider';
+import type { ThemeIconProps } from '../types';
 
 const meta: Meta<ThemeIconProps> = {
   title: 'Components/ThemeIcon',

@@ -12,6 +12,7 @@ export interface NavigationItem {
   external?: boolean;
   badge?: string; // Optional badge text (e.g., "New", "Beta")
   disabled?: boolean;
+  hidden?: boolean; // Hide from sidebar navigation (but keep in routing)
 }
 
 export interface NavigationGroup {

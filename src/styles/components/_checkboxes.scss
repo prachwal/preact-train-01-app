@@ -1,0 +1,234 @@
+@use "../variables.scss" as *;
+@use "../mixins.scss" as *;
+
+// ============================================
+// CHECKBOX COMPONENT
+// ============================================
+
+.pta-checkbox-container {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.pta-checkbox-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-sm;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+
+  &:hover {
+    .pta-checkbox-checkmark {
+      border-color: var(--pta-color-primary);
+    }
+  }
+
+  // ============================================
+  // SIZE VARIANTS
+  // ============================================
+
+  &.pta-checkbox-wrapper--sm {
+    .pta-checkbox-checkmark {
+      width: 16px;
+      height: 16px;
+    }
+
+    .pta-checkbox-icon {
+      width: 12px;
+      height: 12px;
+    }
+
+    .pta-checkbox-label {
+      font-size: $font-size-sm;
+    }
+  }
+
+  &.pta-checkbox-wrapper--md {
+    .pta-checkbox-checkmark {
+      width: 20px;
+      height: 20px;
+    }
+
+    .pta-checkbox-icon {
+      width: 15px;
+      height: 15px;
+    }
+  }
+
+  &.pta-checkbox-wrapper--lg {
+    .pta-checkbox-checkmark {
+      width: 24px;
+      height: 24px;
+    }
+
+    .pta-checkbox-icon {
+      width: 18px;
+      height: 18px;
+    }
+
+    .pta-checkbox-label {
+      font-size: $font-size-lg;
+    }
+  }
+
+  // ============================================
+  // STATE STYLES
+  // ============================================
+
+  &.pta-checkbox-wrapper--disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+
+    .pta-checkbox-checkmark {
+      background-color: var(--pta-color-surface-disabled);
+      border-color: var(--pta-color-border-disabled);
+    }
+  }
+
+  &.pta-checkbox-wrapper--error {
+    .pta-checkbox-checkmark {
+      border-color: var(--pta-color-error);
+    }
+  }
+
+  &.pta-checkbox-wrapper--read-only {
+    cursor: default;
+    pointer-events: none;
+  }
+}
+
+// ============================================
+// VARIANT COLORS - Outside wrapper for @each
+// ============================================
+
+.pta-checkbox-wrapper--primary {
+  .pta-checkbox-input:checked ~ .pta-checkbox-checkmark,
+  .pta-checkbox-input:indeterminate ~ .pta-checkbox-checkmark {
+    background-color: var(--pta-color-primary);
+    border-color: var(--pta-color-primary);
+  }
+
+  &:hover .pta-checkbox-checkmark {
+    border-color: var(--pta-color-primary);
+  }
+}
+
+.pta-checkbox-wrapper--secondary {
+  .pta-checkbox-input:checked ~ .pta-checkbox-checkmark,
+  .pta-checkbox-input:indeterminate ~ .pta-checkbox-checkmark {
+    background-color: var(--pta-color-secondary);
+    border-color: var(--pta-color-secondary);
+  }
+
+  &:hover .pta-checkbox-checkmark {
+    border-color: var(--pta-color-secondary);
+  }
+}
+
+.pta-checkbox-wrapper--success {
+  .pta-checkbox-input:checked ~ .pta-checkbox-checkmark,
+  .pta-checkbox-input:indeterminate ~ .pta-checkbox-checkmark {
+    background-color: var(--pta-color-success);
+    border-color: var(--pta-color-success);
+  }
+
+  &:hover .pta-checkbox-checkmark {
+    border-color: var(--pta-color-success);
+  }
+}
+
+.pta-checkbox-wrapper--error {
+  .pta-checkbox-input:checked ~ .pta-checkbox-checkmark,
+  .pta-checkbox-input:indeterminate ~ .pta-checkbox-checkmark {
+    background-color: var(--pta-color-error);
+    border-color: var(--pta-color-error);
+  }
+
+  &:hover .pta-checkbox-checkmark {
+    border-color: var(--pta-color-error);
+  }
+}
+
+.pta-checkbox-wrapper--warning {
+  .pta-checkbox-input:checked ~ .pta-checkbox-checkmark,
+  .pta-checkbox-input:indeterminate ~ .pta-checkbox-checkmark {
+    background-color: var(--pta-color-warning);
+    border-color: var(--pta-color-warning);
+  }
+
+  &:hover .pta-checkbox-checkmark {
+    border-color: var(--pta-color-warning);
+  }
+}
+
+.pta-checkbox-wrapper--info {
+  .pta-checkbox-input:checked ~ .pta-checkbox-checkmark,
+  .pta-checkbox-input:indeterminate ~ .pta-checkbox-checkmark {
+    background-color: var(--pta-color-info);
+    border-color: var(--pta-color-info);
+  }
+
+  &:hover .pta-checkbox-checkmark {
+    border-color: var(--pta-color-info);
+  }
+}
+
+.pta-checkbox-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.pta-checkbox-checkmark {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--pta-color-border);
+  border-radius: $border-radius-sm;
+  background-color: transparent;
+  transition:
+    all 0.2s ease,
+    transform 0.1s ease;
+
+  .pta-checkbox-input:focus ~ & {
+    outline: 2px solid var(--pta-color-primary);
+    outline-offset: 2px;
+  }
+}
+
+.pta-checkbox-icon {
+  width: 16px;
+  height: 16px;
+  color: white;
+  opacity: 0;
+  transform: scale(0.5);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+
+  .pta-checkbox-input:checked ~ .pta-checkbox-checkmark &,
+  .pta-checkbox-input:indeterminate ~ .pta-checkbox-checkmark & {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.pta-checkbox-label {
+  font-size: $font-size-base;
+  color: var(--pta-color-text);
+  line-height: 1.5;
+}
+
+.pta-checkbox-error {
+  font-size: $font-size-sm;
+  color: var(--pta-color-error);
+  margin-top: $spacing-xs;
+  display: block;
+}

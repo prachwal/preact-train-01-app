@@ -48,6 +48,7 @@ export interface GridComponentProps extends BaseComponentProps {
   gridTemplateRows?: string;
   gridAutoFlow?: 'row' | 'column' | 'dense' | 'row dense' | 'column dense';
   as?: 'div' | 'section' | 'article' | 'main' | 'aside' | 'header' | 'footer';
+  style?: CSSProperties;
   children?: ComponentChildren;
 }
 
@@ -489,4 +490,225 @@ export interface ToggleButtonProps extends BaseComponentProps {
   disabled?: boolean;
   /** Theme override */
   theme?: Theme;
+}
+
+/**
+ * Props for Form component
+ * Wrapper for forms with validation and submission handling
+ */
+export interface FormProps extends BaseComponentProps {
+  /** Form submission handler */
+  onSubmit?: (e: Event) => void | Promise<void>;
+  /** Form validation handler - returns true if valid */
+  onValidate?: () => boolean;
+  /** Whether form is currently submitting */
+  isSubmitting?: boolean;
+  /** No validate attribute for HTML5 validation */
+  noValidate?: boolean;
+  /** Autocomplete attribute */
+  autoComplete?: 'on' | 'off';
+  /** Form children */
+  children?: ComponentChildren;
+}
+
+/**
+ * Props for Textarea component
+ * Multi-line text input with validation and character counting
+ */
+export interface TextareaProps extends BaseComponentProps {
+  /** Textarea name */
+  name?: string;
+  /** Controlled value */
+  value?: string;
+  /** Default uncontrolled value */
+  defaultValue?: string;
+  /** Placeholder text */
+  placeholder?: string;
+  /** Label text */
+  label?: string;
+  /** Helper text shown below textarea */
+  helperText?: string;
+  /** Error message */
+  error?: string;
+  /** Whether textarea is disabled */
+  disabled?: boolean;
+  /** Whether textarea is required */
+  required?: boolean;
+  /** Whether textarea is read-only */
+  readOnly?: boolean;
+  /** Auto focus on mount */
+  autoFocus?: boolean;
+  /** Component size variant */
+  size?: ComponentSize;
+  /** Visual variant */
+  variant?: 'outlined' | 'filled' | 'standard';
+  /** Theme override */
+  theme?: Theme;
+  /** Semantic state */
+  semanticState?: SemanticState;
+  /** Border radius size */
+  borderRadius?: BorderRadiusSize;
+  /** Border width size */
+  borderWidth?: BorderWidthSize;
+  /** Maximum character length */
+  maxLength?: number;
+  /** Minimum character length */
+  minLength?: number;
+  /** Number of visible text rows */
+  rows?: number;
+  /** Minimum number of rows */
+  minRows?: number;
+  /** Maximum number of rows */
+  maxRows?: number;
+  /** Auto-resize based on content */
+  autoResize?: boolean;
+  /** Show character counter */
+  showCharacterCount?: boolean;
+  /** Resize behavior */
+  resize?: 'none' | 'both' | 'horizontal' | 'vertical';
+  /** Change event handler */
+  onChange?: (e: JSX.TargetedEvent<HTMLTextAreaElement, Event>) => void;
+  /** Input event handler */
+  onInput?: (e: JSX.TargetedEvent<HTMLTextAreaElement, Event>) => void;
+  /** Focus event handler */
+  onFocus?: (e: JSX.TargetedEvent<HTMLTextAreaElement, Event>) => void;
+  /** Blur event handler */
+  onBlur?: (e: JSX.TargetedEvent<HTMLTextAreaElement, Event>) => void;
+  /** Key down event handler */
+  onKeyDown?: (e: JSX.TargetedKeyboardEvent<HTMLTextAreaElement>) => void;
+  /** Key up event handler */
+  onKeyUp?: (e: JSX.TargetedKeyboardEvent<HTMLTextAreaElement>) => void;
+}
+
+/**
+ * Props for Checkbox component
+ * Single checkbox with label and validation
+ */
+export interface CheckboxProps extends BaseComponentProps {
+  /** Checkbox name */
+  name?: string;
+  /** Controlled checked state */
+  checked?: boolean;
+  /** Default uncontrolled checked state */
+  defaultChecked?: boolean;
+  /** Indeterminate state (for "select all" checkboxes) */
+  indeterminate?: boolean;
+  /** Label text */
+  label?: string;
+  /** Helper text shown below checkbox */
+  helperText?: string;
+  /** Error message */
+  error?: string;
+  /** Whether checkbox is disabled */
+  disabled?: boolean;
+  /** Whether checkbox is required */
+  required?: boolean;
+  /** Whether checkbox is read-only */
+  readOnly?: boolean;
+  /** Component size variant */
+  size?: ComponentSize;
+  /** Color variant */
+  variant?: 'primary' | 'secondary' | 'success' | 'error' | 'warning' | 'info';
+  /** Theme override */
+  theme?: Theme;
+  /** Value for form submission */
+  value?: string;
+  /** Change event handler */
+  onChange?: (
+    checked: boolean,
+    e: JSX.TargetedEvent<HTMLInputElement, Event>
+  ) => void;
+  /** ARIA label */
+  ariaLabel?: string;
+}
+
+/**
+ * Props for Radio component
+ * Single radio button (typically used within RadioGroup)
+ */
+export interface RadioProps extends BaseComponentProps {
+  /** Radio name (required for grouping) */
+  name: string;
+  /** Radio value */
+  value: string;
+  /** Controlled checked state */
+  checked?: boolean;
+  /** Default uncontrolled checked state */
+  defaultChecked?: boolean;
+  /** Label text */
+  label?: string;
+  /** Helper text shown below radio */
+  helperText?: string;
+  /** Error message */
+  error?: string;
+  /** Whether radio is disabled */
+  disabled?: boolean;
+  /** Whether radio is required */
+  required?: boolean;
+  /** Whether radio is read-only */
+  readOnly?: boolean;
+  /** Component size variant */
+  size?: ComponentSize;
+  /** Color variant */
+  variant?: 'primary' | 'secondary' | 'success' | 'error' | 'warning' | 'info';
+  /** Theme override */
+  theme?: Theme;
+  /** Change event handler */
+  onChange?: (
+    checked: boolean,
+    e: JSX.TargetedEvent<HTMLInputElement, Event>
+  ) => void;
+  /** ARIA label */
+  ariaLabel?: string;
+}
+
+/**
+ * Radio option for RadioGroup
+ */
+export interface RadioOption {
+  /** Unique value */
+  value: string;
+  /** Display label */
+  label: string;
+  /** Whether option is disabled */
+  disabled?: boolean;
+  /** Helper text for this option */
+  helperText?: string;
+}
+
+/**
+ * Props for RadioGroup component
+ * Wrapper for radio buttons with validation
+ */
+export interface RadioGroupProps extends BaseComponentProps {
+  /** Group name (passed to all radio buttons) */
+  name: string;
+  /** Radio options */
+  options: RadioOption[];
+  /** Controlled selected value */
+  value?: string;
+  /** Default uncontrolled value */
+  defaultValue?: string;
+  /** Group label */
+  label?: string;
+  /** Error message */
+  error?: string;
+  /** Helper text shown below group */
+  helperText?: string;
+  /** Whether group is disabled */
+  disabled?: boolean;
+  /** Whether group is required */
+  required?: boolean;
+  /** Whether group is read-only */
+  readOnly?: boolean;
+  /** Component size variant */
+  size?: ComponentSize;
+  /** Color variant */
+  variant?: 'primary' | 'secondary' | 'success' | 'error' | 'warning' | 'info';
+  /** Theme override */
+  theme?: Theme;
+  /** Layout direction */
+  direction?: 'row' | 'column';
+  /** Change event handler */
+  onChange?: (value: string) => void;
 }

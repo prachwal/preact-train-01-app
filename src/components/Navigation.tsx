@@ -139,13 +139,27 @@ export function Navigation({ onNavigate }: NavigationProps) {
     const hasChildren = item.children && item.children.length > 0;
     const isExpanded = navigationService.isExpanded(item.id);
     const currentHash = window.location.hash;
+    const currentPath = window.location.pathname;
 
-    // Logika isActive:
-    // - Dla itemów z anchor: aktywny tylko gdy hash się zgadza
-    // - Dla itemów bez anchor (parent): nigdy nie jest "active", tylko "parent-active"
-    const isActive = item.anchor
-      ? currentHash === item.anchor && navigationService.isActive(item.id)
-      : false; // Parent z dziećmi nigdy nie jest "active", tylko "parent-active"
+    // Logika isActive (POPRAWIONA):
+    // - Dla itemów z anchor (dzieci): aktywny tylko gdy hash się zgadza I path się zgadza
+    // - Dla itemów bez dzieci (Home, About, etc.): aktywny tylko gdy path się zgadza I nie ma hash
+    // - Dla parent items (z dziećmi): nigdy nie jest "active", tylko może być "parent-active"
+    let isActive = false;
+    if (item.anchor) {
+      // Item z anchor - aktywny gdy path i hash się zgadzają
+      isActive =
+        currentPath === item.path &&
+        currentHash === item.anchor &&
+        navigationService.isActive(item.id);
+    } else if (!hasChildren) {
+      // Item bez dzieci - aktywny gdy path się zgadza I nie ma hash
+      isActive =
+        currentPath === item.path &&
+        !currentHash &&
+        navigationService.isActive(item.id);
+    }
+    // Jeśli hasChildren - isActive pozostaje false
 
     // Parent jest parent-active gdy ma dzieci i jedno z nich jest aktywne
     const isParentActive =
@@ -218,7 +232,9 @@ export function Navigation({ onNavigate }: NavigationProps) {
             </Typography>
           )}
           <div className="pta-nav-group__items">
-            {group.items.map(item => renderNavItem(item, 0))}
+            {group.items
+              .filter(item => !item.hidden)
+              .map(item => renderNavItem(item, 0))}
           </div>
         </div>
       ))}
