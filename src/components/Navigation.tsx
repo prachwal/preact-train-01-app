@@ -10,7 +10,10 @@ import {
 import { Typography } from '../ui';
 import './Navigation.scss';
 
-interface NavigationProps {
+/**
+ * Props for the Navigation component
+ */
+export interface NavigationProps {
   onNavigate?: () => void; // Callback for mobile menu close
 }
 

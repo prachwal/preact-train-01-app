@@ -18,7 +18,7 @@ A comprehensive single-page application built with Preact, Vite, and TypeScript,
 - **Testing**: Comprehensive unit tests (Vitest) and e2e tests (Playwright)
 - **Build Tools**: Vite for fast development and optimized production builds
 - **Code Quality**: TypeScript, ESLint, Stylelint, Prettier
-- **Documentation**: Storybook for component documentation
+- **Documentation**: Storybook for component stories, TypeDoc for API documentation
 - **CI/CD**: GitHub Actions with automated testing and deployment
 - **Deployment**: GitHub Pages ready
 
@@ -105,6 +105,24 @@ npm run lint:css
 ```
 
 ## 📚 Documentation
+
+### API Documentation
+
+```bash
+# Generate TypeDoc API documentation
+npm run docs:generate
+
+# Serve documentation locally
+npm run docs:serve
+# Open http://localhost:8080
+
+# Clean generated documentation
+npm run docs:clean
+```
+
+**View live documentation**: [API Docs](https://prachwal.github.io/preact-train-01-app/docs/)
+
+### Component Documentation
 
 ```bash
 # Start Storybook

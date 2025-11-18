@@ -2,7 +2,10 @@
 
 import { Typography, Grid, Card } from '../../ui';
 
-interface AppInfoProps {
+/**
+ * Props for the AppInfo component
+ */
+export interface AppInfoProps {
   version: string;
 }
 

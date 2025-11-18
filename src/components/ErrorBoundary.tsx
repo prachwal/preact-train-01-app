@@ -1,11 +1,17 @@
 import { Component, type ComponentChildren } from 'preact';
 import { Card, Typography } from '../ui';
 
-interface Props {
+/**
+ * Props for the ErrorBoundary component
+ */
+export interface Props {
   children: ComponentChildren;
 }
 
-interface State {
+/**
+ * State for the ErrorBoundary component
+ */
+export interface State {
   hasError: boolean;
   error?: Error;
 }

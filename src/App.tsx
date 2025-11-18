@@ -14,8 +14,6 @@ import {
   Contact,
 } from './pages';
 import { themeSignal, isMobileMenuOpenSignal } from './application/signals';
-// @ts-ignore
-import packageJson from '../package.json';
 
 import './App.scss';
 

@@ -85,6 +85,92 @@ This repository is a Preact + Vite TypeScript single-page app with a comprehensi
 
 - `.github/scss-architecture.md` — **SCSS architecture documentation** (structure, patterns, best practices)
 - `storybook-static/` — built Storybook for component documentation (45 stories)
+- `docs/` — **TypeDoc-generated API documentation** (markdown format, auto-deployed to GitHub Pages at /docs)
+- `typedoc.json` — TypeDoc configuration with markdown theme, excludes tests/e2e/stories
+
+**Documentation Standards (MANDATORY)**
+
+All TypeScript code MUST include comprehensive JSDoc comments following these requirements:
+
+1. **Component Documentation Requirements**:
+
+   - Every exported component MUST have a JSDoc block with:
+     - `@description` - Clear, concise component purpose (1-2 sentences)
+     - `@example` - At least one usage example with JSX code
+     - `@param` - Description for every prop (use TypeScript types for type info)
+     - `@returns` - What the component renders
+   - Props interfaces MUST have JSDoc for each property
+
+2. **Function/Service Documentation Requirements**:
+
+   - Every exported function MUST have:
+     - `@description` - Function purpose and behavior
+     - `@param` - Description for each parameter (with type constraints if applicable)
+     - `@returns` - Return value description and type
+     - `@throws` - Any exceptions that may be thrown
+     - `@example` - Usage example for complex functions
+
+3. **Type/Interface Documentation Requirements**:
+
+   - Every exported type/interface MUST have:
+     - `@description` - Purpose and use cases
+     - Property-level JSDoc for non-obvious fields
+     - `@example` - Usage example for complex types
+
+4. **Documentation Scripts**:
+
+   - Generate docs: `npm run docs:generate` (outputs to `docs/`)
+   - Serve docs locally: `npm run docs:serve` (http://localhost:8080)
+   - Clean docs: `npm run docs:clean`
+   - CI auto-generates and deploys docs to GitHub Pages on main branch pushes
+
+5. **Documentation Validation**:
+   - TypeDoc runs in CI pipeline after successful tests
+   - Missing JSDoc comments will generate warnings in TypeDoc output
+   - Review documentation locally before submitting PRs
+   - Check generated docs at https://prachwal.github.io/preact-train-01-app/docs/
+
+**JSDoc Example Templates**
+
+````typescript
+/**
+ * A reusable button component with extensive variant and state support.
+ *
+ * @description
+ * Provides a flexible button interface with semantic states, visual variants,
+ * and accessibility features. Supports all standard button attributes.
+ *
+ * @example
+ * ```tsx
+ * <Button variant="primary" size="md" onClick={handleClick}>
+ *   Click Me
+ * </Button>
+ * ```
+ *
+ * @param props - Button component props
+ * @returns A styled button element
+ */
+export function Button(props: ButtonProps) { ... }
+
+/**
+ * Calculates the active navigation state based on current path.
+ *
+ * @description
+ * Traverses the navigation tree to find matching items and their parents,
+ * supporting both regular routes and anchor-based sub-navigation.
+ *
+ * @param path - Current route path (e.g., "/settings#appearance")
+ * @param config - Navigation configuration tree
+ * @returns Active navigation state with parent and current item
+ *
+ * @example
+ * ```typescript
+ * const state = calculateActiveState("/settings#general", navigationConfig);
+ * // Returns: { parent: "settings", current: "general" }
+ * ```
+ */
+export function calculateActiveState(path: string, config: NavigationConfig): ActiveNavigationState { ... }
+````
 
 **Big-picture architecture & data flows**
 
@@ -190,7 +276,10 @@ When changing design tokens:
 **Component Creation Process**
 
 1. **Define Props** in `src/types/component-props.ts` - centralized location for ALL component prop types
+   - Add JSDoc comments for each property with `@description`
+   - Include `@example` for complex prop types
 2. **Create TSX component** in `src/ui/ComponentName.tsx`:
+   - **Add JSDoc block** with `@description`, `@example`, `@param`, `@returns` tags (MANDATORY)
    - Import props type: `import type { ComponentNameProps } from '../types'`
    - Use `buildClassName()` for BEM class generation with modifiers object
    - Support controlled/uncontrolled patterns for form components (see Input.tsx, Select.tsx)
@@ -207,7 +296,7 @@ When changing design tokens:
    - Import `@testing-library/jest-dom` for matchers like `toBeInTheDocument()`
    - Test all variants, states, and user interactions
    - Aim for comprehensive coverage (39+ tests for complex components)
-8. **Verify**: Run `npm run build`, `npm run lint:css`, `npm run test:run`, `npm run type-check`
+8. **Verify**: Run `npm run build`, `npm run lint:css`, `npm run test:run`, `npm run type-check`, `npm run docs:generate`
 
 **Page Creation Process**
 

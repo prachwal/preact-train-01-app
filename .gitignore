@@ -151,5 +151,8 @@ analysis/
 
 storybook-static/
 
+# TypeDoc generated documentation (built in CI)
+docs/
+
 tmp/
 e2e/visual-regression.spec.ts-snapshots/*.png

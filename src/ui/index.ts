@@ -4,6 +4,20 @@ export { Checkbox } from './Checkbox';
 export { Form } from './Form';
 export { Grid } from './Grid';
 export { Hamburger } from './Hamburger';
+export {
+  XIcon,
+  GitHubIcon,
+  DiscordIcon,
+  YouTubeIcon,
+  InstagramIcon,
+  FacebookIcon,
+  LinkedInIcon,
+  LightThemeIcon,
+  DarkThemeIcon,
+  AutoThemeIcon,
+  ICONS,
+  type IconName,
+} from './Icons';
 export { Input } from './Input';
 export { Modal } from './Modal';
 export { Radio } from './Radio';

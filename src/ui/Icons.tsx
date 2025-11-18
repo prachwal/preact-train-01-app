@@ -1,7 +1,7 @@
 import type { JSX } from 'preact';
 import { h } from 'preact';
 import {
-  Twitter,
+  X,
   Github,
   MessageCircle,
   Sun,
@@ -29,6 +29,10 @@ import {
   Tag,
   Clock,
   Shield,
+  Youtube,
+  Instagram,
+  Facebook,
+  Linkedin,
 } from 'lucide-react';
 
 /**
@@ -39,46 +43,74 @@ import {
  */
 
 // Social Media Icons
-export const TwitterIcon = ({
+export const XIcon = ({
   className,
 }: {
-  className?: string;
+  className?: string | undefined;
 }): JSX.Element =>
-  (Twitter as any)({ className, size: 20, 'aria-label': 'Twitter' });
+  (X as any)({ className, size: 20, 'aria-label': 'X (formerly Twitter)' });
 
 export const GitHubIcon = ({
   className,
 }: {
-  className?: string;
+  className?: string | undefined;
 }): JSX.Element =>
   (Github as any)({ className, size: 20, 'aria-label': 'GitHub' });
 
 export const DiscordIcon = ({
   className,
 }: {
-  className?: string;
+  className?: string | undefined;
 }): JSX.Element =>
   (MessageCircle as any)({ className, size: 20, 'aria-label': 'Discord' });
+
+export const YouTubeIcon = ({
+  className,
+}: {
+  className?: string | undefined;
+}): JSX.Element =>
+  (Youtube as any)({ className, size: 20, 'aria-label': 'YouTube' });
+
+export const InstagramIcon = ({
+  className,
+}: {
+  className?: string | undefined;
+}): JSX.Element =>
+  (Instagram as any)({ className, size: 20, 'aria-label': 'Instagram' });
+
+export const FacebookIcon = ({
+  className,
+}: {
+  className?: string | undefined;
+}): JSX.Element =>
+  (Facebook as any)({ className, size: 20, 'aria-label': 'Facebook' });
+
+export const LinkedInIcon = ({
+  className,
+}: {
+  className?: string | undefined;
+}): JSX.Element =>
+  (Linkedin as any)({ className, size: 20, 'aria-label': 'LinkedIn' });
 
 // Theme Icons
 export const LightThemeIcon = ({
   className,
 }: {
-  className?: string;
+  className?: string | undefined;
 }): JSX.Element =>
   (Sun as any)({ className, size: 20, 'aria-label': 'Light theme' });
 
 export const DarkThemeIcon = ({
   className,
 }: {
-  className?: string;
+  className?: string | undefined;
 }): JSX.Element =>
   (Moon as any)({ className, size: 20, 'aria-label': 'Dark theme' });
 
 export const AutoThemeIcon = ({
   className,
 }: {
-  className?: string;
+  className?: string | undefined;
 }): JSX.Element =>
   (Monitor as any)({ className, size: 20, 'aria-label': 'Auto theme' });
 

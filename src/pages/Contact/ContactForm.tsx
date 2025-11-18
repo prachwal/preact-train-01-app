@@ -24,6 +24,16 @@ interface FormErrors {
   preferredContactMethod?: string;
 }
 
+/**
+ * Form data structure for contact form
+ */
+export type { FormData };
+
+/**
+ * Form validation errors structure
+ */
+export type { FormErrors };
+
 const contactMethodOptions: RadioOption[] = [
   { value: 'email', label: 'Email', helperText: 'We will respond via email' },
   { value: 'phone', label: 'Phone', helperText: 'We will call you back' },
@@ -34,6 +44,11 @@ interface ContactFormProps {
   onSuccess: () => void;
   initialData?: Partial<FormData>;
 }
+
+/**
+ * Props for the ContactForm component
+ */
+export type { ContactFormProps };
 
 export function ContactForm({ onSuccess, initialData }: ContactFormProps) {
   const [formData, setFormData] = useState<FormData>({

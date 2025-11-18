@@ -1,7 +1,7 @@
 // Footer Component - Rich footer with links and information
 
 import { Typography, Grid } from '../ui';
-import { TwitterIcon, GitHubIcon, DiscordIcon } from '../ui/Icons';
+import { XIcon, GitHubIcon, DiscordIcon } from '../ui/Icons';
 // @ts-ignore
 import packageJson from '../../package.json';
 import './Footer.scss';
@@ -122,13 +122,13 @@ export function Footer() {
           </Typography>
           <div className="pta-footer__social">
             <a
-              href="https://twitter.com"
+              href="https://x.com"
               target="_blank"
               rel="noopener noreferrer"
               className="pta-footer__social-link"
-              aria-label="Twitter"
+              aria-label="X (formerly Twitter)"
             >
-              <TwitterIcon />
+              <XIcon />
             </a>
             <a
               href="https://github.com"

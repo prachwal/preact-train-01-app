@@ -1,0 +1,40 @@
+{
+  "entryPoints": ["src"],
+  "entryPointStrategy": "expand",
+  "out": "docs",
+  "exclude": [
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/*.spec.ts",
+    "**/*.spec.tsx",
+    "**/test/**",
+    "**/e2e/**",
+    "**/*.stories.tsx"
+  ],
+  "excludePrivate": true,
+  "excludeProtected": false,
+  "excludeInternal": true,
+  "readme": "README.md",
+  "plugin": ["typedoc-plugin-markdown"],
+  "theme": "markdown",
+  "hideGenerator": true,
+  "gitRevision": "main",
+  "name": "Preact Train 01 App Documentation",
+  "includeVersion": true,
+  "categorizeByGroup": true,
+  "categoryOrder": [
+    "UI Components",
+    "Pages",
+    "Services",
+    "State Management",
+    "Types",
+    "Utilities",
+    "*"
+  ],
+  "sort": ["source-order"],
+  "validation": {
+    "notExported": false,
+    "invalidLink": false,
+    "notDocumented": false
+  }
+}

@@ -2,7 +2,10 @@ import { createContext } from 'preact';
 import { useState, useEffect, useCallback } from 'preact/compat';
 import type { Themes } from './types';
 
-type ThemeContextType = {
+/**
+ * Theme context type for theme management
+ */
+export type ThemeContextType = {
   theme: Themes;
   setTheme: (theme: Themes) => void;
   nextTheme: (currentTheme: Themes) => Themes;
