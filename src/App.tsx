@@ -4,15 +4,9 @@ import { Theme } from './ThemeProvider';
 import { Typography, Hamburger, ThemeIcon, ToggleButton } from './ui';
 import type { ToggleItem } from './types';
 import { ErrorBoundary, Navigation, Footer } from './components';
-import {
-  Home,
-  Settings,
-  About,
-  NotFound,
-  PrivacyPolicy,
-  TermsOfService,
-  Contact,
-} from './pages';
+import { navigationConfig } from './data/navigation';
+import { getRoutableItems } from './utils/navigation';
+import { NotFound } from './pages';
 import { themeSignal, isMobileMenuOpenSignal } from './application/signals';
 
 import './App.scss';
@@ -106,15 +100,19 @@ function App() {
               <Navigation onNavigate={closeMobileMenu} />
             </aside>
 
-            {/* Main Content with Routing */}
+            {/* Main Content with Dynamic Routing */}
             <main className="app-main">
               <Router>
-                <Route path="/" component={Home} />
-                <Route path="/settings" component={Settings} />
-                <Route path="/about" component={About} />
-                <Route path="/privacy" component={PrivacyPolicy} />
-                <Route path="/terms" component={TermsOfService} />
-                <Route path="/contact" component={Contact} />
+                {/* Generate routes from navigation config */}
+                {getRoutableItems(navigationConfig)
+                  .filter(item => item.component && item.path)
+                  .map(item => (
+                    <Route
+                      key={item.id}
+                      path={item.path!}
+                      component={item.component!}
+                    />
+                  ))}
                 <Route default component={NotFound} />
               </Router>
             </main>

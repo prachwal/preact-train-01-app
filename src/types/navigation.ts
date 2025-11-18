@@ -1,6 +1,6 @@
 // Navigation Types for Multi-level Navigation System
 
-import type { ComponentChildren } from 'preact';
+import type { ComponentChildren, ComponentType } from 'preact';
 
 export interface NavigationItem {
   id: string;
@@ -13,6 +13,7 @@ export interface NavigationItem {
   badge?: string; // Optional badge text (e.g., "New", "Beta")
   disabled?: boolean;
   hidden?: boolean; // Hide from sidebar navigation (but keep in routing)
+  component?: ComponentType; // React/Preact component for routing
 }
 
 export interface NavigationGroup {

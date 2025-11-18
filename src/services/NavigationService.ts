@@ -8,6 +8,7 @@ import type {
   ActiveNavigationState,
 } from '../types/navigation';
 import { navigationConfig } from '../data/navigation';
+import { getVisibleNavigationItems } from '../utils/navigation';
 
 // Signals for reactive navigation state
 export const activeNavigationSignal = signal<ActiveNavigationState>({

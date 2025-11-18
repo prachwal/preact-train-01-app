@@ -4,6 +4,14 @@
 import type { NavigationConfig } from '../types/navigation';
 import { ICONS } from '../ui/Icons';
 import { createUrl, isExternalUrl } from '../config/app';
+import {
+  Home,
+  Settings,
+  About,
+  PrivacyPolicy,
+  TermsOfService,
+  Contact,
+} from '../pages';
 
 export const navigationConfig: NavigationConfig = {
   groups: [
@@ -16,12 +24,14 @@ export const navigationConfig: NavigationConfig = {
           label: 'Home',
           icon: ICONS.HOME,
           path: createUrl('/'),
+          component: Home,
         },
         {
           id: 'settings',
           label: 'Settings',
           icon: ICONS.GEAR,
           path: createUrl('/settings'),
+          component: Settings,
           children: [
             {
               id: 'settings-general',
@@ -65,6 +75,7 @@ export const navigationConfig: NavigationConfig = {
           label: 'About',
           icon: ICONS.INFO,
           path: createUrl('/about'),
+          component: About,
         },
       ],
     },
@@ -97,18 +108,21 @@ export const navigationConfig: NavigationConfig = {
           label: 'Privacy Policy',
           icon: ICONS.LOCK,
           path: createUrl('/privacy'),
+          component: PrivacyPolicy,
         },
         {
           id: 'terms',
           label: 'Terms of Service',
           icon: ICONS.SCROLL,
           path: createUrl('/terms'),
+          component: TermsOfService,
         },
         {
           id: 'contact',
           label: 'Contact',
           icon: ICONS.ENVELOPE,
           path: createUrl('/contact'),
+          component: Contact,
           hidden: true, // Hidden from sidebar, accessible via footer
         },
       ],
